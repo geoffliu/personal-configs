@@ -42,6 +42,7 @@ export EDITOR=vim
 export VISUAL=vim
 export LESS=FRX
 export PAGER=less
+export WWW_HOME="www.google.com"
 
 vimquickfix() {
   errorfile=$(mktemp)
