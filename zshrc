@@ -20,7 +20,7 @@ setopt NO_BAD_PATTERN
 setopt AUTO_PUSHD
 setopt PUSHD_IGNORE_DUPS
 
-export REPORTTIME=30
+REPORTTIME=30
 
 alias ls="ls --color=auto"
 
