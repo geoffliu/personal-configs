@@ -13,6 +13,7 @@ zle -N self-insert url-quote-magic
 setopt EXTENDED_HISTORY
 setopt HIST_IGNORE_ALL_DUPS
 setopt SHARE_HISTORY
+setopt HISTIGNORESPACE
 
 setopt NO_NOMATCH
 setopt NO_BAD_PATTERN
