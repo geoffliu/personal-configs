@@ -17,10 +17,15 @@ colorscheme zellner
 
 imap <C-h> <ESC>:tabp<CR>
 imap <C-l> <ESC>:tabn<CR>
-imap <C-z> <ESC>:TlistToggle<CR>
 map <C-h> :tabp<CR>
 map <C-l> :tabn<CR>
+
+" Tag list options
+imap <C-z> <ESC>:TlistToggle<CR>
 map <C-z> :TlistToggle<CR>
+let Tlist_WinWidth=80
+let Tlist_Close_On_Select=1
+let Tlist_Exit_OnlyWindow=1
 
 nmap <Leader>e :tabnew <C-R>=expand("%:p:h") . "/"<CR>
 

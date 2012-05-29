@@ -1,0 +1,4 @@
+defscrollback 30000
+vbell off
+nethack on
+silencewait 10
