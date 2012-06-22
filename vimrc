@@ -1,3 +1,14 @@
+filetype off
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+Bundle 'gmarik/vundle'
+Bundle 'Lokaltog/vim-powerline'
+Bundle 'L9'
+Bundle 'FuzzyFinder'
+
+filetype plugin indent on
+
 syn on
 set tabstop=2
 set shiftwidth=2
@@ -9,11 +20,16 @@ set smartcase
 set hls
 
 set number
+set nocompatible
 
 set wildmode=longest,list
 set formatoptions-=t
 
 colorscheme zellner
+
+" Powerline settings
+set laststatus=2
+set t_Co=256
 
 imap <C-h> <ESC>:tabp<CR>
 imap <C-l> <ESC>:tabn<CR>
@@ -26,8 +42,6 @@ map <C-z> :TlistToggle<CR>
 let Tlist_WinWidth=80
 let Tlist_Close_On_Select=1
 let Tlist_Exit_OnlyWindow=1
-
-nmap <Leader>e :tabnew <C-R>=expand("%:p:h") . "/"<CR>
 
 " In visual mode, search the selected string with * or #
 function! VisualSearch(direction) range
@@ -50,6 +64,10 @@ endfunction
 vnoremap <silent> * :call VisualSearch('f')<CR>
 vnoremap <silent> # :call VisualSearch('b')<CR>
 
+" FuzzyFinder options
+let g:fuf_keyOpenTabpage='<CR>'
+nmap <Leader>e :FufCoverageFile<CR>
+
 " File type specific settings
 au BufEnter *.tex set fo+=a
 au BufEnter *.tex set spell
@@ -62,3 +80,4 @@ au BufEnter *.mli set cindent
 au BufEnter *.ml set cindent
 au BufRead,BufNewFile *.scala set filetype=scala
 au BufWritePre * :%s/\s\+$//e
+
