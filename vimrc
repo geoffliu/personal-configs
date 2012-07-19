@@ -23,6 +23,7 @@ set number
 set nocompatible
 
 set wildmode=longest,list
+set wildmenu
 set formatoptions-=t
 
 colorscheme zellner
@@ -79,5 +80,4 @@ au BufEnter *.py set cindent
 au BufEnter *.mli set cindent
 au BufEnter *.ml set cindent
 au BufRead,BufNewFile *.scala set filetype=scala
-au BufWritePre * :%s/\s\+$//e
 

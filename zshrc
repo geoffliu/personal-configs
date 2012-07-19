@@ -18,6 +18,8 @@ setopt HISTIGNORESPACE
 setopt NO_NOMATCH
 setopt NO_BAD_PATTERN
 
+setopt IGNORE_EOF
+
 setopt AUTO_PUSHD
 setopt PUSHD_IGNORE_DUPS
 
