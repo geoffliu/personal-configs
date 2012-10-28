@@ -81,3 +81,8 @@ au BufEnter *.mli set cindent
 au BufEnter *.ml set cindent
 au BufRead,BufNewFile *.scala set filetype=scala
 
+highlight Pmenu ctermbg=magenta
+highlight OverLength ctermbg=darkred ctermfg=white
+match OverLength /\%121v.*/
+set cursorline
+highlight CursorLine ctermbg=237 cterm=none
