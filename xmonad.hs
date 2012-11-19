@@ -1,6 +1,7 @@
 import XMonad
 
 main = do
-    xmonad $ defaultConfig {
-      terminal = "urxvt"
-    }
+    xmonad $ defaultConfig
+        { terminal = "urxvt"
+        , focusFollowsMouse = False
+        }
