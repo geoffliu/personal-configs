@@ -2,6 +2,7 @@ defscrollback 30000
 vbell off
 nethack on
 silencewait 10
+startup_message off
 
 # fixes for 256 colors
 term screen-256color
