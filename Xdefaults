@@ -1,5 +1,6 @@
 URxvt.font: xft:courier:bold:size=10
-URxvt.background: #dddddd
+URxvt.foreground: #dddddd
+URxvt.background: #333333
 URxvt.scrollBar: false
 URxvt.pointerBlank: true
 URxvt.perl-ext-common: default,matcher
