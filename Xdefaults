@@ -1,8 +1,9 @@
-URxvt.font: xft:courier:bold:size=10
+URxvt.font: xft:courier:bold:size=10,xft:wqy-zenhei
 URxvt.foreground: #dddddd
-URxvt.background: #333333
 URxvt.scrollBar: false
 URxvt.pointerBlank: true
 URxvt.perl-ext-common: default,matcher
 URxvt.urlLauncher: /usr/bin/google-chrome
 URxvt.matcher.button: 1
+URxvt.transparent: true
+URxvt.shading: 25
