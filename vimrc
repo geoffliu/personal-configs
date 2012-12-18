@@ -6,6 +6,7 @@ Bundle 'gmarik/vundle'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'L9'
 Bundle 'FuzzyFinder'
+Bundle 'vim-scala'
 
 filetype plugin indent on
 
