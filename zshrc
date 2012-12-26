@@ -25,8 +25,6 @@ setopt PUSHD_IGNORE_DUPS
 
 REPORTTIME=30
 
-alias ls="ls --color=auto"
-
 autoload -Uz vcs_info
 
 function precmd {
@@ -34,7 +32,6 @@ function precmd {
 }
 
 setopt PROMPT_SUBST
-zstyle ':vcs_info:*:prompt:*' disable p4
 zstyle ':vcs_info:*:prompt:*' formats "%b " ""
 zstyle ':vcs_info:*:prompt:*' actionformats "%b %a " ""
 zstyle ':vcs_info:*:prompt:*' nvcsformats "" ""
