@@ -6,7 +6,7 @@ Bundle 'gmarik/vundle'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'L9'
 Bundle 'FuzzyFinder'
-Bundle 'vim-scala'
+Bundle 'derekwyatt/vim-scala'
 
 filetype plugin indent on
 
@@ -14,6 +14,7 @@ syn on
 set tabstop=2
 set shiftwidth=2
 set expandtab
+set textwidth=100
 
 set incsearch
 set ignorecase
