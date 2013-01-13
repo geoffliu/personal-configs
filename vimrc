@@ -7,6 +7,8 @@ Bundle 'Lokaltog/vim-powerline'
 Bundle 'L9'
 Bundle 'FuzzyFinder'
 Bundle 'derekwyatt/vim-scala'
+Bundle 'tpope/vim-surround'
+Bundle 'UltiSnips'
 
 filetype plugin indent on
 
