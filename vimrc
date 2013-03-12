@@ -16,6 +16,7 @@ syn on
 set tabstop=2
 set shiftwidth=2
 set expandtab
+set cindent
 set textwidth=100
 
 set incsearch
@@ -76,14 +77,6 @@ nmap <Leader>e :FufCoverageFile<CR>
 " File type specific settings
 au BufEnter *.tex set fo+=a
 au BufEnter *.tex set spell
-au BufEnter *.c set cindent
-au BufEnter *.h set cindent
-au BufEnter *.cpp set cindent
-au BufEnter *.java set cindent
-au BufEnter *.py set cindent
-au BufEnter *.mli set cindent
-au BufEnter *.ml set cindent
-au BufRead,BufNewFile *.scala set filetype=scala
 
 highlight Pmenu ctermbg=magenta
 highlight OverLength ctermbg=darkred ctermfg=white
