@@ -9,6 +9,7 @@ Bundle 'FuzzyFinder'
 Bundle 'derekwyatt/vim-scala'
 Bundle 'tpope/vim-surround'
 Bundle 'UltiSnips'
+Bundle 'majutsushi/tagbar'
 
 filetype plugin indent on
 
@@ -25,6 +26,7 @@ set smartcase
 set hls
 
 set number
+set relativenumber
 set nocompatible
 
 set wildmode=longest,list
@@ -43,11 +45,8 @@ map <C-h> :tabp<CR>
 map <C-l> :tabn<CR>
 
 " Tag list options
-imap <C-z> <ESC>:TlistToggle<CR>
-map <C-z> :TlistToggle<CR>
-let Tlist_WinWidth=80
-let Tlist_Close_On_Select=1
-let Tlist_Exit_OnlyWindow=1
+imap <C-z> <ESC>:TagbarToggle<CR>i
+map <C-z> :TagbarToggle<CR>
 
 " In visual mode, search the selected string with * or #
 function! VisualSearch(direction) range
@@ -83,3 +82,4 @@ highlight OverLength ctermbg=darkred ctermfg=white
 match OverLength /\%121v.*/
 set cursorline
 highlight CursorLine ctermbg=237 cterm=none
+
