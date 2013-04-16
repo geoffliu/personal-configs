@@ -39,14 +39,14 @@ colorscheme zellner
 set laststatus=2
 set t_Co=256
 
-imap <C-h> <ESC>:tabp<CR>
-imap <C-l> <ESC>:tabn<CR>
-map <C-h> :tabp<CR>
-map <C-l> :tabn<CR>
+inoremap <C-h> <ESC>:tabp<CR>
+inoremap <C-l> <ESC>:tabn<CR>
+noremap <C-h> :tabp<CR>
+noremap <C-l> :tabn<CR>
 
 " Tag list options
-imap <C-z> <ESC>:TagbarToggle<CR>i
-map <C-z> :TagbarToggle<CR>
+inoremap <C-z> <ESC>:TagbarToggle<CR>i
+noremap <C-z> :TagbarToggle<CR>
 
 " In visual mode, search the selected string with * or #
 function! VisualSearch(direction) range
@@ -71,7 +71,7 @@ vnoremap <silent> # :call VisualSearch('b')<CR>
 
 " FuzzyFinder options
 let g:fuf_keyOpenTabpage='<CR>'
-nmap <Leader>e :FufCoverageFile<CR>
+nnoremap <Leader>e :FufCoverageFile<CR>
 
 " File type specific settings
 au BufEnter *.tex set fo+=a
