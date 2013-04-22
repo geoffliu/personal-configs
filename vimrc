@@ -19,19 +19,27 @@ set shiftwidth=2
 set expandtab
 set cindent
 set textwidth=100
+set hlsearch
 
 set incsearch
 set ignorecase
 set smartcase
-set hls
-
-set number
-set relativenumber
 set nocompatible
 
 set wildmode=longest,list
 set wildmenu
 set formatoptions-=t
+
+set relativenumber
+function ToggleNumber()
+  if &number
+    set relativenumber
+  else
+    set number
+  end
+endfunction
+noremap <c-m> :call ToggleNumber()<cr>
+inoremap <c-m> <esc>:call ToggleNumber()<cr>i
 
 colorscheme zellner
 
@@ -39,43 +47,29 @@ colorscheme zellner
 set laststatus=2
 set t_Co=256
 
-inoremap <C-h> <ESC>:tabp<CR>
-inoremap <C-l> <ESC>:tabn<CR>
-noremap <C-h> :tabp<CR>
-noremap <C-l> :tabn<CR>
+" ESC training
+inoremap jk <esc>
+inoremap <esc> <nop>
+
+inoremap <c-h> <esc>:tabp<cr>
+inoremap <c-l> <esc>:tabn<cr>
+noremap <c-h> :tabp<cr>
+noremap <c-l> :tabn<cr>
 
 " Tag list options
-inoremap <C-z> <ESC>:TagbarToggle<CR>i
-noremap <C-z> :TagbarToggle<CR>
-
-" In visual mode, search the selected string with * or #
-function! VisualSearch(direction) range
-    let l:saved_reg = @"
-    execute "normal! vgvy"
-
-    let l:pattern = escape(@", '\\/.*$^~[]')
-    let l:pattern = substitute(l:pattern, "\n$", "", "")
-
-    if a:direction == 'b'
-        execute "normal ?" . l:pattern . "^M"
-    elseif a:direction == 'f'
-        execute "normal /" . l:pattern . "^M"
-    endif
-
-    let @/ = l:pattern
-    let @" = l:saved_reg
-endfunction
-
-vnoremap <silent> * :call VisualSearch('f')<CR>
-vnoremap <silent> # :call VisualSearch('b')<CR>
+inoremap <c-z> <esc>:TagbarToggle<cr>i
+noremap <c-z> :TagbarToggle<cr>
 
 " FuzzyFinder options
-let g:fuf_keyOpenTabpage='<CR>'
-nnoremap <Leader>e :FufCoverageFile<CR>
+let g:fuf_keyOpenTabpage='<cr>'
+nnoremap <leader>e :FufCoverageFile<cr>
 
 " File type specific settings
-au BufEnter *.tex set fo+=a
-au BufEnter *.tex set spell
+augroup filetype_group
+  autocmd!
+  autocmd BufEnter *.tex set fo+=a
+  autocmd BufEnter *.tex set spell
+augroup END
 
 highlight Pmenu ctermbg=magenta
 highlight OverLength ctermbg=darkred ctermfg=white
