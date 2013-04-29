@@ -17,6 +17,7 @@ setopt HISTIGNORESPACE
 
 setopt NO_NOMATCH
 setopt NO_BAD_PATTERN
+setopt EXTENDEDGLOB
 
 setopt IGNORE_EOF
 
