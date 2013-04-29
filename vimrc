@@ -38,8 +38,8 @@ function ToggleNumber()
     set number
   end
 endfunction
-noremap <c-m> :call ToggleNumber()<cr>
-inoremap <c-m> <esc>:call ToggleNumber()<cr>i
+noremap <c-y> :call ToggleNumber()<cr>
+inoremap <c-y> <esc>:call ToggleNumber()<cr>i
 
 colorscheme zellner
 
