@@ -34,9 +34,11 @@ set relativenumber
 function ToggleNumber()
   if &number
     set relativenumber
+  elseif &relativenumber
+    set norelativenumber
   else
     set number
-  end
+  endif
 endfunction
 noremap <c-y> :call ToggleNumber()<cr>
 inoremap <c-y> <esc>:call ToggleNumber()<cr>i
@@ -49,8 +51,6 @@ set t_Co=256
 
 " ESC training
 inoremap jk <esc>
-inoremap <esc> <nop>
-
 inoremap <c-h> <esc>:tabp<cr>
 inoremap <c-l> <esc>:tabn<cr>
 noremap <c-h> :tabp<cr>
