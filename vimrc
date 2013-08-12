@@ -20,7 +20,7 @@ set expandtab
 set cindent
 set textwidth=100
 set hlsearch
-set backspace=start
+set backspace=start,indent
 
 set incsearch
 set ignorecase
