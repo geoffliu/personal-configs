@@ -54,3 +54,6 @@ vimquickfix() {
     echo $2
   fi
 }
+
+alias gm="git checkout master"
+alias gca="git commit -a -m "
