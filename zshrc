@@ -55,6 +55,8 @@ vimquickfix() {
   fi
 }
 
-alias gm="git checkout master"
-alias gca="git commit -a -m "
+alias gcm="git checkout master"
+alias gc="git checkout"
+alias gca="git commit -a -m"
 alias gpp="git pull && git push"
+alias b="git branch"
