@@ -3,3 +3,9 @@
 	name = Geoff Liu
 [push]
 	default = simple
+[merge]
+  tool = vimdiff
+[mergetool]
+  keepBackup = false
+[color]
+  ui = true
