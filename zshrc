@@ -33,9 +33,8 @@ function precmd {
 }
 
 setopt PROMPT_SUBST
-zstyle ':vcs_info:*:prompt:*' unstagedstr " ✎"
-zstyle ':vcs_info:*:prompt:*' stagedstr " ✎"
-zstyle ':vcs_info:*:prompt:*' formats "%b%u%c "
+zstyle ':vcs_info:*:prompt:*' unstagedstr "✎ "
+zstyle ':vcs_info:*:prompt:*' formats "%u%b "
 zstyle ':vcs_info:*:prompt:*' actionformats "%b %a "
 PROMPT='%B%F{blue}[%m ${vcs_info_msg_0_}%1~]%# %f%b'
 RPROMPT='%0(?.%B%F{blue}%D %T [ OK ]%f%b.%B%F{blue}%S[ %? ]%s%f%b'
