@@ -33,10 +33,13 @@ function precmd {
 }
 
 setopt PROMPT_SUBST
-zstyle ':vcs_info:*:prompt:*' unstagedstr "✎ "
+function git_status_char {
+  git status | grep -c "??" >/dev/null 2>/dev/null && echo "✎ "
+}
+
 zstyle ':vcs_info:*:prompt:*' formats "%u%b "
 zstyle ':vcs_info:*:prompt:*' actionformats "%b %a "
-PROMPT='%B%F{blue}[%m ${vcs_info_msg_0_}%1~]%# %f%b'
+PROMPT='%B%F{blue}[%m ${git_status_char}${vcs_info_msg_0_}%1~]%# %f%b'
 RPROMPT='%0(?.%B%F{blue}%D %T [ OK ]%f%b.%B%F{blue}%S[ %? ]%s%f%b'
 
 export EDITOR=vim
