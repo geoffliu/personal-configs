@@ -8,7 +8,6 @@ Bundle 'L9'
 Bundle 'FuzzyFinder'
 Bundle 'geoffliu/vim-scala'
 Bundle 'tpope/vim-surround'
-Bundle 'UltiSnips'
 Bundle 'majutsushi/tagbar'
 
 filetype plugin indent on
@@ -42,7 +41,7 @@ function ToggleNumber()
   endif
 endfunction
 noremap <c-y> :call ToggleNumber()<cr>
-inoremap <c-y> <esc>:call ToggleNumber()<cr>i
+inoremap <c-y> <esc>:call ToggleNumber()<cr>a
 
 colorscheme zellner
 
@@ -50,12 +49,22 @@ colorscheme zellner
 set laststatus=2
 set t_Co=256
 
-" ESC training
 inoremap jk <esc>
-inoremap <c-h> <esc>:tabp<cr>
-inoremap <c-l> <esc>:tabn<cr>
+inoremap <c-h> <esc>:tabp<cr>a
+inoremap <c-l> <esc>:tabn<cr>a
 noremap <c-h> :tabp<cr>
 noremap <c-l> :tabn<cr>
+
+function HandleTab()
+  let currentLine = getline(".")
+  let stripped = substitute(currentLine, "\\s*", "", "g")
+  if empty(stripped)
+    return "\<tab>"
+  else
+    return "\<c-n>"
+  endif
+endfunction
+inoremap <tab> <c-r>=HandleTab()<cr>
 
 " Tag list options
 inoremap <c-z> <esc>:TagbarToggle<cr>i
