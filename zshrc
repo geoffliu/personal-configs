@@ -34,7 +34,7 @@ function precmd {
 
 setopt PROMPT_SUBST
 function git_status_char {
-  git status -s 2>/dev/null | grep -c "??" >/dev/null && echo "✎ "
+  [[ -n "$(git status -s 2>/dev/null)" ]] && echo "✎ "
 }
 
 zstyle ':vcs_info:*:prompt:*' formats "%u%b "

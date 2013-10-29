@@ -54,6 +54,8 @@ inoremap <c-h> <esc>:tabp<cr>a
 inoremap <c-l> <esc>:tabn<cr>a
 noremap <c-h> :tabp<cr>
 noremap <c-l> :tabn<cr>
+noremap <s-tab> :tabp<cr>
+noremap <tab> :tabn<cr>
 
 function HandleTab()
   let currentLine = getline(".")
