@@ -57,16 +57,21 @@ noremap <c-l> :tabn<cr>
 noremap <s-tab> :tabp<cr>
 noremap <tab> :tabn<cr>
 
-function HandleTab()
+function HandleTab(direction)
   let currentLine = getline(".")
   let stripped = substitute(currentLine, "\\s*", "", "g")
   if empty(stripped)
     return "\<tab>"
   else
-    return "\<c-n>"
+    if a:direction ==# "forward"
+      return "\<c-n>"
+    else
+      return "\<c-p>"
+    endif
   endif
 endfunction
-inoremap <tab> <c-r>=HandleTab()<cr>
+inoremap <tab> <c-r>=HandleTab("forward")<cr>
+inoremap <s-tab> <c-r>=HandleTab("back")<cr>
 
 " Tag list options
 inoremap <c-z> <esc>:TagbarToggle<cr>i
