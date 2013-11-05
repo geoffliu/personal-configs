@@ -21,8 +21,10 @@ setopt EXTENDEDGLOB
 
 setopt IGNORE_EOF
 
+DIRSTACKSIZE=10
 setopt AUTO_PUSHD
 setopt PUSHD_IGNORE_DUPS
+alias d="dirs -v"
 
 REPORTTIME=30
 
