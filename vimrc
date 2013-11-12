@@ -34,6 +34,7 @@ set relativenumber
 function ToggleNumber()
   if &number
     set relativenumber
+    set nonumber
   elseif &relativenumber
     set norelativenumber
   else
