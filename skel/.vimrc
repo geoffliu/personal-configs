@@ -1,0 +1,1 @@
+source ~/.ownconfigs/vimrc

@@ -93,5 +93,5 @@ highlight Pmenu ctermbg=magenta
 highlight OverLength ctermbg=darkred ctermfg=white
 match OverLength /\%121v.*/
 set cursorline
-highlight CursorLine ctermbg=237 cterm=none
+highlight CursorLine ctermbg=grey cterm=none
 
