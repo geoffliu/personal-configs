@@ -2,10 +2,9 @@
 
 set -e
 
-echo "Looking for git in PATH"
-command -v git
-command -v vim
-command -v zsh
+command -V git
+command -V vim
+command -V zsh
 
 cp ~/.ownconfigs/skel/{.vimrc,.zshrc} ~
 
