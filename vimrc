@@ -95,3 +95,4 @@ match OverLength /\%121v.*/
 set cursorline
 highlight CursorLine ctermbg=237 cterm=none
 
+autocmd BufWritePre * :%s/\s\+$//e
