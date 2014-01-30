@@ -62,7 +62,7 @@ vimquickfix() {
 
 alias gm="git checkout master"
 alias gc="git checkout"
-alias gs="git status"
+alias gs="git status -s"
 alias gd="git diff"
 alias gca="git commit -a -m"
 alias gpp="git pull && git push"
