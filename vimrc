@@ -10,8 +10,6 @@ Bundle 'geoffliu/vim-scala'
 Bundle 'tpope/vim-surround'
 Bundle 'majutsushi/tagbar'
 
-filetype plugin indent on
-
 syn on
 set tabstop=2
 set shiftwidth=2
