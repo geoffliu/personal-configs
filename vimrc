@@ -11,8 +11,6 @@ Bundle 'tpope/vim-surround'
 Bundle 'majutsushi/tagbar'
 Bundle 'vim-scripts/LargeFile'
 
-filetype plugin indent on
-
 syn on
 set tabstop=2
 set shiftwidth=2
