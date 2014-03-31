@@ -9,6 +9,7 @@ Bundle 'FuzzyFinder'
 Bundle 'geoffliu/vim-scala'
 Bundle 'tpope/vim-surround'
 Bundle 'majutsushi/tagbar'
+Bundle 'vim-scripts/LargeFile'
 
 filetype plugin indent on
 
