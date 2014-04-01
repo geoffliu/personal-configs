@@ -5,7 +5,7 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'L9'
-Bundle 'FuzzyFinder'
+Bundle 'geoffliu/vim-fuzzyfinder'
 Bundle 'geoffliu/vim-scala'
 Bundle 'tpope/vim-surround'
 Bundle 'majutsushi/tagbar'
@@ -79,7 +79,16 @@ noremap <c-z> :TagbarToggle<cr>
 
 " FuzzyFinder options
 let g:fuf_keyOpenTabpage='<cr>'
-nnoremap <leader>e :FufCoverageFile<cr>
+function CoverageFileGlob()
+  let g:fuf_coveragefile_fileListCommand=''
+  FufCoverageFile
+endfunction
+function CoverageFileGit()
+  let g:fuf_coveragefile_fileListCommand='git ls-files'
+  FufCoverageFile
+endfunction
+nnoremap <leader>g :call CoverageFileGit()<cr>
+nnoremap <leader>e :call CoverageFileGlob()<cr>
 
 " File type specific settings
 augroup filetype_group
