@@ -28,6 +28,7 @@ set nocompatible
 set wildmode=longest,list
 set wildmenu
 set formatoptions-=t
+set complete-=i
 
 set relativenumber
 function ToggleNumber()
@@ -41,7 +42,7 @@ function ToggleNumber()
   endif
 endfunction
 noremap <c-y> :call ToggleNumber()<cr>
-inoremap <c-y> <esc>:call ToggleNumber()<cr>a
+inoremap <c-y> <c-o>:call ToggleNumber()<cr>
 
 colorscheme zellner
 
@@ -50,31 +51,19 @@ set laststatus=2
 set t_Co=256
 
 inoremap jk <esc>
-inoremap <c-h> <esc>:tabp<cr>a
-inoremap <c-l> <esc>:tabn<cr>a
+inoremap <c-h> <c-o>:tabp<cr>
+inoremap <c-l> <c-o>:tabn<cr>
 noremap <c-h> :tabp<cr>
 noremap <c-l> :tabn<cr>
 noremap <s-tab> :tabp<cr>
 noremap <tab> :tabn<cr>
-
-function HandleTab(direction)
-  let currentLine = getline(".")
-  let stripped = substitute(currentLine, "\\s*", "", "g")
-  if empty(stripped)
-    return "\<tab>"
-  else
-    if a:direction ==# "forward"
-      return "\<c-n>"
-    else
-      return "\<c-p>"
-    endif
-  endif
-endfunction
-inoremap <tab> <c-r>=HandleTab("forward")<cr>
-inoremap <s-tab> <c-r>=HandleTab("back")<cr>
+noremap <leader>w :w<cr>
+inoremap <leader>w <c-o>:w<cr>
+noremap <leader>s :noh<cr>
+inoremap <leader>s <c-o>:noh<cr>
 
 " Tag list options
-inoremap <c-z> <esc>:TagbarToggle<cr>i
+inoremap <c-z> <c-o>:TagbarToggle<cr>
 noremap <c-z> :TagbarToggle<cr>
 
 " FuzzyFinder options
@@ -87,8 +76,8 @@ function CoverageFileGit()
   let g:fuf_coveragefile_fileListCommand='git ls-files'
   FufCoverageFile
 endfunction
-nnoremap <leader>g :call CoverageFileGit()<cr>
-nnoremap <leader>e :call CoverageFileGlob()<cr>
+nnoremap <leader>e :call CoverageFileGit()<cr>
+nnoremap <leader>a :call CoverageFileGlob()<cr>
 
 " File type specific settings
 augroup filetype_group
