@@ -64,7 +64,8 @@ inoremap <leader>s <c-o>:noh<cr>
 
 function HandleTab(direction)
   let currentLine = getline(".")
-  let stripped = substitute(currentLine, "\\s*", "", "g")
+  let toCursor = strpart(currentLine, 0, col(".") - 1)
+  let stripped = substitute(toCursor, "\\s*", "", "g")
   if empty(stripped)
     return "\<tab>"
   else
