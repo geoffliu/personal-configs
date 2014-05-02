@@ -62,6 +62,22 @@ inoremap <leader>w <c-o>:w<cr>
 noremap <leader>s :noh<cr>
 inoremap <leader>s <c-o>:noh<cr>
 
+function HandleTab(direction)
+  let currentLine = getline(".")
+  let stripped = substitute(currentLine, "\\s*", "", "g")
+  if empty(stripped)
+    return "\<tab>"
+  else
+    if a:direction ==# "forward"
+      return "\<c-n>"
+    else
+      return "\<c-p>"
+    endif
+  endif
+endfunction
+inoremap <tab> <c-r>=HandleTab("forward")<cr>
+inoremap <s-tab> <c-r>=HandleTab("back")<cr>
+
 " Tag list options
 inoremap <c-z> <c-o>:TagbarToggle<cr>
 noremap <c-z> :TagbarToggle<cr>
