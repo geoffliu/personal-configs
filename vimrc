@@ -60,7 +60,6 @@ noremap <tab> :tabn<cr>
 noremap <leader>w :w<cr>
 inoremap <leader>w <c-o>:w<cr>
 noremap <leader>s :noh<cr>
-inoremap <leader>s <c-o>:noh<cr>
 
 function HandleTab(direction)
   let currentLine = getline(".")

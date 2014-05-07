@@ -1,8 +1,8 @@
 [user]
-	email = cangming.liu@gmail.com
-	name = Geoff Liu
+  email = cangming.liu@gmail.com
+  name = Geoff Liu
 [push]
-	default = simple
+  default = simple
 [merge]
   tool = vimdiff
 [mergetool]
