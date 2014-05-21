@@ -12,3 +12,4 @@ git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 vim +BundleUpdate +qa
 
 ln -sv ~/.ownconfigs/gitconfig ~/.gitconfig
+ln -sv ~/.ownconfigs/screenrc ~/.screenrc
