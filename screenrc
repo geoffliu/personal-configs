@@ -1,4 +1,4 @@
-defscrollback 30000
+defscrollback 100000
 vbell off
 nethack on
 silencewait 10
