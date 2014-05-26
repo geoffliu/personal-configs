@@ -51,8 +51,8 @@ set laststatus=2
 set t_Co=256
 
 inoremap jk <esc>
-inoremap <c-h> <c-o>:tabp<cr>
-inoremap <c-l> <c-o>:tabn<cr>
+inoremap <c-h> <esc>:tabp<cr>
+inoremap <c-l> <esc>:tabn<cr>
 noremap <c-h> :tabp<cr>
 noremap <c-l> :tabn<cr>
 noremap <s-tab> :tabp<cr>
