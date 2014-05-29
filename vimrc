@@ -57,8 +57,8 @@ noremap <c-h> :tabp<cr>
 noremap <c-l> :tabn<cr>
 noremap <s-tab> :tabp<cr>
 noremap <tab> :tabn<cr>
-noremap <leader>w :w<cr>
-inoremap <leader>w <c-o>:w<cr>
+noremap <leader>w :wa<cr>
+inoremap <leader>w <c-o>:wa<cr>
 noremap <leader>s :noh<cr>
 
 function HandleTab(direction)
@@ -75,8 +75,8 @@ function HandleTab(direction)
     endif
   endif
 endfunction
-inoremap <tab> <c-r>=HandleTab("forward")<cr>
-inoremap <s-tab> <c-r>=HandleTab("back")<cr>
+inoremap <tab> <c-r>=HandleTab("back")<cr>
+inoremap <s-tab> <c-r>=HandleTab("forward")<cr>
 
 " Tag list options
 inoremap <c-z> <c-o>:TagbarToggle<cr>
