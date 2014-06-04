@@ -68,4 +68,4 @@ alias gca="git commit -a -m"
 alias gpp="git pull && git push"
 alias b="git branch"
 
-alias lsh="ls -lh"
+alias ll="ls -lh"

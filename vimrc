@@ -61,6 +61,7 @@ noremap <leader>w :wa<cr>
 inoremap <leader>w <c-o>:wa<cr>
 noremap <leader>s :noh<cr>
 
+let g:default_tab_direction='back'
 function HandleTab(direction)
   let currentLine = getline(".")
   let toCursor = strpart(currentLine, 0, col(".") - 1)
@@ -68,15 +69,15 @@ function HandleTab(direction)
   if empty(stripped)
     return "\<tab>"
   else
-    if a:direction ==# "forward"
+    if a:direction ==# g:default_tab_direction
       return "\<c-n>"
     else
       return "\<c-p>"
     endif
   endif
 endfunction
-inoremap <tab> <c-r>=HandleTab("back")<cr>
-inoremap <s-tab> <c-r>=HandleTab("forward")<cr>
+inoremap <tab> <c-r>=HandleTab("forward")<cr>
+inoremap <s-tab> <c-r>=HandleTab("back")<cr>
 
 " Tag list options
 inoremap <c-z> <c-o>:TagbarToggle<cr>
