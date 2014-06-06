@@ -10,6 +10,7 @@ Bundle 'geoffliu/vim-scala'
 Bundle 'tpope/vim-surround'
 Bundle 'majutsushi/tagbar'
 Bundle 'vim-scripts/LargeFile'
+Bundle 'altercation/vim-colors-solarized'
 
 syn on
 set tabstop=2
@@ -44,7 +45,9 @@ endfunction
 noremap <c-y> :call ToggleNumber()<cr>
 inoremap <c-y> <c-o>:call ToggleNumber()<cr>
 
-colorscheme zellner
+let g:solarized_termcolors=256
+set background=dark
+colorscheme solarized
 
 " Powerline settings
 set laststatus=2
