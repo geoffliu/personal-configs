@@ -41,8 +41,8 @@ function git_status_char {
 
 zstyle ':vcs_info:*:prompt:*' formats "%u%b "
 zstyle ':vcs_info:*:prompt:*' actionformats "%b %a "
-PROMPT='%B%F{blue}[%m $(git_status_char)${vcs_info_msg_0_}%1~]%# %f%b'
-RPROMPT='%0(?.%B%F{blue}%D %T [ OK ]%f%b.%B%F{blue}%S[ %? ]%s%f%b'
+PROMPT='%B%F{magenta}[%m $(git_status_char)${vcs_info_msg_0_}%1~]%# %f%b'
+RPROMPT='%0(?.%B%F{magenta}%D %T [ OK ]%f%b.%B%F{magenta}%S[ %? ]%s%f%b'
 
 export EDITOR=vim
 export VISUAL=vim
