@@ -4,6 +4,14 @@ SAVEHIST=50000
 bindkey -v
 zstyle :compinstall filename '/home/geoffliu/.zshrc'
 
+bindkey -v '\\q' push-line-or-edit
+
+foreground-vi() {
+  fg %vi
+}
+zle -N foreground-vi
+bindkey '^Z' foreground-vi
+
 autoload -Uz compinit
 compinit
 

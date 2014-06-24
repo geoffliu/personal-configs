@@ -83,8 +83,8 @@ inoremap <tab> <c-r>=HandleTab("forward")<cr>
 inoremap <s-tab> <c-r>=HandleTab("back")<cr>
 
 " Tag list options
-inoremap <c-z> <c-o>:TagbarToggle<cr>
-noremap <c-z> :TagbarToggle<cr>
+" inoremap <c-z> <c-o>:TagbarToggle<cr>
+" noremap <c-z> :TagbarToggle<cr>
 
 " FuzzyFinder options
 let g:fuf_keyOpenTabpage='<cr>'
