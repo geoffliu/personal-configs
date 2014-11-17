@@ -16,8 +16,8 @@ syn on
 set tabstop=2
 set shiftwidth=2
 set expandtab
-set cindent
-set textwidth=100
+set smartindent
+set textwidth=80
 set hlsearch
 set backspace=start,indent
 
@@ -107,8 +107,6 @@ augroup filetype_group
 augroup END
 
 highlight Pmenu ctermbg=magenta
-highlight OverLength ctermbg=darkred ctermfg=white
-match OverLength /\%121v.*/
 set cursorline
 highlight CursorLine ctermbg=237 cterm=none
 
