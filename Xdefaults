@@ -1,11 +1,9 @@
-URxvt.font: xft:FreeMono:bold:size=12,xft:wqy-zenhei
+URxvt.font: xft:FreeMono:size=12,xft:wqy-zenhei
 URxvt.scrollBar: false
 URxvt.pointerBlank: true
 URxvt.perl-ext-common: default,matcher
 URxvt.urlLauncher: /usr/bin/google-chrome
 URxvt.matcher.button: 1
-! URxvt.transparent: true
-! URxvt.shading: 25
 
 ! Solarized colors and settings below.
 *background: #002b36
