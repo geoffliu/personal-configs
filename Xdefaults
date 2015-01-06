@@ -1,4 +1,4 @@
-URxvt.font: xft:courier:bold:size=12,xft:wqy-zenhei
+URxvt.font: xft:courier:bold:size=10,xft:wqy-zenhei
 URxvt.scrollBar: false
 URxvt.pointerBlank: true
 URxvt.perl-ext-common: default,matcher
