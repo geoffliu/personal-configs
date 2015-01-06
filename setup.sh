@@ -13,4 +13,4 @@ vim +BundleUpdate +qa
 
 ln -sv ~/.ownconfigs/gitconfig ~/.gitconfig
 ln -sv ~/.ownconfigs/screenrc ~/.screenrc
-ln -sv ~/.ownconfigs/xinitrc ~/.xinitrc
+uname | grep -qsi linux && ln -sv ~/.ownconfigs/xinitrc ~/.xinitrc
