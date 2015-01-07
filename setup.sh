@@ -13,5 +13,14 @@ vim +BundleUpdate +qa
 
 ln -sv ~/.ownconfigs/gitconfig ~/.gitconfig
 ln -sv ~/.ownconfigs/screenrc ~/.screenrc
-uname | grep -qsi linux && ln -sv ~/.ownconfigs/xinitrc ~/.xinitrc
-uname | grep -qsi linux && ln -sv ~/.ownconfigs/Xdefaults ~/.Xdefaults
+
+function linux_specific {
+  ln -sv ~/.ownconfigs/xinitrc ~/.xinitrc
+  ln -sv ~/.ownconfigs/Xdefaults ~/.Xdefaults
+  mkdir ~/.i3
+  ln -sv ~/.ownconfigs/i3config ~/.i3/config
+  ln -sv ~/.ownconfigs/i3status.conf ~/.i3status.conf
+}
+
+uname | grep -qsi linux && linux_specific
+
