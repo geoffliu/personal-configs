@@ -3,14 +3,13 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 Bundle 'gmarik/vundle'
-Bundle 'Lokaltog/vim-powerline'
-Bundle 'L9'
-Bundle 'geoffliu/vim-fuzzyfinder'
 Bundle 'geoffliu/vim-scala'
 Bundle 'tpope/vim-surround'
-Bundle 'majutsushi/tagbar'
+" Bundle 'majutsushi/tagbar'
 Bundle 'vim-scripts/LargeFile'
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'kien/ctrlp.vim'
+Bundle 'bling/vim-airline'
 
 syn on
 set tabstop=2
@@ -20,6 +19,7 @@ set smartindent
 set textwidth=80
 set hlsearch
 set backspace=start,indent
+set hidden
 
 set incsearch
 set ignorecase
@@ -50,17 +50,18 @@ let g:solarized_termtrans=1
 set background=dark
 colorscheme solarized
 
-" Powerline settings
-set laststatus=2
+" Status line settings
 set t_Co=256
+set laststatus=2
+let g:airline_powerline_fonts=1
 
 inoremap jk <esc>
-inoremap <c-h> <esc>:tabp<cr>
-inoremap <c-l> <esc>:tabn<cr>
-noremap <c-h> :tabp<cr>
-noremap <c-l> :tabn<cr>
-noremap <s-tab> :tabp<cr>
-noremap <tab> :tabn<cr>
+inoremap <c-h> <esc>:bp<cr>
+inoremap <c-l> <esc>:bn<cr>
+noremap <c-h> :bp<cr>
+noremap <c-l> :bn<cr>
+noremap <s-tab> :bp<cr>
+noremap <tab> :bn<cr>
 noremap <leader>w :wa<cr>
 inoremap <leader>w <c-o>:wa<cr>
 noremap <leader>s :noh<cr>
@@ -87,15 +88,14 @@ inoremap <s-tab> <c-r>=HandleTab("back")<cr>
 " inoremap <c-z> <c-o>:TagbarToggle<cr>
 " noremap <c-z> :TagbarToggle<cr>
 
-" FuzzyFinder options
-let g:fuf_keyOpenTabpage='<cr>'
+" Fuzzy finder options
 function CoverageFileGlob()
-  let g:fuf_coveragefile_fileListCommand=''
-  FufCoverageFile
+  let g:ctrlp_user_command=''
+  CtrlP
 endfunction
 function CoverageFileGit()
-  let g:fuf_coveragefile_fileListCommand='git ls-files'
-  FufCoverageFile
+  let g:ctrlp_user_command='git ls-files'
+  CtrlP
 endfunction
 nnoremap <leader>e :call CoverageFileGit()<cr>
 nnoremap <leader>a :call CoverageFileGlob()<cr>
