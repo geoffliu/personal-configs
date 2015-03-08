@@ -9,6 +9,7 @@ Bundle 'tpope/vim-surround'
 Bundle 'vim-scripts/LargeFile'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'kien/ctrlp.vim'
+Bundle 'bling/vim-bufferline'
 Bundle 'bling/vim-airline'
 
 syn on
@@ -90,16 +91,9 @@ inoremap <s-tab> <c-r>=HandleTab("back")<cr>
 " noremap <c-z> :TagbarToggle<cr>
 
 " Fuzzy finder options
-function CoverageFileGlob()
-  let g:ctrlp_user_command=''
-  CtrlP
-endfunction
-function CoverageFileGit()
-  let g:ctrlp_user_command='git ls-files'
-  CtrlP
-endfunction
-nnoremap <leader>e :call CoverageFileGit()<cr>
-nnoremap <leader>a :call CoverageFileGlob()<cr>
+let g:ctrlp_user_command=['.git', 'cd %s && git ls-files']
+nnoremap <leader>e :CtrlP<cr>
+nnoremap <leader>b :CtrlPBuffer<cr>
 
 " File type specific settings
 augroup filetype_group

@@ -50,7 +50,7 @@ function git_status_char {
 zstyle ':vcs_info:*:prompt:*' formats "%u%b "
 zstyle ':vcs_info:*:prompt:*' actionformats "%b %a "
 PROMPT='%F{5}[%m $(git_status_char)${vcs_info_msg_0_}%1~]%# %f'
-RPROMPT='%0(?.%F{5}%D %T [ OK ]%f.%F{5}%S[ %? ]%s%f'
+RPROMPT='%0(?.%F{5}%D %T [ OK ]%f.%F{5}%S%D %T [ %? ]%s%f)'
 
 export EDITOR=vim
 export VISUAL=vim
