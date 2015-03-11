@@ -33,7 +33,7 @@ set formatoptions-=t
 set complete-=i
 
 set relativenumber
-function ToggleNumber()
+function! ToggleNumber()
   if &number
     set relativenumber
     set nonumber
@@ -69,7 +69,7 @@ inoremap <leader>w <c-o>:wa<cr>
 noremap <leader>s :noh<cr>
 
 let g:default_tab_direction='back'
-function HandleTab(direction)
+function! HandleTab(direction)
   let currentLine = getline(".")
   let toCursor = strpart(currentLine, 0, col(".") - 1)
   let stripped = substitute(toCursor, "\\s*", "", "g")
@@ -106,4 +106,10 @@ highlight Pmenu ctermbg=magenta
 set cursorline
 highlight CursorLine ctermbg=237 cterm=none
 
-autocmd BufWritePre * :%s/\s\+$//e
+function! BufferWritePre()
+  execute "normal! ml"
+  :%s/\s\+$//e
+  execute "normal! `l"
+endfunction
+autocmd BufWritePre * :call BufferWritePre()
+
