@@ -52,8 +52,8 @@ zstyle ':vcs_info:*:prompt:*' actionformats "%b %a "
 PROMPT='%F{5}[%m $(git_status_char)${vcs_info_msg_0_}%1~]%# %f'
 RPROMPT='%0(?.%F{5}%D %T [ OK ]%f.%F{5}%S%D %T [ %? ]%s%f)'
 
-export EDITOR=vim
-export VISUAL=vim
+export EDITOR=vi
+export VISUAL=vi
 export LESS=FRX
 export PAGER=less
 export WWW_HOME="www.google.com"
@@ -62,7 +62,7 @@ vimquickfix() {
   errorfile=$(mktemp)
   $=1 > $errorfile
   if [[ -s $errorfile ]]; then
-    vim -q $errorfile
+    vi -q $errorfile
   else
     echo $2
   fi
