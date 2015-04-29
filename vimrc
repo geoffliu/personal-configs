@@ -5,12 +5,12 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'geoffliu/vim-scala'
 Bundle 'tpope/vim-surround'
-" Bundle 'majutsushi/tagbar'
 Bundle 'vim-scripts/LargeFile'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'kien/ctrlp.vim'
 Bundle 'bling/vim-bufferline'
 Bundle 'bling/vim-airline'
+Bundle 'kchmck/vim-coffee-script'
 
 syn on
 set tabstop=2
@@ -101,10 +101,6 @@ augroup filetype_group
   autocmd BufEnter *.tex set fo+=a
   autocmd BufEnter *.tex set spell
 augroup END
-
-highlight Pmenu ctermbg=magenta
-set cursorline
-highlight CursorLine ctermbg=237 cterm=none
 
 function! BufferWritePre()
   execute "normal! ml"
