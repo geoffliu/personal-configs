@@ -1,8 +1,8 @@
-URxvt.font: xft:FreeMono:size=12,xft:wqy-zenhei
+URxvt.font: xft:Fira Mono Medium for Powerline:style=Medium:antialias=True,xft:wqy-zenhei
 URxvt.scrollBar: false
 URxvt.pointerBlank: true
 URxvt.perl-ext-common: default,matcher
-URxvt.urlLauncher: /usr/bin/google-chrome
+URxvt.urlLauncher: /usr/bin/chromium
 URxvt.matcher.button: 1
 
 ! Solarized colors and settings below.
