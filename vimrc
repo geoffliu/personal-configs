@@ -103,8 +103,13 @@ augroup filetype_group
 augroup END
 
 function! BufferWritePre()
+  let oldsearch = @/
   execute "normal! ml"
+
   :%s/\s\+$//e
+
+  call histdel("/", -1)
+  let @/ = oldsearch
   execute "normal! `l"
 endfunction
 autocmd BufWritePre * :call BufferWritePre()
