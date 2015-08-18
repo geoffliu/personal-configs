@@ -15,11 +15,16 @@ ln -sv ~/.ownconfigs/gitconfig ~/.gitconfig
 ln -sv ~/.ownconfigs/screenrc ~/.screenrc
 
 function linux_specific {
+  command -V dircolors
+
   ln -sv ~/.ownconfigs/xinitrc ~/.xinitrc
   ln -sv ~/.ownconfigs/Xdefaults ~/.Xdefaults
   mkdir ~/.i3
   ln -sv ~/.ownconfigs/i3config ~/.i3/config
   ln -sv ~/.ownconfigs/i3status.conf ~/.i3status.conf
+
+  echo 'eval $(dircolors -b ~/.ownconfigs/ls_color_db)' >> ~/.zshrc
+  echo 'alias ls=" ls --color=auto"' >> ~/.zshrc
 }
 
 uname | grep -qsi linux && linux_specific
