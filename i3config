@@ -69,6 +69,6 @@ bar {
 hide_edge_borders both
 
 workspace_layout tabbed
-exec chromium
+exec google-chrome-stable
 exec urxvt
 
