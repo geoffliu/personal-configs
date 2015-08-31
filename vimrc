@@ -100,6 +100,7 @@ augroup filetype_group
   autocmd!
   autocmd BufEnter *.tex set fo+=a
   autocmd BufEnter *.tex set spell
+  autocmd BufEnter Makefile set noet
 augroup END
 
 function! BufferWritePre()
