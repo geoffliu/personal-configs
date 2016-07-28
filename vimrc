@@ -9,7 +9,8 @@ Bundle 'vim-scripts/LargeFile'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'kien/ctrlp.vim'
 Bundle 'bling/vim-bufferline'
-Bundle 'bling/vim-airline'
+Bundle 'vim-airline/vim-airline'
+Bundle 'vim-airline/vim-airline-themes'
 Bundle 'kchmck/vim-coffee-script'
 
 syn on
