@@ -1,4 +1,4 @@
-URxvt.font: xft:Fira Mono Medium for Powerline:style=Medium:antialias=True,xft:wqy-zenhei,xft:DejaVu Sans Mono for Powerline
+URxvt.font: xft:Roboto Mono Medium for Powerline,xft:wqy-zenhei
 URxvt.scrollBar: false
 URxvt.pointerBlank: true
 URxvt.perl-ext-common: default,matcher
