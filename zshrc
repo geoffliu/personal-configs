@@ -6,11 +6,9 @@ zstyle :compinstall filename '/home/geoffliu/.zshrc'
 
 bindkey -v '\\q' push-line-or-edit
 
-foreground-vi() {
-  fg %vi
-}
-zle -N foreground-vi
-bindkey '^Z' foreground-vi
+foreground-command() { fg }
+zle -N foreground-command
+bindkey '^Z' foreground-command
 
 autoload -Uz compinit
 compinit
@@ -79,6 +77,7 @@ alias gs=" git status -s"
 alias gd=" git diff"
 alias gpp=" git pull && git push"
 alias b="git branch"
+alias gpc='git push origin $(git rev-parse --abbrev-ref HEAD)'
 
 alias ll=" ls -lh"
 alias ls=" ls"

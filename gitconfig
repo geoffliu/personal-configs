@@ -9,3 +9,5 @@
   keepBackup = false
 [color]
   ui = true
+[core]
+  excludesfile = ~/.gitignore
