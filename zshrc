@@ -68,7 +68,11 @@ vimquickfix() {
 }
 
 gca() {
-  git commit -a -m "$*"
+  if [ $# -eq 0 ]; then
+    git commit -a -m .
+  else
+    git commit -a -m "$*"
+  fi
 }
 
 gls() {
