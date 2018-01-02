@@ -1,4 +1,4 @@
-URxvt.font: xft:Roboto Mono Medium for Powerline,xft:wqy-zenhei
+! URxvt.font: xft:Roboto Mono Medium for Powerline,xft:wqy-zenhei
 URxvt.scrollBar: false
 URxvt.pointerBlank: true
 URxvt.perl-ext-common: default,matcher
