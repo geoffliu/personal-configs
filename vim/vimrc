@@ -1,16 +1,6 @@
-filetype off
 set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
 
-Bundle 'gmarik/vundle'
-Bundle 'geoffliu/vim-scala'
-Bundle 'tpope/vim-surround'
-Bundle 'vim-scripts/LargeFile'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'kien/ctrlp.vim'
-Bundle 'bling/vim-bufferline'
-Bundle 'vim-airline/vim-airline'
-Bundle 'vim-airline/vim-airline-themes'
+source ./plugins.vim
 
 syn on
 set tabstop=2
