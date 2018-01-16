@@ -1,1 +1,2 @@
-source ~/.ownconfigs/vimrc
+source ~/.ownconfigs/vim/shared
+source ~/.ownconfigs/vim/vimrc
