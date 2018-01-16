@@ -1,3 +1,4 @@
+
 set relativenumber
 function! ToggleNumber()
   if &number
