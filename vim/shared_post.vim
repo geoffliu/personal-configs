@@ -24,6 +24,15 @@ noremap <leader>w :wa<cr>
 inoremap <leader>w <c-o>:wa<cr>
 noremap <leader>s :noh<cr>
 
+" Tag list options
+" inoremap <c-z> <c-o>:TagbarToggle<cr>
+" noremap <c-z> :TagbarToggle<cr>
+
+" Fuzzy finder options
+let g:ctrlp_user_command=['.git', 'cd %s && git ls-files']
+nnoremap <leader>e :CtrlP<cr>
+nnoremap <leader>b :CtrlPBuffer<cr>
+
 let g:default_tab_direction='back'
 function! HandleTab(direction)
   let currentLine = getline(".")
