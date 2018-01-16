@@ -2,7 +2,7 @@
 if g:is_vim
   let bundle_dir = '~/.vim/bundle'
 else
-  let bundle_dir = '~/config/nvim/bundle'
+  let bundle_dir = '~/.config/nvim/bundle'
 endif
 
 let &rtp = &rtp . ',' . bundle_dir . '/Vundle.vim'
