@@ -1,6 +1,6 @@
-set rtp+=~/.vim/bundle/vundle/
+let g:is_vim=1
 
-source ./plugins.vim
+source ~/.ownconfigs/vim/plugins.vim
 
 syn on
 set tabstop=2
@@ -30,6 +30,5 @@ colorscheme solarized
 " Status line settings
 set t_Co=256
 set laststatus=2
-let g:airline_powerline_fonts=1
 let g:airline_theme='solarized'
 

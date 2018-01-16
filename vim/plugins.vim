@@ -1,7 +1,15 @@
 
+if g:is_vim
+  let bundle_dir = '~/.vim/bundle'
+else
+  let bundle_dir = '~/config/nvim/bundle'
+endif
+
+let &rtp = &rtp . ',' . bundle_dir . '/Vundle.vim'
+
 set nocompatible
 filetype off
-call vundle#begin('~/.config/nvim/bundle')
+call vundle#begin(bundle_dir)
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'geoffliu/vim-scala'
 Plugin 'tpope/vim-surround'
@@ -14,3 +22,4 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'leafgarland/typescript-vim'
 call vundle#end()
 filetype plugin indent on
+

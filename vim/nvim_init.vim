@@ -1,2 +1,3 @@
-set rtp+=~/.config/nvim/bundle/Vundle.vim/
-source ./plugins.vim
+let g:is_vim=0
+
+source ~/.ownconfigs/vim/plugins.vim
