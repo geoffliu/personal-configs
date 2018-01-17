@@ -3,9 +3,6 @@ let g:is_vim=1
 source ~/.ownconfigs/vim/plugins.vim
 
 syn on
-set tabstop=2
-set shiftwidth=2
-set expandtab
 set smartindent
 set textwidth=80
 set hlsearch
