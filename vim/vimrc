@@ -19,13 +19,3 @@ set wildmenu
 set formatoptions-=t
 set complete-=i
 
-let g:solarized_termcolors=16
-let g:solarized_termtrans=1
-set background=dark
-colorscheme solarized
-
-" Status line settings
-set t_Co=256
-set laststatus=2
-let g:airline_theme='solarized'
-

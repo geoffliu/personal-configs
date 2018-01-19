@@ -2,6 +2,16 @@ set tabstop=2
 set shiftwidth=2
 set expandtab
 
+let g:solarized_termcolors=16
+let g:solarized_termtrans=1
+set background=dark
+colorscheme solarized
+
+" Status line settings
+set t_Co=256
+set laststatus=2
+let g:airline_theme='solarized'
+
 set relativenumber
 function! ToggleNumber()
   if &number
