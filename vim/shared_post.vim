@@ -1,6 +1,7 @@
 set tabstop=2
 set shiftwidth=2
 set expandtab
+set hidden
 
 let g:solarized_termcolors=16
 let g:solarized_termtrans=1

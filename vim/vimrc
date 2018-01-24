@@ -7,7 +7,6 @@ set smartindent
 set textwidth=80
 set hlsearch
 set backspace=start,indent
-set hidden
 
 set incsearch
 set ignorecase
