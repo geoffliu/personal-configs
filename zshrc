@@ -86,6 +86,7 @@ alias gd=" git diff"
 alias gpp=" git pull && git push"
 alias b=" git branch"
 alias gpc=' git push origin $(git rev-parse --abbrev-ref HEAD)'
+alias -g MM=' $(git merge-base master HEAD)'
 
 alias ll=" ls -lh"
 alias ls=" ls"
