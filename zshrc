@@ -5,6 +5,7 @@ bindkey -v
 zstyle :compinstall filename '/home/geoffliu/.zshrc'
 
 bindkey -v '\\q' push-line-or-edit
+bindkey -v 'jk' vi-cmd-mode
 
 foreground-command() { fg }
 zle -N foreground-command
