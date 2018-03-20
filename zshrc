@@ -45,11 +45,23 @@ setopt PROMPT_SUBST
 function git_status_char {
   [[ -n "$(git status -s 2>/dev/null)" ]] && echo "✎ "
 }
+function vim_status_word {
+  echo ${${KEYMAP/vicmd/[ NORMAL ]}/(main|viins)/[ INSERT ]}
+}
+function shared_rprompt {
+  echo "$(vim_status_word) %D %T"
+}
+
+function zle-line-init zle-keymap-select {
+  zle reset-prompt
+}
+zle -N zle-line-init
+zle -N zle-keymap-select
 
 zstyle ':vcs_info:*:prompt:*' formats "%u%b "
 zstyle ':vcs_info:*:prompt:*' actionformats "%b %a "
 PROMPT='%F{5}[%m $(git_status_char)${vcs_info_msg_0_}%1~]%# %f'
-RPROMPT='%0(?.%F{5}%D %T [ OK ]%f.%F{5}%S%D %T [ %? ]%s%f)'
+RPROMPT='%0(?.%F{5}$(shared_rprompt) [ OK ]%f.%F{5}%S$(shared_rprompt) [ %? ]%s%f)'
 
 export EDITOR=vim
 export VISUAL=vim
