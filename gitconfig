@@ -11,3 +11,5 @@
   ui = true
 [core]
   excludesfile = ~/.gitignore
+[alias]
+	exec = "!exec "
