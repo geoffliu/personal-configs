@@ -6,6 +6,8 @@ zstyle :compinstall filename '/home/geoffliu/.zshrc'
 
 bindkey -v '\\q' push-line-or-edit
 bindkey -v 'jk' vi-cmd-mode
+bindkey -v '/' history-incremental-search-backward
+bindkey -v '?' history-incremental-search-forward
 
 foreground-command() { fg }
 zle -N foreground-command
