@@ -98,6 +98,7 @@ alias gm=" git checkout master"
 alias gc=" git checkout"
 alias gs=" git status -s"
 alias gd=" git diff"
+alias gfc=" git commit -a --fixup HEAD"
 alias gpp=" git pull && git push"
 alias b=" git branch"
 alias gpc=' git push origin $(git rev-parse --abbrev-ref HEAD)'
