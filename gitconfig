@@ -13,3 +13,5 @@
   excludesfile = ~/.gitignore
 [alias]
 	exec = "!exec "
+[rebase]
+	autosquash = true
