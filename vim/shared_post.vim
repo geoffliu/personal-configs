@@ -43,9 +43,13 @@ noremap <leader>s :noh<cr>
 " noremap <c-z> :TagbarToggle<cr>
 
 " Fuzzy finder options
-let g:ctrlp_user_command=['.git', 'cd %s && git ls-files']
-nnoremap <leader>e :CtrlP<cr>
-nnoremap <leader>b :CtrlPBuffer<cr>
+" let g:ctrlp_user_command=['.git', 'cd %s && git ls-files']
+" nnoremap <leader>e :CtrlP<cr>
+" nnoremap <leader>b :CtrlPBuffer<cr>
+
+let g:fzf_layout = { 'down': '~40%' }
+let g:fuzzy_user_command = 'git exec git ls-files'
+nnoremap <leader>e :call fzf#run(fzf#wrap({ 'source': g:fuzzy_user_command }))<cr>
 
 let g:default_tab_direction='back'
 function! HandleTab(direction)
