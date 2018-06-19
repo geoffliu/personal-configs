@@ -11,10 +11,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TAB,         KC_Q,         KC_W,   KC_E,   KC_R,   KC_T,   KC_NO,
         KC_LCTRL,       KC_A,         KC_S,   KC_D,   KC_F,   KC_G,
         KC_NO,          KC_Z,         KC_X,   KC_C,   KC_V,   KC_B,   KC_NO,
-        MO(3),          KC_NO,        KC_NO,  KC_LALT,  KC_LCMD,
+        MO(3),          KC_NO,        KC_NO,  KC_LALT,  GUI_T(KC_ESC),
                                      LALT(LGUI(KC_J)), LCTL(LGUI(LSFT(KC_4))),
                                                                   TG(1),
-                                             KC_LSFT, LT(2, KC_BSPACE),  KC_ESC,
+                                             KC_BSPACE,  OSM(MOD_LSFT), OSL(2),
 
         // right hand
              KC_NO,     KC_6,   KC_7,  KC_8,   KC_9,   KC_0,             KC_MINS,
