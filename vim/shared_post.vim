@@ -28,15 +28,23 @@ noremap <c-y> :call ToggleNumber()<cr>
 inoremap <c-y> <c-o>:call ToggleNumber()<cr>
 
 inoremap jk <esc>
-inoremap <c-h> <esc>:bp<cr>
-inoremap <c-l> <esc>:bn<cr>
-noremap <c-h> :bp<cr>
-noremap <c-l> :bn<cr>
+inoremap <c-k> <esc>:bp<cr>
+inoremap <c-j> <esc>:bn<cr>
+noremap <c-k> :bp<cr>
+noremap <c-j> :bn<cr>
 noremap <s-tab> :bp<cr>
 noremap <tab> :bn<cr>
 noremap <leader>w :wa<cr>
 inoremap <leader>w <c-o>:wa<cr>
 noremap <leader>s :noh<cr>
+
+inoremap ., <esc>
+inoremap <c-e> <esc>:bp<cr>
+inoremap <c-n> <esc>:bn<cr>
+noremap <c-e> :bp<cr>
+noremap <c-n> :bn<cr>
+noremap <leader>d :wa<cr>
+inoremap <leader>d <c-o>:wa<cr>
 
 " Tag list options
 " inoremap <c-z> <c-o>:TagbarToggle<cr>
@@ -50,6 +58,7 @@ noremap <leader>s :noh<cr>
 let g:fzf_layout = { 'down': '~40%' }
 let g:fuzzy_user_command = 'git exec git ls-files'
 nnoremap <leader>e :call fzf#run(fzf#wrap({ 'source': g:fuzzy_user_command }))<cr>
+nnoremap <leader>r :call fzf#run(fzf#wrap({ 'source': g:fuzzy_user_command }))<cr>
 
 let g:default_tab_direction='back'
 function! HandleTab(direction)
