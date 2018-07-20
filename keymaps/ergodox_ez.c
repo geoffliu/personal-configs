@@ -14,7 +14,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         MO(3),          KC_NO,        KC_NO,  KC_LALT,  GUI_T(KC_ESC),
                                      LALT(LGUI(KC_J)), LCTL(LGUI(LSFT(KC_4))),
                                                                   TG(1),
-                                             KC_BSPACE,  OSM(MOD_LSFT), OSL(2),
+                                             OSM(MOD_LSFT), KC_BSPACE,  OSL(2),
 
         // right hand
              KC_NO,     KC_6,   KC_7,  KC_8,   KC_9,   KC_0,             KC_MINS,
