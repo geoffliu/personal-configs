@@ -8,8 +8,8 @@ command -V zsh
 
 cp ~/.ownconfigs/skel/{.vimrc,.zshrc} ~
 
-git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-vim +BundleUpdate +qa
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+vim +PluginUpdate +qa
 
 ln -sv ~/.ownconfigs/gitconfig ~/.gitconfig
 ln -sv ~/.ownconfigs/gitignore ~/.gitignore
