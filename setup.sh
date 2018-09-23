@@ -2,9 +2,7 @@
 
 set -e
 
-command -V git
-command -V vim
-command -V zsh
+sh ~/.ownconfigs/bin/check_commands.sh
 
 cp ~/.ownconfigs/skel/{.vimrc,.zshrc} ~
 
