@@ -1,1 +1,1 @@
-source ~/.ownconfigs/zshrc
+source ~/.ownconfigs/shared/zshrc
