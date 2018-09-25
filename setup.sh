@@ -2,9 +2,23 @@
 
 set -e
 
+command -V getopts
 command -V git
 command -V vim
 command -V zsh
+
+UseWorkman=0
+while getopts ":w" Opt; do
+  case $Opt in
+    w)
+      UseWorkman=1
+      ;;
+    *)
+      echo "Bad arg"
+      exit 1
+      ;;
+  esac
+done
 
 cp ~/.ownconfigs/skel/{.vimrc,.zshrc} ~
 
@@ -38,4 +52,8 @@ function linux_specific {
 }
 
 uname | grep -qsi linux && linux_specific
+
+if [[ $UseWorkman -eq 1 ]]; then
+  echo 'source ~/.ownconfigs/vim/workman.vim' >> ~/.vimrc
+fi
 
