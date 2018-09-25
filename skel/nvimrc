@@ -1,3 +1,4 @@
 let g:is_vim=0
-
 source ~/.ownconfigs/vim/plugins.vim
+source ~/.ownconfigs/vim/shared_post.vim
+

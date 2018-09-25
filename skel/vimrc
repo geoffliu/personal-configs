@@ -18,3 +18,4 @@ set wildmenu
 set formatoptions-=t
 set complete-=i
 
+source ~/.ownconfigs/vim/shared_post.vim

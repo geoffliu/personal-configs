@@ -20,11 +20,19 @@ while getopts ":w" Opt; do
   esac
 done
 
-cp ~/.ownconfigs/skel/{.vimrc,.zshrc} ~
+mkdir -p ~/.config/nvim
+cp -v ~/.ownconfigs/skel/nvimrc ~/.config/nvim/init.vim
+cp -v ~/.ownconfigs/skel/vimrc ~/.vimrc
+cp -v ~/.ownconfigs/skel/zshrc ~/.zshrc
 
 rm -rf ~/.vim
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim +PluginUpdate +qa
+
+if [[ $UseWorkman -eq 1 ]]; then
+  echo 'source ~/.ownconfigs/vim/workman.vim' >> ~/.vimrc
+fi
+
 
 cp -v ~/.ownconfigs/shared/gitconfig ~/.gitconfig
 cp -v ~/.ownconfigs/shared/gitignore ~/.gitignore
@@ -52,8 +60,4 @@ function linux_specific {
 }
 
 uname | grep -qsi linux && linux_specific
-
-if [[ $UseWorkman -eq 1 ]]; then
-  echo 'source ~/.ownconfigs/vim/workman.vim' >> ~/.vimrc
-fi
 
