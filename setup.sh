@@ -3,15 +3,18 @@
 set -e
 
 command -V getopts
-command -V git
-command -V vim
-command -V zsh
 
 UseWorkman=0
-while getopts ":w" Opt; do
+IncludeNvim=0
+
+while getopts ":nw" Opt; do
   case $Opt in
     w)
       UseWorkman=1
+      ;;
+    n)
+      command -V nvim
+      IncludeNvim=1
       ;;
     *)
       echo "Bad arg"
@@ -20,8 +23,10 @@ while getopts ":w" Opt; do
   esac
 done
 
-mkdir -p ~/.config/nvim
-cp -v ~/.ownconfigs/skel/nvimrc ~/.config/nvim/init.vim
+command -V git
+command -V vim
+command -V zsh
+
 cp -v ~/.ownconfigs/skel/vimrc ~/.vimrc
 cp -v ~/.ownconfigs/skel/zshrc ~/.zshrc
 
@@ -33,6 +38,17 @@ if [[ $UseWorkman -eq 1 ]]; then
   echo 'source ~/.ownconfigs/vim/workman.vim' >> ~/.vimrc
 fi
 
+if [[ $IncludeNvim -eq 1 ]]; then
+  rm -rf ~/.config/nvim
+  mkdir -p ~/.config/nvim
+  cp -v ~/.ownconfigs/skel/nvimrc ~/.config/nvim/init.vim
+  git clone https://github.com/VundleVim/Vundle.vim.git ~/.config/nvim/bundle/Vundle.vim
+  nvim +PluginUpdate +qa
+
+  if [[ $UseWorkman -eq 1 ]]; then
+    echo 'source ~/.ownconfigs/vim/workman.vim' >> ~/.config/nvim/init.vim
+  fi
+fi
 
 cp -v ~/.ownconfigs/shared/gitconfig ~/.gitconfig
 cp -v ~/.ownconfigs/shared/gitignore ~/.gitignore
