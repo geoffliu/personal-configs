@@ -6,8 +6,9 @@ command -V getopts
 
 UseWorkman=0
 IncludeNvim=0
+UseXServer=0
 
-while getopts ":nw" Opt; do
+while getopts ":nwx" Opt; do
   case $Opt in
     w)
       UseWorkman=1
@@ -15,6 +16,9 @@ while getopts ":nw" Opt; do
     n)
       command -V nvim
       IncludeNvim=1
+      ;;
+    x)
+      UseXServer=1
       ;;
     *)
       echo "Bad arg"
@@ -27,7 +31,6 @@ command -V git
 command -V vim
 command -V zsh
 command -V less
-command -V lesskey
 
 cp -v ~/.ownconfigs/skel/vimrc ~/.vimrc
 cp -v ~/.ownconfigs/skel/zshrc ~/.zshrc
@@ -37,6 +40,8 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim +PluginUpdate +qa
 
 if [[ $UseWorkman -eq 1 ]]; then
+  command -V lesskey
+  lesskey ~/.ownconfigs/shared/lesskey_workman
   echo 'source ~/.ownconfigs/shared/vim/workman.vim' >> ~/.vimrc
   echo 'source ~/.ownconfigs/shared/zshrc_workman' >> ~/.zshrc
 fi
@@ -59,23 +64,25 @@ cp -v ~/.ownconfigs/shared/screenrc ~/.screenrc
 
 function linux_specific {
   command -V dircolors
-  command -V urxvt
-  command -V xrandr
-  command -V i3
-  command -V i3status
-  command -V i3lock
-  command -V dmenu
-  command -V xautolock
-  command -V pamixer
-
-  mkdir -p ~/.i3
-  cp -v ~/.ownconfigs/linux/xinitrc ~/.xinitrc
-  cp -v ~/.ownconfigs/linux/Xdefaults ~/.Xdefaults
-  cp -v ~/.ownconfigs/linux/i3config ~/.i3/config
-  cp -v ~/.ownconfigs/linux/i3status.conf ~/.i3status.conf
-
   echo 'eval $(dircolors -b ~/.ownconfigs/linux/ls_color_db)' >> ~/.zshrc
   echo 'alias ls=" ls --color=auto"' >> ~/.zshrc
+
+  if [[ $UseXServer -eq 1 ]]; then
+    command -V urxvt
+    command -V xrandr
+    command -V i3
+    command -V i3status
+    command -V i3lock
+    command -V dmenu
+    command -V xautolock
+    command -V pamixer
+
+    mkdir -p ~/.i3
+    cp -v ~/.ownconfigs/linux/xinitrc ~/.xinitrc
+    cp -v ~/.ownconfigs/linux/Xdefaults ~/.Xdefaults
+    cp -v ~/.ownconfigs/linux/i3config ~/.i3/config
+    cp -v ~/.ownconfigs/linux/i3status.conf ~/.i3status.conf
+  fi
 }
 
 function mac_specific {
