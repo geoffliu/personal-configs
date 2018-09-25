@@ -32,6 +32,9 @@ command -V vim
 command -V zsh
 command -V less
 
+mkdir -p ~/.ownconfigs/extras
+touch ~/.ownconfigs/extras/vimrc
+touch ~/.ownconfigs/extras/zshrc
 cp -v ~/.ownconfigs/skel/vimrc ~/.vimrc
 cp -v ~/.ownconfigs/skel/zshrc ~/.zshrc
 

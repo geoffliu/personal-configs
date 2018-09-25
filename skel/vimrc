@@ -19,3 +19,4 @@ set formatoptions-=t
 set complete-=i
 
 source ~/.ownconfigs/shared/vim/shared_post.vim
+source ~/.ownconfigs/extras/vimrc
