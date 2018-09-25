@@ -1,6 +1,6 @@
 let g:is_vim=1
 
-source ~/.ownconfigs/vim/plugins.vim
+source ~/.ownconfigs/shared/vim/plugins.vim
 
 syn on
 set smartindent
@@ -18,4 +18,4 @@ set wildmenu
 set formatoptions-=t
 set complete-=i
 
-source ~/.ownconfigs/vim/shared_post.vim
+source ~/.ownconfigs/shared/vim/shared_post.vim

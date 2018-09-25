@@ -35,7 +35,7 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim +PluginUpdate +qa
 
 if [[ $UseWorkman -eq 1 ]]; then
-  echo 'source ~/.ownconfigs/vim/workman.vim' >> ~/.vimrc
+  echo 'source ~/.ownconfigs/shared/vim/workman.vim' >> ~/.vimrc
 fi
 
 if [[ $IncludeNvim -eq 1 ]]; then
@@ -46,7 +46,7 @@ if [[ $IncludeNvim -eq 1 ]]; then
   nvim +PluginUpdate +qa
 
   if [[ $UseWorkman -eq 1 ]]; then
-    echo 'source ~/.ownconfigs/vim/workman.vim' >> ~/.config/nvim/init.vim
+    echo 'source ~/.ownconfigs/shared/vim/workman.vim' >> ~/.config/nvim/init.vim
   fi
 fi
 
