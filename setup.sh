@@ -38,6 +38,7 @@ vim +PluginUpdate +qa
 
 if [[ $UseWorkman -eq 1 ]]; then
   echo 'source ~/.ownconfigs/shared/vim/workman.vim' >> ~/.vimrc
+  echo 'source ~/.ownconfigs/shared/zshrc_workman' >> ~/.zshrc
 fi
 
 if [[ $IncludeNvim -eq 1 ]]; then
