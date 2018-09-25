@@ -6,8 +6,6 @@ zstyle :compinstall filename '/home/geoffliu/.zshrc'
 
 bindkey -v '\\q' push-line-or-edit
 bindkey -v 'jk' vi-cmd-mode
-# bindkey -a '/' history-incremental-search-backward
-# bindkey -a '?' history-incremental-search-forward
 
 foreground-command() { fg }
 zle -N foreground-command
@@ -109,4 +107,4 @@ alias ls=" ls"
 alias cd=" cd"
 alias nv=" nvim"
 alias v="fg %vim || vim"
-alias srd=" screen -d -R"
+alias s=" screen -d -R"

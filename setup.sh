@@ -26,6 +26,8 @@ done
 command -V git
 command -V vim
 command -V zsh
+command -V less
+command -V lesskey
 
 cp -v ~/.ownconfigs/skel/vimrc ~/.vimrc
 cp -v ~/.ownconfigs/skel/zshrc ~/.zshrc
@@ -75,5 +77,10 @@ function linux_specific {
   echo 'alias ls=" ls --color=auto"' >> ~/.zshrc
 }
 
+function mac_specific {
+  echo 'alias ls=" ls -G"' >> ~/.zshrc
+}
+
 uname | grep -qsi linux && linux_specific
+uname | grep -qsi darwin && mac_specific
 
