@@ -101,7 +101,9 @@ alias gfc=" git commit -a --fixup HEAD"
 alias gpp=" git pull && git push"
 alias b=" git branch"
 alias gpc=' git push origin $(git rev-parse --abbrev-ref HEAD)'
-alias -g MM=' $(git merge-base master HEAD)'
+
+alias -g MM='$(git merge-base master HEAD)'
+alias -g HH='HEAD~1'
 
 alias ll=" ls -lh"
 alias ls=" ls"
