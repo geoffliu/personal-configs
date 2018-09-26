@@ -7,23 +7,21 @@ command -V getopts
 UseWorkman=0
 IncludeNvim=0
 IncludeVim=0
-UseXServer=0
 
-while getopts ":nvwx" Opt; do
+while getopts "nvw" Opt; do
   case $Opt in
     w)
       UseWorkman=1
       ;;
     n)
+      command -V fzf
       command -V nvim
       IncludeNvim=1
       ;;
     v)
+      command -V fzf
       command -V vim
       IncludeVim=1
-      ;;
-    x)
-      UseXServer=1
       ;;
     *)
       echo "Bad arg"
@@ -77,23 +75,6 @@ function linux_specific {
   command -V dircolors
   echo 'eval $(dircolors -b ~/.ownconfigs/linux/ls_color_db)' >> ~/.zshrc
   echo 'alias ls=" ls --color=auto"' >> ~/.zshrc
-
-  if [[ $UseXServer -eq 1 ]]; then
-    command -V urxvt
-    command -V xrandr
-    command -V i3
-    command -V i3status
-    command -V i3lock
-    command -V dmenu
-    command -V xautolock
-    command -V pamixer
-
-    mkdir -p ~/.i3
-    cp -v ~/.ownconfigs/linux/xinitrc ~/.xinitrc
-    cp -v ~/.ownconfigs/linux/Xdefaults ~/.Xdefaults
-    cp -v ~/.ownconfigs/linux/i3config ~/.i3/config
-    cp -v ~/.ownconfigs/linux/i3status.conf ~/.i3status.conf
-  fi
 }
 
 function mac_specific {
