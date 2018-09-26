@@ -39,12 +39,12 @@ command -V less
 mkdir -p ~/.ownconfigs/extras
 touch ~/.ownconfigs/extras/vimrc
 touch ~/.ownconfigs/extras/zshrc
-cp -v ~/.ownconfigs/skel/vimrc ~/.vimrc
 cp -v ~/.ownconfigs/skel/zshrc ~/.zshrc
 
 if [[ $IncludeVim -eq 1 ]]; then
   rm -rf ~/.vim
   git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+  cp -v ~/.ownconfigs/skel/vimrc ~/.vimrc
   vim +PluginUpdate +qa
 
   if [[ $UseWorkman -eq 1 ]]; then
