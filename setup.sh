@@ -6,9 +6,10 @@ command -V getopts
 
 UseWorkman=0
 IncludeNvim=0
+IncludeVim=0
 UseXServer=0
 
-while getopts ":nwx" Opt; do
+while getopts ":nvwx" Opt; do
   case $Opt in
     w)
       UseWorkman=1
@@ -16,6 +17,10 @@ while getopts ":nwx" Opt; do
     n)
       command -V nvim
       IncludeNvim=1
+      ;;
+    v)
+      command -V vim
+      IncludeVim=1
       ;;
     x)
       UseXServer=1
@@ -28,7 +33,6 @@ while getopts ":nwx" Opt; do
 done
 
 command -V git
-command -V vim
 command -V zsh
 command -V less
 
@@ -38,27 +42,31 @@ touch ~/.ownconfigs/extras/zshrc
 cp -v ~/.ownconfigs/skel/vimrc ~/.vimrc
 cp -v ~/.ownconfigs/skel/zshrc ~/.zshrc
 
-rm -rf ~/.vim
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-vim +PluginUpdate +qa
+if [[ $IncludeVim -eq 1 ]]; then
+  rm -rf ~/.vim
+  git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+  vim +PluginUpdate +qa
 
-if [[ $UseWorkman -eq 1 ]]; then
-  command -V lesskey
-  lesskey ~/.ownconfigs/shared/lesskey_workman
-  echo 'source ~/.ownconfigs/shared/vim/workman.vim' >> ~/.vimrc
-  echo 'source ~/.ownconfigs/shared/zshrc_workman' >> ~/.zshrc
+  if [[ $UseWorkman -eq 1 ]]; then
+    echo 'source ~/.ownconfigs/shared/vim/workman.vim' >> ~/.vimrc
+  fi
 fi
 
 if [[ $IncludeNvim -eq 1 ]]; then
   rm -rf ~/.config/nvim
-  mkdir -p ~/.config/nvim
-  cp -v ~/.ownconfigs/skel/nvimrc ~/.config/nvim/init.vim
   git clone https://github.com/VundleVim/Vundle.vim.git ~/.config/nvim/bundle/Vundle.vim
+  cp -v ~/.ownconfigs/skel/nvimrc ~/.config/nvim/init.vim
   nvim +PluginUpdate +qa
 
   if [[ $UseWorkman -eq 1 ]]; then
     echo 'source ~/.ownconfigs/shared/vim/workman.vim' >> ~/.config/nvim/init.vim
   fi
+fi
+
+if [[ $UseWorkman -eq 1 ]]; then
+  command -V lesskey
+  lesskey ~/.ownconfigs/shared/lesskey_workman
+  echo 'source ~/.ownconfigs/shared/zshrc_workman' >> ~/.zshrc
 fi
 
 cp -v ~/.ownconfigs/shared/gitconfig ~/.gitconfig
