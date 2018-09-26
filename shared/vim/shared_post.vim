@@ -46,15 +46,6 @@ noremap <c-n> :bn<cr>
 noremap <leader>d :wa<cr>
 inoremap <leader>d <c-o>:wa<cr>
 
-" Tag list options
-" inoremap <c-z> <c-o>:TagbarToggle<cr>
-" noremap <c-z> :TagbarToggle<cr>
-
-" Fuzzy finder options
-" let g:ctrlp_user_command=['.git', 'cd %s && git ls-files']
-" nnoremap <leader>e :CtrlP<cr>
-" nnoremap <leader>b :CtrlPBuffer<cr>
-
 let g:fzf_layout = { 'down': '~40%' }
 let g:fuzzy_user_command = 'git exec git ls-files'
 nnoremap <leader>e :call fzf#run(fzf#wrap({ 'source': g:fuzzy_user_command }))<cr>

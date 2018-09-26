@@ -6,8 +6,7 @@ zstyle :compinstall filename '/home/geoffliu/.zshrc'
 
 bindkey -v '\\q' push-line-or-edit
 bindkey -v 'jk' vi-cmd-mode
-# bindkey -a '/' history-incremental-search-backward
-# bindkey -a '?' history-incremental-search-forward
+bindkey -v '.,' vi-cmd-mode
 
 foreground-command() { fg }
 zle -N foreground-command
@@ -102,11 +101,13 @@ alias gfc=" git commit -a --fixup HEAD"
 alias gpp=" git pull && git push"
 alias b=" git branch"
 alias gpc=' git push origin $(git rev-parse --abbrev-ref HEAD)'
-alias -g MM=' $(git merge-base master HEAD)'
+
+alias -g MM='$(git merge-base master HEAD)'
+alias -g HH='HEAD~1'
 
 alias ll=" ls -lh"
 alias ls=" ls"
 alias cd=" cd"
 alias nv=" nvim"
 alias v="fg %vim || vim"
-alias srd=" screen -d -R"
+alias s=" screen -d -R"
