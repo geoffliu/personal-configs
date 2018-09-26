@@ -5,10 +5,9 @@ font pango:DejaVu Sans Mono 8
 floating_modifier $mod
 
 bindsym $mod+Return exec urxvt
+bindsym $mod+d exec dmenu_run
 
 bindsym $mod+Shift+q kill
-
-bindsym $mod+d exec dmenu_run
 
 bindsym $mod+h focus left
 bindsym $mod+j focus down
@@ -27,9 +26,9 @@ bindsym $mod+f fullscreen
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
-bindsym $mod+v split vertical
-bindsym $mod+o split horizontal
+# bindsym $mod+e layout toggle split
+# bindsym $mod+v split vertical
+# bindsym $mod+o split horizontal
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -38,10 +37,10 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 # focus the parent container
-bindsym $mod+a focus parent
+# bindsym $mod+a focus parent
 
 # focus the child container
-#bindsym $mod+c focus child
+# bindsym $mod+c focus child
 
 # switch to workspace
 bindsym $mod+1 workspace 1

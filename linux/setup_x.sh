@@ -31,5 +31,5 @@ command -V xautolock
 mkdir -p ~/.i3
 # cp -v ~/.ownconfigs/linux/xinitrc ~/.xinitrc
 # cp -v ~/.ownconfigs/linux/Xdefaults ~/.Xdefaults
-# cp -v ~/.ownconfigs/linux/i3config ~/.i3/config
-~/.ownconfigs/linux/i3status.conf.sh > ~/.i3status.conf
+cp -v ~/.ownconfigs/linux/i3config ~/.i3/config
+~/.ownconfigs/linux/i3status.conf.sh $WifiName > ~/.i3status.conf
