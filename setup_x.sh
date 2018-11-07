@@ -2,16 +2,20 @@
 
 set -e
 
-WifiName=""
+NetworkName=""
 Retina=0
+UseWorkman=1
 
-while getopts "rw:" Opt; do
+while getopts "Wrn:" Opt; do
   case $Opt in
-    w)
-      WifiName=$OPTARG
+    n)
+      NetworkName=$OPTARG
       ;;
     r)
       Retina=1
+      ;;
+    W)
+      UseWorkman=0
       ;;
     *)
       echo "Bad arg"
@@ -37,5 +41,9 @@ fi
 # cp -v ~/.ownconfigs/linux/Xdefaults ~/.Xdefaults
 
 mkdir -p ~/.i3
-cp -v ~/.ownconfigs/linux/i3config ~/.i3/config
-~/.ownconfigs/linux/i3status.conf.sh $WifiName > ~/.i3status.conf
+if [[ $UseWorkman -eq 1 ]]; then
+  ~/.ownconfigs/linux/i3config.sh y n e o > ~/.i3/config
+else
+  ~/.ownconfigs/linux/i3config.sh h j k l > ~/.i3/config
+fi
+~/.ownconfigs/linux/i3status.conf.sh $NetworkName > ~/.i3status.conf

@@ -4,24 +4,24 @@ set -e
 
 command -V getopts
 
-UseWorkman=0
+UseWorkman=1
 IncludeNvim=0
-IncludeVim=0
+IncludeVim=1
 
-while getopts "nvw" Opt; do
+while getopts "nVW" Opt; do
   case $Opt in
-    w)
-      UseWorkman=1
+    W)
+      UseWorkman=0
       ;;
     n)
       command -V fzf
       command -V nvim
       IncludeNvim=1
       ;;
-    v)
+    V)
       command -V fzf
       command -V vim
-      IncludeVim=1
+      IncludeVim=0
       ;;
     *)
       echo "Bad arg"
