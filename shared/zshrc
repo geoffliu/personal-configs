@@ -111,3 +111,5 @@ alias cd=" cd"
 alias nv=" nvim"
 alias v="fg %vim || vim"
 alias s=" screen -d -R"
+
+PATH="$HOME/bin:$PATH"
