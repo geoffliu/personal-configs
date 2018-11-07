@@ -28,8 +28,14 @@ command -V i3lock
 command -V dmenu
 command -V xautolock
 
-mkdir -p ~/.i3
-# cp -v ~/.ownconfigs/linux/xinitrc ~/.xinitrc
+if [[ $Retina -eq 1 ]]; then
+  ~/.ownconfigs/linux/xinitrc.sh -r > ~/.xinitrc
+else
+  ~/.ownconfigs/linux/xinitrc.sh > ~/.xinitrc
+fi
+
 # cp -v ~/.ownconfigs/linux/Xdefaults ~/.Xdefaults
+
+mkdir -p ~/.i3
 cp -v ~/.ownconfigs/linux/i3config ~/.i3/config
 ~/.ownconfigs/linux/i3status.conf.sh $WifiName > ~/.i3status.conf
