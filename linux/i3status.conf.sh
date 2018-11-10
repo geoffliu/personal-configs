@@ -1,8 +1,18 @@
 #!/bin/bash
 
+WirelessDefinition=""
 WirelessSection=""
 if [[ $# -eq 1 ]]; then
   WirelessSection="order += \"wireless $1\""
+  WirelessDefinition=$(cat << EOF
+
+wireless $1 {
+  format_up = "W: (%essid %quality) %ip"
+  format_down = "W: down"
+}
+
+EOF
+  )
 fi
 
 cat << EOF
@@ -19,10 +29,7 @@ order += "load"
 order += "cpu_usage"
 order += "tztime local"
 
-wireless $1 {
-  format_up = "W: (%essid %quality) %ip"
-  format_down = "W: down"
-}
+$WirelessDefinition
 
 disk "/" {
   format = "/ %used/%total"
