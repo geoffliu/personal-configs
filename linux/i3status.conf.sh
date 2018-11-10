@@ -1,5 +1,10 @@
 #!/bin/bash
 
+WirelessSection=""
+if [[ $# -eq 1 ]]; then
+  WirelessSection="order += \"wireless $1\""
+fi
+
 cat << EOF
 general {
   colors = true
@@ -8,7 +13,7 @@ general {
 
 order += "disk /"
 order += "disk /home"
-order += "wireless $1"
+$WirelessSection
 order += "battery 0"
 order += "load"
 order += "cpu_usage"
