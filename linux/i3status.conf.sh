@@ -1,3 +1,21 @@
+#!/bin/bash
+
+WirelessDefinition=""
+WirelessSection=""
+if [[ $# -eq 1 ]]; then
+  WirelessSection="order += \"wireless $1\""
+  WirelessDefinition=$(cat << EOF
+
+wireless $1 {
+  format_up = "W: (%essid %quality) %ip"
+  format_down = "W: down"
+}
+
+EOF
+  )
+fi
+
+cat << EOF
 general {
   colors = true
   interval = 5
@@ -5,16 +23,13 @@ general {
 
 order += "disk /"
 order += "disk /home"
-order += "wireless wlp3s0"
+$WirelessSection
 order += "battery 0"
 order += "load"
 order += "cpu_usage"
 order += "tztime local"
 
-wireless wlp3s0 {
-  format_up = "W: (%essid %quality) %ip"
-  format_down = "W: down"
-}
+$WirelessDefinition
 
 disk "/" {
   format = "/ %used/%total"
@@ -42,3 +57,4 @@ tztime local {
   format = "%Y-%m-%d %H:%M:%S"
 }
 
+EOF

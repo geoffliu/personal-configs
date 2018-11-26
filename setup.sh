@@ -4,26 +4,20 @@ set -e
 
 command -V getopts
 
-UseWorkman=0
+UseWorkman=1
 IncludeNvim=0
-IncludeVim=0
-UseXServer=0
+IncludeVim=1
 
-while getopts ":nvwx" Opt; do
+while getopts "nVW" Opt; do
   case $Opt in
-    w)
-      UseWorkman=1
+    W)
+      UseWorkman=0
       ;;
     n)
-      command -V nvim
       IncludeNvim=1
       ;;
-    v)
-      command -V vim
-      IncludeVim=1
-      ;;
-    x)
-      UseXServer=1
+    V)
+      IncludeVim=0
       ;;
     *)
       echo "Bad arg"
@@ -42,6 +36,9 @@ touch ~/.ownconfigs/extras/zshrc
 cp -v ~/.ownconfigs/skel/zshrc ~/.zshrc
 
 if [[ $IncludeVim -eq 1 ]]; then
+  command -V fzf
+  command -V vim
+
   rm -rf ~/.vim
   git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
   cp -v ~/.ownconfigs/skel/vimrc ~/.vimrc
@@ -53,6 +50,9 @@ if [[ $IncludeVim -eq 1 ]]; then
 fi
 
 if [[ $IncludeNvim -eq 1 ]]; then
+  command -V fzf
+  command -V nvim
+
   rm -rf ~/.config/nvim
   git clone https://github.com/VundleVim/Vundle.vim.git ~/.config/nvim/bundle/Vundle.vim
   cp -v ~/.ownconfigs/skel/nvimrc ~/.config/nvim/init.vim
@@ -77,23 +77,6 @@ function linux_specific {
   command -V dircolors
   echo 'eval $(dircolors -b ~/.ownconfigs/linux/ls_color_db)' >> ~/.zshrc
   echo 'alias ls=" ls --color=auto"' >> ~/.zshrc
-
-  if [[ $UseXServer -eq 1 ]]; then
-    command -V urxvt
-    command -V xrandr
-    command -V i3
-    command -V i3status
-    command -V i3lock
-    command -V dmenu
-    command -V xautolock
-    command -V pamixer
-
-    mkdir -p ~/.i3
-    cp -v ~/.ownconfigs/linux/xinitrc ~/.xinitrc
-    cp -v ~/.ownconfigs/linux/Xdefaults ~/.Xdefaults
-    cp -v ~/.ownconfigs/linux/i3config ~/.i3/config
-    cp -v ~/.ownconfigs/linux/i3status.conf ~/.i3status.conf
-  fi
 }
 
 function mac_specific {
