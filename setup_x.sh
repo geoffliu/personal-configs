@@ -32,6 +32,9 @@ command -V i3lock
 command -V dmenu
 command -V xautolock
 
+mkdir -p ~/bin
+cp ~/.ownconfigs/linux/lock-screen ~/bin
+
 if [[ $Retina -eq 1 ]]; then
   ~/.ownconfigs/linux/xinitrc.sh -r > ~/.xinitrc
 else

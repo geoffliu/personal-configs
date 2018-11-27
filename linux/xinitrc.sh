@@ -25,6 +25,6 @@ EOF
 fi
 
 cat << EOF
-xautolock -locker "i3lock -e -c b2cefe" -time 2 &
+xautolock -locker "lock-screen" -time 10 &
 exec i3
 EOF
