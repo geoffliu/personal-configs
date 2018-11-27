@@ -11,7 +11,6 @@ set nocompatible
 filetype off
 call vundle#begin(bundle_dir)
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'tpope/vim-surround'
 Plugin 'vim-scripts/LargeFile'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'bling/vim-bufferline'

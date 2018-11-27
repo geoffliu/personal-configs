@@ -104,6 +104,7 @@ alias gpc=' git push origin $(git rev-parse --abbrev-ref HEAD)'
 
 alias -g MM='$(git merge-base master HEAD)'
 alias -g HH='HEAD~1'
+alias -g EV='-a --amend --no-edit'
 
 alias ll=" ls -lh"
 alias ls=" ls"

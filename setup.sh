@@ -14,13 +14,9 @@ while getopts "nVW" Opt; do
       UseWorkman=0
       ;;
     n)
-      command -V fzf
-      command -V nvim
       IncludeNvim=1
       ;;
     V)
-      command -V fzf
-      command -V vim
       IncludeVim=0
       ;;
     *)
@@ -37,12 +33,15 @@ command -V less
 mkdir -p ~/.ownconfigs/extras
 touch ~/.ownconfigs/extras/vimrc
 touch ~/.ownconfigs/extras/zshrc
-cp -v ~/.ownconfigs/skel/vimrc ~/.vimrc
 cp -v ~/.ownconfigs/skel/zshrc ~/.zshrc
 
 if [[ $IncludeVim -eq 1 ]]; then
+  command -V fzf
+  command -V vim
+
   rm -rf ~/.vim
   git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+  cp -v ~/.ownconfigs/skel/vimrc ~/.vimrc
   vim +PluginUpdate +qa
 
   if [[ $UseWorkman -eq 1 ]]; then
@@ -51,6 +50,9 @@ if [[ $IncludeVim -eq 1 ]]; then
 fi
 
 if [[ $IncludeNvim -eq 1 ]]; then
+  command -V fzf
+  command -V nvim
+
   rm -rf ~/.config/nvim
   git clone https://github.com/VundleVim/Vundle.vim.git ~/.config/nvim/bundle/Vundle.vim
   cp -v ~/.ownconfigs/skel/nvimrc ~/.config/nvim/init.vim
