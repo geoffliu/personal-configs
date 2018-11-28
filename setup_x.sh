@@ -5,7 +5,7 @@ set -e
 Retina=0
 UseWorkman=1
 
-while getopts "Wr:" Opt; do
+while getopts "Wr" Opt; do
   case $Opt in
     r)
       Retina=1
