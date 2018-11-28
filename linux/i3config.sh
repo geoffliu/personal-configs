@@ -57,6 +57,7 @@ bindsym \$mod+Shift+2 move container to workspace 2
 bindsym \$mod+Shift+3 move container to workspace 3
 bindsym \$mod+Shift+4 move container to workspace 4
 
+bindsym \$mod+Shift+t move workspace to output right
 bindsym \$mod+Shift+l exec lock-screen
 bindsym \$mod+Shift+c reload
 bindsym \$mod+Shift+z exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
