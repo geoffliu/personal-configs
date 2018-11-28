@@ -2,15 +2,11 @@
 
 set -e
 
-NetworkName=""
 Retina=0
 UseWorkman=1
 
-while getopts "Wrn:" Opt; do
+while getopts "Wr:" Opt; do
   case $Opt in
-    n)
-      NetworkName=$OPTARG
-      ;;
     r)
       Retina=1
       ;;
@@ -49,4 +45,4 @@ if [[ $UseWorkman -eq 1 ]]; then
 else
   ~/.ownconfigs/linux/i3config.sh h j k l > ~/.i3/config
 fi
-~/.ownconfigs/linux/i3status.conf.sh $NetworkName > ~/.i3status.conf
+cp ~/.ownconfigs/linux/i3status.conf ~/.i3status.conf
