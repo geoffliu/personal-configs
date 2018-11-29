@@ -2,8 +2,8 @@
 
 Left=$1
 Right=$4
-Up=$2
-Down=$3
+Up=$3
+Down=$2
 
 cat << EOF
 set \$mod Mod1
