@@ -1,3 +1,5 @@
 #!/bin/bash
 
-scrot -s -e 'xclip -selection clipboard -t image/png -i $f && rm $f'
+TmpFile="$(mktemp --suffix=.png)"
+scrot -s "$TmpFile"
+xclip -selection clipboard -t image/png -i "$TmpFile"
