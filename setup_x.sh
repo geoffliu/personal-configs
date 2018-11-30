@@ -27,6 +27,7 @@ command -V i3status
 command -V i3lock
 command -V dmenu
 command -V xautolock
+command -V xclip
 
 mkdir -p ~/bin
 cp ~/.ownconfigs/linux/lock-screen ~/bin
