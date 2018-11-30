@@ -30,7 +30,7 @@ command -V xautolock
 command -V xclip
 
 mkdir -p ~/bin
-cp ~/.ownconfigs/linux/lock-screen ~/bin
+cp ~/.ownconfigs/linux/{lock-screen,grab-screen} ~/bin
 
 if [[ $Retina -eq 1 ]]; then
   ~/.ownconfigs/linux/xinitrc.sh -r > ~/.xinitrc

@@ -16,7 +16,7 @@ floating_modifier $Mod
 bindsym $Mod+Return exec urxvt
 bindsym $Mod+d exec dmenu_run
 bindsym $Mod+Shift+l exec lock-screen
-bindsym $Mod+Shift+a exec "scrot -s -e 'xclip -selection clipboard -t image/png -i \$f && rm \$f'"
+bindsym --release Mod4+Control+Shift+4 exec grab-screen
 
 bindsym $Mod+Shift+q kill
 
