@@ -34,7 +34,6 @@ bindsym $Mod+f fullscreen
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $Mod+h layout default
-bindsym $Mod+s layout stacking
 bindsym $Mod+t layout tabbed
 
 # bindsym $Mod+e layout toggle split
@@ -70,5 +69,9 @@ bar {
 
 hide_edge_borders both
 workspace_layout tabbed
+
+for_window [title="scratchpad"] move scratchpad
+bindsym $Mod+asciitilde scratchpad show
+exec "urxvt -name scratchpad"
 
 EOF
