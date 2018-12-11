@@ -3,6 +3,16 @@
 #include "action_layer.h"
 #include "version.h"
 
+// Tap Dance
+
+enum {
+  TD_ESC_TILDE = 0
+};
+
+qk_tap_dance_action_t tap_dance_actions[] = {
+  [TD_ESC_TILDE]  = ACTION_TAP_DANCE_DOUBLE(KC_GRAVE, KC_ESC)
+};
+
 /*
  Layer template
 
@@ -29,14 +39,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 // Base Qwerty
 [0] = LAYOUT_ergodox(
-        KC_GRAVE,    KC_1,    KC_2,   KC_3,     KC_4,   KC_5,   KC_6,
-        KC_TAB,      KC_Q,    KC_W,   KC_E,     KC_R,   KC_T,   KC_NO,
-        KC_LCTRL,    KC_A,    KC_S,   KC_D,     KC_F,   KC_G,
-        KC_NO,       KC_Z,    KC_X,   KC_C,     KC_V,   KC_B,   KC_NO,
-        MO(3),       KC_NO,   KC_NO,  KC_LALT,  GUI_T(KC_ESC),
-                             LALT(LGUI(KC_J)), LCTL(LGUI(LSFT(KC_4))),
-                                                                TG(1),
-                                     OSM(MOD_LSFT), KC_BSPACE,  OSL(2),
+  TD(TD_ESC_TILDE),    KC_1,    KC_2,   KC_3,     KC_4,   KC_5,   KC_6,
+          KC_TAB,      KC_Q,    KC_W,   KC_E,     KC_R,   KC_T,   KC_NO,
+          KC_LCTRL,    KC_A,    KC_S,   KC_D,     KC_F,   KC_G,
+          KC_NO,       KC_Z,    KC_X,   KC_C,     KC_V,   KC_B,   KC_NO,
+          MO(3),       KC_NO,   KC_NO,  KC_LGUI,  KC_LALT,
+                               LALT(LGUI(KC_J)), LCTL(LGUI(LSFT(KC_4))),
+                                                                  TG(1),
+                                       OSM(MOD_LSFT), KC_BSPACE,  OSL(2),
 
              KC_NO,     KC_6,   KC_7,    KC_8,     KC_9,     KC_0,      KC_MINS,
              KC_UP,     KC_Y,   KC_U,    KC_I,     KC_O,     KC_P,      KC_BSLS,
@@ -44,7 +54,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
              KC_DOWN,   KC_N,   KC_M,    KC_COMM,  KC_DOT,   KC_SLSH,   KC_EQUAL,
                                 KC_RSFT, KC_LBRC,  KC_RBRC,  KC_NO,     MO(3),
              LCTL(LGUI(KC_1)),LCTL(LGUI(KC_2)),
-             KC_NO,
+             TG(4),
              KC_NO,   KC_ENT, KC_SPACE
     ),
 
@@ -107,6 +117,26 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                   KC_TRNS,   KC_4,     KC_5,      KC_6,      KC_TRNS,  KC_TRNS,
        KC_PGDN,   KC_TRNS,   KC_1,     KC_2,      KC_3,      KC_TRNS,  KC_TRNS,
                              KC_0,     KC_0,      KC_DOT,    KC_TRNS,  KC_TRNS,
+       KC_TRNS,   KC_TRNS,
+       KC_TRNS,
+       KC_TRNS,   KC_TRNS, KC_TRNS
+),
+
+[4] = LAYOUT_ergodox(
+       KC_TRNS,   KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,
+       KC_TRNS,   KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,
+       KC_TRNS,   KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,
+       KC_TRNS,   KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,
+       KC_TRNS,   KC_TRNS,  KC_TRNS,  KC_LALT,  KC_LGUI,
+                                                            KC_TRNS,KC_TRNS,
+                                                                    KC_TRNS,
+                                                    KC_TRNS,KC_TRNS,KC_TRNS,
+
+       KC_TRNS,   KC_TRNS,   KC_TRNS,  KC_TRNS,   KC_TRNS,   KC_TRNS,  KC_TRNS,
+       KC_TRNS,   KC_TRNS,   KC_TRNS,  KC_TRNS,   KC_TRNS,   KC_TRNS,  KC_TRNS,
+                  KC_TRNS,   KC_TRNS,  KC_TRNS,   KC_TRNS,   KC_TRNS,  KC_TRNS,
+       KC_TRNS,   KC_TRNS,   KC_TRNS,  KC_TRNS,   KC_TRNS,   KC_TRNS,  KC_TRNS,
+                             KC_TRNS,  KC_TRNS,   KC_TRNS,   KC_TRNS,  KC_TRNS,
        KC_TRNS,   KC_TRNS,
        KC_TRNS,
        KC_TRNS,   KC_TRNS, KC_TRNS
