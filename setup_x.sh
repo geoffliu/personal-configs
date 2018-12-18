@@ -20,14 +20,15 @@ while getopts "Wr" Opt; do
   esac
 done
 
-command -V urxvt
-command -V xrandr
-command -V i3
-command -V i3status
-command -V i3lock
+command -V autorandr
 command -V dmenu
+command -V i3
+command -V i3lock
+command -V i3status
+command -V urxvt
 command -V xautolock
 command -V xclip
+command -V xrandr
 
 mkdir -p ~/bin
 cp ~/.ownconfigs/linux/scripts/* ~/bin
