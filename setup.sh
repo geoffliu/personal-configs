@@ -33,6 +33,7 @@ command -V less
 mkdir -p ~/.ownconfigs/extras
 touch ~/.ownconfigs/extras/vimrc
 touch ~/.ownconfigs/extras/zshrc
+touch ~/.ownconfigs/extras/dmenu_commands
 cp -v ~/.ownconfigs/skel/zshrc ~/.zshrc
 
 if [[ $IncludeVim -eq 1 ]]; then

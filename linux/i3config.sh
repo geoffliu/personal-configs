@@ -14,7 +14,7 @@ font pango:DejaVu Sans Mono 8
 floating_modifier $Mod
 
 bindsym $Mod+Return exec urxvt
-bindsym $Mod+d exec dmenu_run
+bindsym $Mod+d exec run_command
 bindsym $Mod+Shift+l exec lock-screen
 bindsym --release Mod4+Control+Shift+4 exec grab-screen
 
