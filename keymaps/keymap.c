@@ -44,8 +44,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
           KC_LCTRL,    KC_A,    KC_S,   KC_D,     KC_F,   KC_G,
           KC_NO,       KC_Z,    KC_X,   KC_C,     KC_V,   KC_B,   KC_NO,
           MO(3),       KC_NO,   KC_NO,  KC_LGUI,  KC_LALT,
-                               LALT(LGUI(KC_J)), LCTL(LGUI(LSFT(KC_4))),
-                                                                  TG(1),
+                                LALT(LGUI(KC_J)), LCTL(LGUI(LSFT(KC_4))),
+                                                                   TG(1),
                                        OSM(MOD_LSFT), KC_BSPACE,  OSL(2),
 
              KC_NO,     KC_6,   KC_7,    KC_8,     KC_9,     KC_0,      KC_MINS,
@@ -73,14 +73,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        KC_TRNS,   KC_J,      KC_F,      KC_U,       KC_P,       KC_SCLN,  KC_TRNS,
                   KC_Y,      KC_N,      KC_E,       KC_O,       KC_I,     KC_TRNS,
        KC_TRNS,   KC_K,      KC_L,      KC_TRNS,    KC_TRNS,    KC_TRNS,  KC_TRNS,
-                             KC_TRNS,  KC_TRNS,   KC_TRNS,   KC_TRNS,  KC_TRNS,
+                             KC_TRNS,   KC_TRNS,    KC_TRNS,    KC_TRNS,  KC_TRNS,
        KC_TRNS,   KC_TRNS,
        KC_TRNS,
        KC_TRNS,   KC_TRNS, KC_TRNS
 ),
 
-// Symbols.
-// TODO: clean this up.
+// Symbols & arrows
 [2] = LAYOUT_ergodox(
        KC_TRNS,   KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,
        KC_TRNS,   KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,
@@ -91,11 +90,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                                     KC_TRNS,
                                                     KC_TRNS,KC_TRNS,KC_TRNS,
 
-       KC_TRNS, KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,  KC_TRNS,
-       KC_TRNS, KC_TRNS,   KC_TRNS,   LSFT(KC_LBRC),  LSFT(KC_RBRC),    KC_TRNS, KC_TRNS,
-                KC_LEFT,   KC_DOWN,   KC_UP,    KC_RIGHT, KC_TRNS, KC_TRNS,
-       KC_TRNS, KC_MINS,   KC_EQUAL,  LSFT(KC_COMMA),    LSFT(KC_DOT),    KC_TRNS, KC_TRNS,
-                           KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,  KC_TRNS,
+       KC_TRNS,   KC_TRNS,   KC_TRNS,  KC_TRNS,         LSFT(KC_9),    LSFT(KC_0),  KC_TRNS,
+       KC_TRNS,   KC_TRNS,   KC_TRNS,  LSFT(KC_LBRC),   LSFT(KC_RBRC), KC_TRNS,     KC_TRNS,
+                  KC_LEFT,   KC_DOWN,  KC_UP,           KC_RIGHT,      KC_TRNS,     KC_TRNS,
+       KC_TRNS,   KC_MINS,   KC_EQUAL, LSFT(KC_COMMA),  LSFT(KC_DOT),  KC_TRNS,     KC_TRNS,
+                             KC_TRNS,  KC_TRNS,         KC_TRNS,       KC_TRNS,     KC_TRNS,
        KC_TRNS,   KC_TRNS,
        KC_TRNS,
        KC_TRNS,   KC_TRNS, KC_TRNS
@@ -122,6 +121,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        KC_TRNS,   KC_TRNS, KC_TRNS
 ),
 
+// Alt-super swap
 [4] = LAYOUT_ergodox(
        KC_TRNS,   KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,
        KC_TRNS,   KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,
