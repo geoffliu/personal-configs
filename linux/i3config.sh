@@ -14,7 +14,7 @@ font pango:DejaVu Sans Mono 8
 floating_modifier $Mod
 
 bindsym $Mod+Return exec urxvt
-bindsym $Mod+d exec dmenu_run
+bindsym $Mod+d exec run_command
 bindsym $Mod+Shift+l exec lock-screen
 bindsym --release Mod4+Control+Shift+4 exec grab-screen
 
@@ -59,6 +59,7 @@ bindsym $Mod+Shift+2 move container to workspace 2
 bindsym $Mod+Shift+3 move container to workspace 3
 bindsym $Mod+Shift+4 move container to workspace 4
 
+bindsym $Mod+Shift+u exec "autorandr -c"
 bindsym $Mod+Shift+t move workspace to output right
 bindsym $Mod+Shift+c reload
 bindsym $Mod+Shift+z exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
