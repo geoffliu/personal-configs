@@ -47,6 +47,8 @@ if [[ $IncludeVim -eq 1 ]]; then
 
   if [[ $UseWorkman -eq 1 ]]; then
     echo 'source ~/.ownconfigs/shared/vim/workman.vim' >> ~/.vimrc
+  else
+    echo 'source ~/.ownconfigs/shared/vim/qwerty.vim' >> ~/.config/nvim/init.vim
   fi
 fi
 
@@ -61,6 +63,8 @@ if [[ $IncludeNvim -eq 1 ]]; then
 
   if [[ $UseWorkman -eq 1 ]]; then
     echo 'source ~/.ownconfigs/shared/vim/workman.vim' >> ~/.config/nvim/init.vim
+  else
+    echo 'source ~/.ownconfigs/shared/vim/qwerty.vim' >> ~/.config/nvim/init.vim
   fi
 fi
 
