@@ -117,8 +117,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        KC_PGDN,   KC_TRNS,   KC_1,     KC_2,      KC_3,      KC_TRNS,  KC_TRNS,
                              KC_0,     KC_0,      KC_DOT,    KC_TRNS,  KC_TRNS,
        KC_TRNS,   KC_TRNS,
-       KC_AUDIO_VOL_UP,
-       KC_AUDIO_VOL_DOWN,   KC_AUDIO_MUTE, KC_AUDIO_MUTE
+       KC_VOLU,
+       KC_VOLD,   KC_MUTE, KC_MUTE
 ),
 
 // Mac overrides
