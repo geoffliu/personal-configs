@@ -20,6 +20,10 @@ bindsym --release Mod4+Control+Shift+4 exec grab-screen
 
 bindsym $Mod+Shift+q kill
 
+bindsym XF86AudioRaiseVolume exec media-control up
+bindsym XF86AudioLowerVolume exec media-control down
+bindsym XF86AudioMute exec media-control mute
+
 bindsym $Mod+$Left focus left
 bindsym $Mod+$Down focus down
 bindsym $Mod+$Up focus up
