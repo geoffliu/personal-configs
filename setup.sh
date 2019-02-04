@@ -39,6 +39,7 @@ cp -v ~/.ownconfigs/skel/zshrc ~/.zshrc
 if [[ $IncludeVim -eq 1 ]]; then
   command -V fzf
   command -V vim
+  command -V ctags
 
   rm -rf ~/.vim
   git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
@@ -55,6 +56,7 @@ fi
 if [[ $IncludeNvim -eq 1 ]]; then
   command -V fzf
   command -V nvim
+  command -V ctags
 
   rm -rf ~/.config/nvim
   git clone https://github.com/VundleVim/Vundle.vim.git ~/.config/nvim/bundle/Vundle.vim

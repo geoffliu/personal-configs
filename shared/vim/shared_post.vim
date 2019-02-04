@@ -33,6 +33,12 @@ noremap <leader>s :noh<cr>
 let g:fzf_layout = { 'down': '~40%' }
 let g:fuzzy_user_command = 'git exec git ls-files'
 
+let g:gutentags_file_list_command = {
+      \   'markers': {
+      \     '.git': 'git ls-files'
+      \   }
+      \ }
+
 let g:default_tab_direction='back'
 function! HandleTab(direction)
   let currentLine = getline(".")
