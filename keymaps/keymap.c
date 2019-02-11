@@ -44,7 +44,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
           KC_LCTRL,    KC_A,    KC_S,   KC_D,     KC_F,   KC_G,
           KC_NO,       KC_Z,    KC_X,   KC_C,     KC_V,   KC_B,   KC_NO,
           MO(3),       KC_NO,   KC_NO,  KC_LGUI,  KC_LALT,
-                                LALT(LGUI(KC_J)), LCTL(LGUI(LSFT(KC_4))),
+                                LCTL(LSFT(KC_SCLN)), LCTL(LGUI(LSFT(KC_4))),
                                                                    TG(1),
                                        OSM(MOD_LSFT), KC_BSPACE,  OSL(2),
 
@@ -128,7 +128,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        KC_TRNS,   KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,
        KC_TRNS,   KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,
        KC_TRNS,   KC_TRNS,  KC_TRNS,  KC_LALT,  KC_LGUI,
-                                                            KC_TRNS,KC_TRNS,
+                                                  LALT(LGUI(KC_J)), KC_TRNS,
                                                                     KC_TRNS,
                                                     KC_TRNS,KC_TRNS,KC_TRNS,
 
