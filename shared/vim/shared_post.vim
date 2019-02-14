@@ -29,6 +29,8 @@ inoremap ., <esc>
 noremap <s-tab> :bp<cr>
 noremap <tab> :bn<cr>
 noremap <leader>s :noh<cr>
+inoremap <leader>s <c-o>:noh<cr>
+nnoremap <leader>a @a
 
 let g:fzf_layout = { 'down': '~40%' }
 let g:fuzzy_user_command = 'git exec git ls-files'

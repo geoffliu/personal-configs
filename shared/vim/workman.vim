@@ -27,3 +27,5 @@ nnoremap <leader>r :call fzf#run(fzf#wrap({ 'source': g:fuzzy_user_command }))<c
 
 noremap <c-j> :call ToggleNumber()<cr>
 inoremap <c-j> <c-o>:call ToggleNumber()<cr>
+
+nnoremap <leader>c q:
