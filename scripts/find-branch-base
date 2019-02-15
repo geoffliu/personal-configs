@@ -1,7 +1,11 @@
 #!/bin/bash
 
 OtherBranches=$(git branch | grep -v '^*')
-if [ $? -eq 0 ]; then
-  git merge-base HEAD $OtherBranches
-fi
+declare -a NonDownstreamBranches
+
+for Branch in $OtherBranches; do
+  git merge-base --is-ancestor HEAD $Branch || NonDownstreamBranches+=($Branch)
+done
+
+git merge-base HEAD ${NonDownstreamBranches[*]}
 
