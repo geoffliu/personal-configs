@@ -1,0 +1,5 @@
+#!/bin/bash
+
+TmpFile="$(mktemp --suffix=.png)"
+scrot -s "$TmpFile"
+xclip -selection clipboard -t image/png -i "$TmpFile"
