@@ -1,3 +1,0 @@
-#!/bin/bash
-
-cat ~/.ownconfigs/linux/dmenu_commands ~/.ownconfigs/extras/dmenu_commands | sort -u | dmenu -l 7 | ${SHELL:-"/bin/sh"}

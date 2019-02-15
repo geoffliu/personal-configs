@@ -30,6 +30,9 @@ command -V git
 command -V zsh
 command -V less
 
+mkdir -p ~/bin
+cp ~/.ownconfigs/scripts/* ~/bin
+
 mkdir -p ~/.ownconfigs/extras
 touch ~/.ownconfigs/extras/vimrc
 touch ~/.ownconfigs/extras/zshrc

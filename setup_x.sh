@@ -31,9 +31,6 @@ command -V xautolock
 command -V xclip
 command -V xrandr
 
-mkdir -p ~/bin
-cp ~/.ownconfigs/linux/scripts/* ~/bin
-
 if [[ $Retina -eq 1 ]]; then
   ~/.ownconfigs/linux/xinitrc.sh -r > ~/.xinitrc
 else

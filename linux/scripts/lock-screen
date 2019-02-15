@@ -1,4 +1,0 @@
-#!/bin/bash
-
-command -V i3lock-fancy && i3lock-fancy -n -p || i3lock -e -c 333333
-
