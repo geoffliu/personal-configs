@@ -26,6 +26,7 @@ command -V i3
 command -V i3lock
 command -V i3status
 command -V pamixer
+command -V sxiv
 command -V urxvt
 command -V xautolock
 command -V xclip
