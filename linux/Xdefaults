@@ -1,8 +1,9 @@
-! URxvt.font: xft:Roboto Mono Medium for Powerline,xft:wqy-zenhei
+URxvt.font: xft:Monofur for Powerline:style=bold:size=12,xft:wqy-zenhei
 URxvt.scrollBar: false
+URxvt.saveLines: 100000
 URxvt.pointerBlank: true
 URxvt.perl-ext-common: default,matcher
-URxvt.urlLauncher: /usr/bin/chromium
+URxvt.urlLauncher: xdg-open
 URxvt.matcher.button: 1
 
 ! Solarized colors and settings below.
