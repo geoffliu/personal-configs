@@ -88,7 +88,7 @@ gca() {
   fi
 }
 
-gls() {
+gl() {
   git log --format=oneline $* | head
 }
 
