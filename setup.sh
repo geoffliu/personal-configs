@@ -39,10 +39,18 @@ touch ~/.ownconfigs/extras/zshrc
 touch ~/.ownconfigs/extras/dmenu_commands
 cp -v ~/.ownconfigs/skel/zshrc ~/.zshrc
 
+function ensure_ctags {
+  command -V ctags
+  CloneDir=$(mktemp -d)
+  git clone https://github.com/jb55/typescript-ctags.git "$CloneDir"
+  mkdir -p ~/.ctags.d
+  cp "$CloneDir/.ctags" ~/.ctags.d/typescript.ctags
+}
+
 if [[ $IncludeVim -eq 1 ]]; then
   command -V fzf
   command -V vim
-  command -V ctags
+  ensure_ctags
 
   rm -rf ~/.vim
   git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
@@ -59,7 +67,7 @@ fi
 if [[ $IncludeNvim -eq 1 ]]; then
   command -V fzf
   command -V nvim
-  command -V ctags
+  ensure_ctags
 
   rm -rf ~/.config/nvim
   git clone https://github.com/VundleVim/Vundle.vim.git ~/.config/nvim/bundle/Vundle.vim
