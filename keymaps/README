@@ -1,0 +1,1 @@
+sudo /home/geoffliu/tkg-toolkit/linux/bin/hid_bootloader_cli -mmcu=atmega32u4 /home/geoffliu/qmk_firmware/ergodone_geoff.hex

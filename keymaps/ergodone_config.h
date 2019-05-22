@@ -53,9 +53,6 @@
 
 #define USB_MAX_POWER_CONSUMPTION 500
 
-// Tap dance defs
-#define TAPPING_TERM 200
-
 /* NKRO */
 #ifndef FORCE_NKRO
     #define FORCE_NKRO  // Depends on NKRO_ENABLE.
