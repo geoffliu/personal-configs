@@ -33,6 +33,7 @@ done
 command -V git
 command -V zsh
 command -V less
+command -V screen
 
 mkdir -p ~/bin
 cp ~/.ownconfigs/scripts/* ~/bin
