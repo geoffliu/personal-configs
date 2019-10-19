@@ -24,6 +24,8 @@ while getopts "FWr" Opt; do
   esac
 done
 
+# pacman -S dmenu i3-wm i3lock i3status pamixer sxiv rxvt-unicode xorg-xautolock xorg-xclip xorg-xrandr xorg-xinit
+
 command -V dmenu
 command -V i3
 command -V i3lock
@@ -34,6 +36,7 @@ command -V urxvt
 command -V xautolock
 command -V xclip
 command -V xrandr
+command -V startx
 
 if [[ $Retina -eq 1 ]]; then
   ~/.ownconfigs/linux/xinitrc.sh -r > ~/.xinitrc
