@@ -12,6 +12,7 @@ colorscheme solarized
 set t_Co=256
 set laststatus=2
 let g:airline_theme='solarized'
+let g:airline_powerline_fonts=1
 
 set relativenumber
 function! ToggleNumber()
