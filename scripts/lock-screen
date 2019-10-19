@@ -1,4 +1,4 @@
 #!/bin/bash
 
-command -V i3lock-fancy && i3lock-fancy -n -p || i3lock -e -c 333333
+command -V i3lock-fancy-rapid && i3lock-fancy-rapid 8 pixel -n -e || i3lock -e -c 333333
 
