@@ -18,7 +18,7 @@ bindsym $Mod+d exec run_command
 bindsym $Mod+Shift+l exec lock-screen
 bindsym --release Mod4+Control+Shift+4 exec grab-screen
 
-bindsym $Mod+Shift+q kill
+bindsym $Mod+w kill
 
 bindsym XF86AudioRaiseVolume exec media-control up
 bindsym XF86AudioLowerVolume exec media-control down
