@@ -6,6 +6,7 @@ Up=$3
 Down=$2
 
 Mod="Mod1"
+SMod="Mod4"
 
 cat << EOF
 
@@ -29,17 +30,15 @@ bindsym $Mod+$Down focus down
 bindsym $Mod+$Up focus up
 bindsym $Mod+$Right focus right
 
-bindsym $Mod+Shift+$Left move left
-bindsym $Mod+Shift+$Down move down
-bindsym $Mod+Shift+$Up move up
-bindsym $Mod+Shift+$Right move right
+bindsym $SMod+$Left move left
+bindsym $SMod+$Down move down
+bindsym $SMod+$Up move up
+bindsym $SMod+$Right move right
 
 bindsym $Mod+f fullscreen
 
-# change container layout (stacked, tabbed, toggle split)
-bindsym $Mod+h layout default
-bindsym $Mod+t layout tabbed
-
+# bindsym $Mod+h layout default
+# bindsym $Mod+t layout tabbed
 # bindsym $Mod+e layout toggle split
 # bindsym $Mod+v split vertical
 # bindsym $Mod+o split horizontal
@@ -55,10 +54,10 @@ bindsym $Mod+3 workspace 3
 bindsym $Mod+4 workspace 4
 
 # move focused container to workspace
-bindsym $Mod+Shift+1 move container to workspace 1
-bindsym $Mod+Shift+2 move container to workspace 2
-bindsym $Mod+Shift+3 move container to workspace 3
-bindsym $Mod+Shift+4 move container to workspace 4
+bindsym $SMod+1 move container to workspace 1
+bindsym $SMod+2 move container to workspace 2
+bindsym $SMod+3 move container to workspace 3
+bindsym $SMod+4 move container to workspace 4
 
 bindsym $Mod+Shift+backslash move workspace to output right
 bindsym $Mod+Shift+c reload
@@ -70,9 +69,5 @@ bar {
 
 hide_edge_borders both
 workspace_layout tabbed
-
-for_window [title="scratchpad"] move scratchpad
-bindsym $Mod+asciitilde scratchpad show
-exec "urxvt -name scratchpad"
 
 EOF
