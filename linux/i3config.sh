@@ -70,4 +70,6 @@ bar {
 hide_edge_borders both
 workspace_layout tabbed
 
+exec nm-applet
+
 EOF
