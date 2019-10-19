@@ -7,8 +7,9 @@ command -V getopts
 UseWorkman=1
 IncludeNvim=0
 IncludeVim=1
+UseCtags=1
 
-while getopts "nVW" Opt; do
+while getopts "nVWT" Opt; do
   case $Opt in
     W)
       UseWorkman=0
@@ -18,6 +19,9 @@ while getopts "nVW" Opt; do
       ;;
     V)
       IncludeVim=0
+      ;;
+    T)
+      UseCtags=0
       ;;
     *)
       echo "Bad arg"
@@ -50,7 +54,6 @@ function ensure_ctags {
 if [[ $IncludeVim -eq 1 ]]; then
   command -V fzf
   command -V vim
-  ensure_ctags
 
   rm -rf ~/.vim
   git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
@@ -60,14 +63,19 @@ if [[ $IncludeVim -eq 1 ]]; then
   if [[ $UseWorkman -eq 1 ]]; then
     echo 'source ~/.ownconfigs/shared/vim/workman.vim' >> ~/.vimrc
   else
-    echo 'source ~/.ownconfigs/shared/vim/qwerty.vim' >> ~/.config/nvim/init.vim
+    echo 'source ~/.ownconfigs/shared/vim/qwerty.vim' >> ~/.vimrc
+  fi
+
+  if [[ $UseCtags -eq 1 ]]; then
+    ensure_ctags
+  else
+    echo 'let g:gutentags_enabled=0' >> ~/.vimrc
   fi
 fi
 
 if [[ $IncludeNvim -eq 1 ]]; then
   command -V fzf
   command -V nvim
-  ensure_ctags
 
   rm -rf ~/.config/nvim
   git clone https://github.com/VundleVim/Vundle.vim.git ~/.config/nvim/bundle/Vundle.vim
@@ -78,6 +86,12 @@ if [[ $IncludeNvim -eq 1 ]]; then
     echo 'source ~/.ownconfigs/shared/vim/workman.vim' >> ~/.config/nvim/init.vim
   else
     echo 'source ~/.ownconfigs/shared/vim/qwerty.vim' >> ~/.config/nvim/init.vim
+  fi
+
+  if [[ $UseCtags -eq 1 ]]; then
+    ensure_ctags
+  else
+    echo 'let g:gutentags_enabled=0' >> ~/.config/nvim/init.vim
   fi
 fi
 
