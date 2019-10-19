@@ -24,7 +24,6 @@ while getopts "FWr" Opt; do
   esac
 done
 
-command -V autorandr
 command -V dmenu
 command -V i3
 command -V i3lock
