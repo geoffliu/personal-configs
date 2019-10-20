@@ -66,7 +66,21 @@ bindsym $Mod+Shift+z exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 bar {
   i3bar_command i3bar -t
   status_command i3status
+  colors {
+    separator #7d7d7d
+    background #141414
+    statusline #00b0ef
+    focused_workspace #00b0ef #141414 #00b0ef #e22395
+    active_workspace #141414 #141414 #00b0ef #e22395
+    inactive_workspace #141414 #141414 #7d7d7d #7d7d7d
+    urgent_workspace #ff7066 #141414 #ff7066 #95b944
+  }
 }
+
+client.focused #00b0ef #00b0ef #141414 #ff7066
+client.focused_inactive #141414 #141414 #00b0ef #472b2a
+client.unfocused #141414 #141414 #7d7d7d #141414
+client.urgent #ff7066 #ff7066 #141414 #ff7066
 
 hide_edge_borders both
 workspace_layout tabbed
