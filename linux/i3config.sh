@@ -64,12 +64,14 @@ bindsym $Mod+Shift+c reload
 bindsym $Mod+Shift+z exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 bar {
-        status_command i3status
+  i3bar_command i3bar -t
+  status_command i3status
 }
 
 hide_edge_borders both
 workspace_layout tabbed
 
 exec nm-applet
+exec pasystray
 
 EOF
