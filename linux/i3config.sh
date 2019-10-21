@@ -37,7 +37,7 @@ bindsym $SMod+$Right move right
 
 bindsym $Mod+f fullscreen
 
-# bindsym $Mod+h layout default
+bindsym $Mod+l layout toggle tabbed splith
 # bindsym $Mod+t layout tabbed
 # bindsym $Mod+e layout toggle split
 # bindsym $Mod+v split vertical
