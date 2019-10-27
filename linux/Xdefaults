@@ -6,7 +6,8 @@ URxvt.perl-ext-common: default,matcher
 URxvt.urlLauncher: xdg-open
 URxvt.matcher.button: 1
 URxvt.transparent: true
-URxvt.shading: 15
+URxvt.shading: 30
+URxvt.blurRadius: 15
 
 ! Solarized colors and settings below.
 *background: #002b36
