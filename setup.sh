@@ -42,7 +42,12 @@ mkdir -p ~/.ownconfigs/extras
 touch ~/.ownconfigs/extras/vimrc
 touch ~/.ownconfigs/extras/zshrc
 touch ~/.ownconfigs/extras/dmenu_commands
-cp -v ~/.ownconfigs/skel/zshrc ~/.zshrc
+
+cat > ~/.zshrc << EOF
+source ~/.ownconfigs/shared/zshrc
+source ~/.ownconfigs/extras/zshrc
+EOF
+
 cp -v ~/.ownconfigs/shared/profile ~/.profile
 
 function ensure_ctags {
