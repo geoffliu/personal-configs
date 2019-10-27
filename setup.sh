@@ -6,10 +6,10 @@ command -V getopts
 
 UseWorkman=1
 IncludeNvim=0
-IncludeVim=1
-UseCtags=1
+IncludeVim=0
+UseCtags=0
 
-while getopts "nVWT" Opt; do
+while getopts "nvWt" Opt; do
   case $Opt in
     W)
       UseWorkman=0
@@ -17,11 +17,11 @@ while getopts "nVWT" Opt; do
     n)
       IncludeNvim=1
       ;;
-    V)
-      IncludeVim=0
+    v)
+      IncludeVim=1
       ;;
     T)
-      UseCtags=0
+      UseCtags=1
       ;;
     *)
       echo "Bad arg"
@@ -43,6 +43,7 @@ touch ~/.ownconfigs/extras/vimrc
 touch ~/.ownconfigs/extras/zshrc
 touch ~/.ownconfigs/extras/dmenu_commands
 cp -v ~/.ownconfigs/skel/zshrc ~/.zshrc
+cp -v ~/.ownconfigs/shared/profile ~/.profile
 
 function ensure_ctags {
   command -V ctags
