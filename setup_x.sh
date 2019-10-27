@@ -25,9 +25,10 @@ while getopts "FWr" Opt; do
 done
 
 # pacman -S dmenu i3-wm i3lock i3status pamixer sxiv rxvt-unicode xorg-xautolock
-# xorg-xclip xorg-xrandr xorg-xdm network-manager-applet scrot
+# xorg-xclip xorg-xrandr xorg-xdm network-manager-applet scrot feh
 
 command -V dmenu
+command -V feh
 command -V i3
 command -V i3lock
 command -V i3status
