@@ -25,7 +25,7 @@ while getopts "FWr" Opt; do
 done
 
 # pacman -S dmenu i3-wm i3lock i3status pamixer sxiv rxvt-unicode xorg-xautolock
-# xorg-xclip xorg-xrandr xorg-xinit network-manager-applet scrot
+# xorg-xclip xorg-xrandr xorg-xdm network-manager-applet scrot
 
 command -V dmenu
 command -V i3
@@ -34,18 +34,19 @@ command -V i3status
 command -V nm-applet
 command -V pamixer
 command -V scrot
-command -V startx
 command -V sxiv
 command -V urxvt
 command -V xautolock
 command -V xclip
+command -V xdm
 command -V xrandr
 
 if [[ $Retina -eq 1 ]]; then
-  ~/.ownconfigs/linux/xinitrc.sh -r > ~/.xinitrc
+  ~/.ownconfigs/linux/xinitrc.sh -r > ~/.xsession
 else
-  ~/.ownconfigs/linux/xinitrc.sh > ~/.xinitrc
+  ~/.ownconfigs/linux/xinitrc.sh > ~/.xsession
 fi
+chmod +x ~/.xsession
 
 if [[ $SetFonts -eq 1 ]]; then
   cp -v ~/.ownconfigs/linux/Xdefaults ~/.Xdefaults
