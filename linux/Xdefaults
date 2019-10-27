@@ -1,4 +1,4 @@
-URxvt.font: xft:Monofur for Powerline:style=bold:size=12,xft:wqy-zenhei
+URxvt.font: xft:Monofur for Powerline:style=bold:size=12,xft:IBM 3270:style=Medium,xft:wqy-zenhei
 URxvt.scrollBar: false
 URxvt.saveLines: 100000
 URxvt.pointerBlank: true
