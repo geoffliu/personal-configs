@@ -59,7 +59,17 @@ cp ~/.ownconfigs/linux/i3status.conf ~/.i3status.conf
 mkdir -p ~/.config/fontconfig
 cp ~/.ownconfigs/linux/fonts.conf ~/.config/fontconfig
 
-Fonts=('Noto Sans' 'WenQuanYi Micro Hei', 'Monofur for Powerline', 'IBM 3270')
+Fonts=(
+  'Noto Sans'
+  'Noto Sans Mono'
+  'Noto Serif'
+  'WenQuanYi Micro Hei'
+  'WenQuanYi Micro Hei Mono'
+  'Monofur for Powerline'
+  'IBM 3270'
+)
+
+echo CHECKING FOR FONTS:
 for f in $Fonts; do
   echo Resolving $f
   fc-match "$f"
