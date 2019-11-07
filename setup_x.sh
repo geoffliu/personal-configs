@@ -1,10 +1,9 @@
-#!/bin/bash
+#!/bin/zsh
 
 set -e
 
 Retina=0
 UseWorkman=1
-SetFonts=1
 
 while getopts "FWr" Opt; do
   case $Opt in
@@ -13,9 +12,6 @@ while getopts "FWr" Opt; do
       ;;
     W)
       UseWorkman=0
-      ;;
-    F)
-      SetFonts=0
       ;;
     *)
       echo "Bad arg"
@@ -28,6 +24,7 @@ done
 # xorg-xclip xorg-xrandr xorg-xdm network-manager-applet scrot feh
 
 command -V dmenu
+command -V fc-match
 command -V feh
 command -V i3
 command -V i3lock
@@ -49,11 +46,7 @@ else
 fi
 chmod +x ~/.xsession
 
-if [[ $SetFonts -eq 1 ]]; then
-  cp -v ~/.ownconfigs/linux/Xdefaults ~/.Xdefaults
-else
-  tail -n +2 ~/.ownconfigs/linux/Xdefaults > ~/.Xdefaults
-fi
+cp -v ~/.ownconfigs/linux/Xdefaults ~/.Xdefaults
 
 mkdir -p ~/.i3
 if [[ $UseWorkman -eq 1 ]]; then
@@ -62,3 +55,14 @@ else
   ~/.ownconfigs/linux/i3config.sh h j k l > ~/.i3/config
 fi
 cp ~/.ownconfigs/linux/i3status.conf ~/.i3status.conf
+
+mkdir -p ~/.config/fontconfig
+cp ~/.ownconfigs/linux/fonts.conf ~/.config/fontconfig
+
+Fonts=('Noto Sans' 'WenQuanYi Micro Hei', 'Monofur for Powerline', 'IBM 3270')
+for f in $Fonts; do
+  echo Resolving $f
+  fc-match "$f"
+done
+
+
