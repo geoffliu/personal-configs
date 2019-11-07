@@ -10,7 +10,7 @@ SMod="Mod4"
 
 cat << EOF
 
-font pango:DejaVu Sans Mono 8
+font pango:monospace 8
 
 floating_modifier $Mod
 
