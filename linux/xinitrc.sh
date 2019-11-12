@@ -26,6 +26,6 @@ fi
 
 cat << EOF
 feh --randomize --no-fehbg --bg-fill ~/.ownconfigs/wallpapers
-xautolock -locker "lock-screen" -time 10 &
+xautolock -locker "lock-screen" -time 10 -corners 000- &
 exec i3
 EOF
