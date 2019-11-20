@@ -20,7 +20,7 @@ while getopts "nvWt" Opt; do
     v)
       IncludeVim=1
       ;;
-    T)
+    t)
       UseCtags=1
       ;;
     *)
