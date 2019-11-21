@@ -52,10 +52,8 @@ cp -v ~/.ownconfigs/shared/profile ~/.profile
 
 function ensure_ctags {
   command -V ctags
-  CloneDir=$(mktemp -d)
-  git clone https://github.com/jb55/typescript-ctags.git "$CloneDir"
   mkdir -p ~/.ctags.d
-  cp "$CloneDir/.ctags" ~/.ctags.d/typescript.ctags
+  cp ~/.ownconfigs/shared/kotlin.ctags ~/.ctags.d
 }
 
 if [[ $IncludeVim -eq 1 ]]; then
