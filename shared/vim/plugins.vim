@@ -21,6 +21,7 @@ Plugin 'dhruvasagar/vim-table-mode'
 Plugin 'junegunn/fzf'
 Plugin 'airblade/vim-rooter'
 Plugin 'ludovicchabant/vim-gutentags'
+Plugin 'udalov/kotlin-vim'
 call vundle#end()
 filetype plugin indent on
 
