@@ -1,3 +1,5 @@
+fpath=(~/.zsh_functions $fpath)
+
 HISTFILE=~/.histfile
 HISTSIZE=50000
 SAVEHIST=50000

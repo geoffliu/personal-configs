@@ -1,0 +1,4 @@
+#compdef bd gl
+if git rev-parse --is-inside-work-tree > /dev/null 2>&1; then
+  _alternative "branches:local git branches:($(git branch --format='%(refname:short)'))"
+fi

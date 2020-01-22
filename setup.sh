@@ -48,6 +48,9 @@ source ~/.ownconfigs/shared/zshrc
 source ~/.ownconfigs/extras/zshrc
 EOF
 
+mkdir -p ~/.zsh_functions
+cp -v ~/.ownconfigs/shared/zsh_functions/* ~/.zsh_functions
+
 cp -v ~/.ownconfigs/shared/profile ~/.profile
 
 function ensure_ctags {
