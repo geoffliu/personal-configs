@@ -92,6 +92,10 @@ gl() {
   git log --format=oneline $* | head
 }
 
+bd() {
+  git diff --exit-code $1 && git branch -D $1
+}
+
 alias gm=" git checkout master"
 alias gc=" git checkout"
 alias gs=" git status -s"
