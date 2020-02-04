@@ -95,7 +95,19 @@ gl() {
 }
 
 bd() {
-  git diff --exit-code $1 && git branch -D $1
+  if git diff --exit-code --quiet $1; then
+    git branch -D $1
+  else
+    current=$(git branch --show-current)
+    echo "Attempting to merge $current into $1"
+    echo "Checking out $1"
+    git checkout $1
+    echo "Merging $current into $1"
+    git merge $current
+    echo "Attempting deletion again"
+    git checkout $current
+    git diff --exit-code $1 && git branch -D $1
+  fi
 }
 
 alias gm=" git checkout master"
