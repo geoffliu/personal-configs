@@ -4,6 +4,7 @@
 #include "version.h"
 
 // Tap Dance
+// TODO: remove
 
 enum {
   TD_ESC_TILDE = 0
@@ -39,9 +40,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 // Base Qwerty
 [0] = LAYOUT_ergodox(
-  TD(TD_ESC_TILDE),    KC_1,    KC_2,   KC_3,     KC_4,   KC_5,   KC_6,
+          KC_GRAVE,    KC_1,    KC_2,   KC_3,     KC_4,   KC_5,   KC_6,
           KC_TAB,      KC_Q,    KC_W,   KC_E,     KC_R,   KC_T,   KC_NO,
-          KC_LCTRL,    KC_A,    KC_S,   KC_D,     KC_F,   KC_G,
+    LCTL_T(KC_ESC),    KC_A,    KC_S,   KC_D,     KC_F,   KC_G,
           KC_NO,       KC_Z,    KC_X,   KC_C,     KC_V,   KC_B,   LSFT(KC_LALT),
           MO(3),       KC_NO,   KC_NO,  KC_LGUI,  KC_LALT,
                                 LCTL(LSFT(KC_SCLN)), LCTL(LGUI(LSFT(KC_4))),
