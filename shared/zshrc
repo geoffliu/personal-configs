@@ -117,7 +117,7 @@ alias gd=" git diff"
 alias gfc=" git commit -a --fixup HEAD"
 alias gpp=" git pull && git push"
 alias b=" git branch"
-alias gpc=' git push origin $(git branch --show-current)'
+alias gpc=' git push -u origin $(git branch --show-current)'
 
 alias -g MM='$(git merge-base master HEAD)'
 alias -g BB='$(find-branch-base)'
