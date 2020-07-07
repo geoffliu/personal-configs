@@ -15,3 +15,5 @@
 	exec = "!exec "
 [rebase]
 	autosquash = true
+[pull]
+	ff = only
