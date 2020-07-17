@@ -118,6 +118,7 @@ alias gfc=" git commit -a --fixup HEAD"
 alias gpp=" git pull && git push"
 alias b=" git branch"
 alias gpc=' git push origin $(git branch --show-current)'
+alias gmc=' git branch --set-upstream-to=origin/$(git branch --show-current) $(git branch --show-current)'
 
 alias -g MM='$(git merge-base master HEAD)'
 alias -g BB='$(find-branch-base)'
