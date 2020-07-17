@@ -95,19 +95,34 @@ gl() {
 }
 
 bd() {
+  # Trivial case
   if git diff --exit-code --quiet $1; then
     git branch -D $1
-  else
-    current=$(git branch --show-current)
-    echo "Attempting to merge $current into $1"
-    echo "Checking out $1"
-    git checkout $1
-    echo "Merging $current into $1"
-    git merge --no-edit $current
-    echo "Attempting deletion again"
-    git checkout $current
-    git diff --exit-code $1 && git branch -D $1
+    return
   fi
+
+  BaseBranch=$(git branch --show-current)
+  MergeBase=$(git merge-base $1 HEAD)
+  AllCommits=($(git rev-list --ancestry-path $MergeBase..HEAD))
+  git checkout $1
+  echo "Testing for a matching commint on $BaseBranch"
+  for ((i = ${#AllCommits[@]}; i > 0; i--)); do
+    TestCommit=${AllCommits[i]}
+    if ! git merge --no-edit $TestCommit 2>&1 > /dev/null; then
+      git reset --hard
+      echo "Could not merge $TestCommit into $1, giving up"
+      return -1
+    fi
+    if git diff --exit-code --quiet $TestCommit; then
+      echo "Found $TestCommit to match $1."
+      git checkout $BaseBranch
+      git branch -D $1
+      return
+    fi
+  done
+
+  echo "Could not find a commit matching $1."
+  return -1
 }
 
 alias gm=" git checkout master"
