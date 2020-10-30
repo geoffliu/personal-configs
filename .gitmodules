@@ -1,0 +1,3 @@
+[submodule "spaceteam-gen"]
+	path = spaceteam-gen
+	url = git@github.com:geoffliu/spaceteam-gen.git
