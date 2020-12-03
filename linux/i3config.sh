@@ -1,9 +1,9 @@
 #!/bin/bash
 
-Left=$1
-Right=$4
-Up=$3
-Down=$2
+Left=y
+Right=o
+Up=e
+Down=n
 
 Mod="Mod1"
 SMod="Mod4"

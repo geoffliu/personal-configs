@@ -3,15 +3,11 @@
 set -e
 
 Retina=0
-UseWorkman=1
 
 while getopts "FWr" Opt; do
   case $Opt in
     r)
       Retina=1
-      ;;
-    W)
-      UseWorkman=0
       ;;
     *)
       echo "Bad arg"
@@ -49,11 +45,7 @@ chmod +x ~/.xsession
 cp -v ~/.ownconfigs/linux/Xdefaults ~/.Xdefaults
 
 mkdir -p ~/.i3
-if [[ $UseWorkman -eq 1 ]]; then
-  ~/.ownconfigs/linux/i3config.sh y n e o > ~/.i3/config
-else
-  ~/.ownconfigs/linux/i3config.sh h j k l > ~/.i3/config
-fi
+~/.ownconfigs/linux/i3config.sh > ~/.i3/config
 cp ~/.ownconfigs/linux/i3status.conf ~/.i3status.conf
 
 mkdir -p ~/.config/fontconfig
