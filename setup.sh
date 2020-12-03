@@ -4,16 +4,12 @@ set -e
 
 command -V getopts
 
-UseWorkman=1
 IncludeNvim=0
 IncludeVim=0
 UseCtags=0
 
 while getopts "nvWt" Opt; do
   case $Opt in
-    W)
-      UseWorkman=0
-      ;;
     n)
       IncludeNvim=1
       ;;
@@ -34,6 +30,7 @@ command -V git
 command -V zsh
 command -V less
 command -V screen
+command -V lesskey
 
 mkdir -p ~/bin
 cp ~/.ownconfigs/scripts/* ~/bin
@@ -68,11 +65,7 @@ if [[ $IncludeVim -eq 1 ]]; then
   cp -v ~/.ownconfigs/skel/vimrc ~/.vimrc
   vim +PluginUpdate +qa
 
-  if [[ $UseWorkman -eq 1 ]]; then
-    echo 'source ~/.ownconfigs/shared/vim/workman.vim' >> ~/.vimrc
-  else
-    echo 'source ~/.ownconfigs/shared/vim/qwerty.vim' >> ~/.vimrc
-  fi
+  echo 'source ~/.ownconfigs/shared/vim/workman.vim' >> ~/.vimrc
 
   if [[ $UseCtags -eq 1 ]]; then
     ensure_ctags
@@ -90,11 +83,7 @@ if [[ $IncludeNvim -eq 1 ]]; then
   cp -v ~/.ownconfigs/skel/nvimrc ~/.config/nvim/init.vim
   nvim +PluginUpdate +qa
 
-  if [[ $UseWorkman -eq 1 ]]; then
-    echo 'source ~/.ownconfigs/shared/vim/workman.vim' >> ~/.config/nvim/init.vim
-  else
-    echo 'source ~/.ownconfigs/shared/vim/qwerty.vim' >> ~/.config/nvim/init.vim
-  fi
+  echo 'source ~/.ownconfigs/shared/vim/workman.vim' >> ~/.config/nvim/init.vim
 
   if [[ $UseCtags -eq 1 ]]; then
     ensure_ctags
@@ -103,11 +92,8 @@ if [[ $IncludeNvim -eq 1 ]]; then
   fi
 fi
 
-if [[ $UseWorkman -eq 1 ]]; then
-  command -V lesskey
-  lesskey ~/.ownconfigs/shared/lesskey_workman
-  echo 'source ~/.ownconfigs/shared/zshrc_workman' >> ~/.zshrc
-fi
+lesskey ~/.ownconfigs/shared/lesskey_workman
+echo 'source ~/.ownconfigs/shared/zshrc_workman' >> ~/.zshrc
 
 cp -v ~/.ownconfigs/shared/gitconfig ~/.gitconfig
 cp -v ~/.ownconfigs/shared/gitignore ~/.gitignore
