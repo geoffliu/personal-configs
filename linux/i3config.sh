@@ -44,7 +44,7 @@ bindsym $Mod+l layout toggle tabbed splith
 # bindsym $Mod+o split horizontal
 
 # toggle tiling / floating
-bindsym $Mod+Shift+space floating toggle
+bindsym $SMod+space floating toggle
 bindsym $Mod+space focus mode_toggle
 
 # switch to workspace
@@ -61,11 +61,13 @@ bindsym $SMod+4 move container to workspace 4
 
 bindsym $Mod+Shift+backslash move workspace to output right
 bindsym $Mod+Shift+c reload
-bindsym $Mod+Shift+z exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $Mod+Shift+q exec "i3-nagbar -t warning -m 'Do you really want to exit i3?' -B 'Yes' 'i3-msg exit'"
 
 bar {
   i3bar_command i3bar -t
   status_command i3status
+  mode hide
+  modifier $SMod
   colors {
     separator #7d7d7d
     background #141414
