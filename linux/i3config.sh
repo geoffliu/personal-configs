@@ -59,8 +59,9 @@ bindsym $SMod+2 move container to workspace 2
 bindsym $SMod+3 move container to workspace 3
 bindsym $SMod+4 move container to workspace 4
 
-bindsym $Mod+Shift+backslash move workspace to output right
-bindsym $Mod+Shift+c reload
+bindsym $SMod+backslash move workspace to output right
+
+bindsym $Mod+Shift+r reload
 bindsym $Mod+Shift+q exec "i3-nagbar -t warning -m 'Do you really want to exit i3?' -B 'Yes' 'i3-msg exit'"
 
 bar {
