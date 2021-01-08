@@ -66,8 +66,6 @@ bindsym $Mod+Shift+q exec "i3-nagbar -t warning -m 'Do you really want to exit i
 bar {
   i3bar_command i3bar -t
   status_command i3status
-  mode hide
-  modifier $SMod
   colors {
     separator #7d7d7d
     background #141414
