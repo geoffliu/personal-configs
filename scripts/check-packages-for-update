@@ -1,0 +1,33 @@
+#!/bin/bash
+
+set -eu
+
+while true; do
+  TmpFile=$(mktemp --tmpdir package-check-XXXXX)
+  ResultString="📦"
+
+  # Wait for internet to be ready
+  checkupdates > "$TmpFile" || {
+    sleep 30
+    continue
+  }
+
+  UpdateCount=$(<"$TmpFile" wc -l)
+
+  if (($UpdateCount == 0)); then
+    ResultString="$ResultString ✅"
+  else
+    ResultString="$ResultString $UpdateCount"
+  fi
+
+  ImportantCount=$(<"$TmpFile" grep '^\(linux\) ' | wc -l)
+  if (($ImportantCount != 0)); then
+    ResultString="$ResultString ❗"
+  fi
+
+  echo $ResultString > ~/.ownconfigs/linux/status_files/packages
+
+  rm $TmpFile
+
+  sleep 300
+done

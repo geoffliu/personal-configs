@@ -28,5 +28,6 @@ cat << EOF
 fcitx
 feh --randomize --no-fehbg --bg-fill ~/.ownconfigs/wallpapers
 xautolock -locker "lock-screen" -time 10 -corners 000- &
+check-packages-for-update &
 exec i3
 EOF

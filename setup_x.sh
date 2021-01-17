@@ -1,6 +1,7 @@
 #!/bin/zsh
 
 set -e
+CurrentPath="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 Retina=0
 
@@ -35,6 +36,13 @@ command -V xclip
 command -V xdm
 command -V xrandr
 
+command -V checkupdates
+
+mkdir -p ~/bin
+cp ~/.ownconfigs/scripts/* ~/bin
+
+mkdir -p "$CurrentPath/linux/status_files"
+
 if [[ $Retina -eq 1 ]]; then
   ~/.ownconfigs/linux/xinitrc.sh -r > ~/.xsession
 else
@@ -46,7 +54,7 @@ cp -v ~/.ownconfigs/linux/Xdefaults ~/.Xdefaults
 
 mkdir -p ~/.i3
 ~/.ownconfigs/linux/i3config.sh > ~/.i3/config
-cp ~/.ownconfigs/linux/i3status.conf ~/.i3status.conf
+~/.ownconfigs/linux/i3status.sh $CurrentPath > ~/.i3status.conf
 
 mkdir -p ~/.config/fontconfig
 cp ~/.ownconfigs/linux/fonts.conf ~/.config/fontconfig
