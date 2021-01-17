@@ -25,9 +25,12 @@ EOF
 fi
 
 cat << EOF
+while true; do
+  check-packages-for-update &
+  sleep 300
+done &
 fcitx
 feh --randomize --no-fehbg --bg-fill ~/.ownconfigs/wallpapers
 xautolock -locker "lock-screen" -time 10 -corners 000- &
-check-packages-for-update &
 exec i3
 EOF
