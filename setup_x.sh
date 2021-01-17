@@ -4,7 +4,7 @@ set -e
 
 Retina=0
 
-while getopts "FWr" Opt; do
+while getopts "r" Opt; do
   case $Opt in
     r)
       Retina=1
