@@ -27,7 +27,7 @@ fi
 cat << EOF
 while true; do
   check-packages-for-update &
-  sleep 300
+  sleep 600
 done &
 fcitx
 feh --randomize --no-fehbg --bg-fill ~/.ownconfigs/wallpapers
