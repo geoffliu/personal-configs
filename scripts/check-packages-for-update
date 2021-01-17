@@ -17,7 +17,7 @@ do_check() {
   UpdateCount=$(<"$TmpFile" wc -l)
 
   if (($UpdateCount == 0)); then
-    ResultString="$ResultString ✅"
+    ResultString="$ResultString✅"
   else
     ResultString="$ResultString $UpdateCount"
   fi
