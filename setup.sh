@@ -1,6 +1,7 @@
 #!/bin/bash
 
 set -e
+CurrentPath="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 command -V getopts
 
@@ -8,7 +9,7 @@ IncludeNvim=0
 IncludeVim=0
 UseCtags=0
 
-while getopts "nvWt" Opt; do
+while getopts "nvt" Opt; do
   case $Opt in
     n)
       IncludeNvim=1
@@ -33,27 +34,27 @@ command -V screen
 command -V lesskey
 
 mkdir -p ~/bin
-cp ~/.ownconfigs/scripts/* ~/bin
+cp $CurrentPath/scripts/* ~/bin
 
-mkdir -p ~/.ownconfigs/extras
-touch ~/.ownconfigs/extras/vimrc
-touch ~/.ownconfigs/extras/zshrc
-touch ~/.ownconfigs/extras/dmenu_commands
+mkdir -p $CurrentPath/extras
+touch $CurrentPath/extras/vimrc
+touch $CurrentPath/extras/zshrc
+touch $CurrentPath/extras/dmenu_commands
 
 cat > ~/.zshrc << EOF
-source ~/.ownconfigs/shared/zshrc
-source ~/.ownconfigs/extras/zshrc
+source $CurrentPath/shared/zshrc
+source $CurrentPath/extras/zshrc
 EOF
 
 mkdir -p ~/.zsh_functions
-cp -v ~/.ownconfigs/shared/zsh_functions/* ~/.zsh_functions
+cp -v $CurrentPath/shared/zsh_functions/* ~/.zsh_functions
 
-cp -v ~/.ownconfigs/shared/profile ~/.profile
+cp -v $CurrentPath/shared/profile ~/.profile
 
 function ensure_ctags {
   command -V ctags
   mkdir -p ~/.ctags.d
-  cp ~/.ownconfigs/shared/kotlin.ctags ~/.ctags.d
+  cp $CurrentPath/shared/kotlin.ctags ~/.ctags.d
 }
 
 if [[ $IncludeVim -eq 1 ]]; then
@@ -62,7 +63,7 @@ if [[ $IncludeVim -eq 1 ]]; then
 
   rm -rf ~/.vim
   git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-  cp -v ~/.ownconfigs/skel/vimrc ~/.vimrc
+  cp -v $CurrentPath/skel/vimrc ~/.vimrc
   vim +PluginUpdate +qa
 
   echo 'source ~/.ownconfigs/shared/vim/workman.vim' >> ~/.vimrc
@@ -80,7 +81,7 @@ if [[ $IncludeNvim -eq 1 ]]; then
 
   rm -rf ~/.config/nvim
   git clone https://github.com/VundleVim/Vundle.vim.git ~/.config/nvim/bundle/Vundle.vim
-  cp -v ~/.ownconfigs/skel/nvimrc ~/.config/nvim/init.vim
+  cp -v $CurrentPath/skel/nvimrc ~/.config/nvim/init.vim
   nvim +PluginUpdate +qa
 
   echo 'source ~/.ownconfigs/shared/vim/workman.vim' >> ~/.config/nvim/init.vim
@@ -92,12 +93,12 @@ if [[ $IncludeNvim -eq 1 ]]; then
   fi
 fi
 
-lesskey ~/.ownconfigs/shared/lesskey_workman
+lesskey $CurrentPath/shared/lesskey_workman
 echo 'source ~/.ownconfigs/shared/zshrc_workman' >> ~/.zshrc
 
-cp -v ~/.ownconfigs/shared/gitconfig ~/.gitconfig
-cp -v ~/.ownconfigs/shared/gitignore ~/.gitignore
-cp -v ~/.ownconfigs/shared/screenrc ~/.screenrc
+cp -v $CurrentPath/shared/gitconfig ~/.gitconfig
+cp -v $CurrentPath/shared/gitignore ~/.gitignore
+cp -v $CurrentPath/shared/screenrc ~/.screenrc
 
 function linux_specific {
   command -V dircolors

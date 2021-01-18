@@ -39,25 +39,25 @@ command -V xrandr
 command -V checkupdates
 
 mkdir -p ~/bin
-cp ~/.ownconfigs/scripts/* ~/bin
+cp $CurrentPath/scripts/* ~/bin
 
 mkdir -p "$CurrentPath/linux/status_files"
 
 if [[ $Retina -eq 1 ]]; then
-  ~/.ownconfigs/linux/xinitrc.sh -r > ~/.xsession
+  $CurrentPath/linux/xinitrc.sh -r > ~/.xsession
 else
-  ~/.ownconfigs/linux/xinitrc.sh > ~/.xsession
+  $CurrentPath/linux/xinitrc.sh > ~/.xsession
 fi
 chmod +x ~/.xsession
 
-cp -v ~/.ownconfigs/linux/Xdefaults ~/.Xdefaults
+cp -v $CurrentPath/linux/Xdefaults ~/.Xdefaults
 
 mkdir -p ~/.i3
-~/.ownconfigs/linux/i3config.sh > ~/.i3/config
-~/.ownconfigs/linux/i3status.sh $CurrentPath > ~/.i3status.conf
+$CurrentPath/linux/i3config.sh > ~/.i3/config
+$CurrentPath/linux/i3status.sh $CurrentPath > ~/.i3status.conf
 
 mkdir -p ~/.config/fontconfig
-cp ~/.ownconfigs/linux/fonts.conf ~/.config/fontconfig
+cp $CurrentPath/linux/fonts.conf ~/.config/fontconfig
 
 Fonts=(
   'Noto Sans'
