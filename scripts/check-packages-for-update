@@ -1,7 +1,6 @@
 #!/bin/bash
 
-# Wait for internet to come up
-sleep 120
+Backoff=10
 
 do_check() {
   TmpFile=$(mktemp --tmpdir package-check-XXXXX)
@@ -9,8 +8,12 @@ do_check() {
 
   checkupdates > "$TmpFile"
   if (( $? != 0 && $? != 2)); then
-    echo Error running check updates
-    sleep 600
+    echo Error running check updates, waiting $Backoff
+    sleep $Backoff
+    ((Backoff *= 2))
+    if (($Backoff > 300)); then
+      Backoff=300
+    fi
     return 1
   fi
 
@@ -29,6 +32,8 @@ do_check() {
 
   echo $ResultString > ~/.ownconfigs/linux/status_files/packages
   echo Update result: $UpdateCount available, $ImportantCount important
+
+  Backoff=10
 
   rm $TmpFile
 }
