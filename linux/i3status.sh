@@ -37,7 +37,7 @@ battery 0 {
 
 load {
   format = "🤖 %1min %5min %15min"
-  max_threshold = 2
+  max_threshold = 3
 }
 
 tztime local {
