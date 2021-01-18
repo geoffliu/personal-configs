@@ -25,7 +25,7 @@ do_check() {
     ResultString="$ResultString $UpdateCount"
   fi
 
-  ImportantCount=$(<"$TmpFile" grep '^\(linux\) ' | wc -l)
+  ImportantCount=$(<"$TmpFile" grep '^\(linux\|linux-firmware\|grub\|xorg-server\|sudo\) ' | wc -l)
   if (($ImportantCount != 0)); then
     ResultString="$ResultString ❗"
   fi
