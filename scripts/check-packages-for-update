@@ -25,12 +25,13 @@ do_check() {
     ResultString="$ResultString $UpdateCount"
   fi
 
-  ImportantCount=$(<"$TmpFile" grep '^\(linux\|linux-firmware\|grub\|xorg-server\|sudo\) ' | wc -l)
+  ImportantCount=$(<"$TmpFile" grep '^\(linux\|linux-firmware\|grub\|xorg-server\|sudo\|iptables\) ' | wc -l)
   if (($ImportantCount != 0)); then
     ResultString="$ResultString ❗"
   fi
 
   echo $ResultString > ~/.ownconfigs/linux/status_files/packages
+  date
   echo Update result: $UpdateCount available, $ImportantCount important
 
   Backoff=10
@@ -45,5 +46,5 @@ while true; do
   if (($PacmanTime > $StatFileTime || $NowTime - $StatFileTime > 3600)); then
     do_check
   fi
-  sleep 15
+  sleep 30
 done
