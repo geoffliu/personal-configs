@@ -18,14 +18,14 @@ do_check() {
   fi
 
   UpdateCount=$(<"$TmpFile" wc -l)
+  ImportantCount=$(<"$TmpFile" grep '^\(linux\|linux-firmware\|grub\|iptables\) ' | wc -l)
 
-  if (($UpdateCount == 0)); then
-    ResultString="$ResultString✅"
-  else
+  if (($UpdateCount >= 10 || $ImportantCount != 0)); then
     ResultString="$ResultString $UpdateCount"
+  else
+    ResultString="$ResultString✅"
   fi
 
-  ImportantCount=$(<"$TmpFile" grep '^\(linux\|linux-firmware\|grub\|xorg-server\|sudo\|iptables\) ' | wc -l)
   if (($ImportantCount != 0)); then
     ResultString="$ResultString ❗"
   fi
