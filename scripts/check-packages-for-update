@@ -22,12 +22,11 @@ do_check() {
 
   if (($UpdateCount >= 10)); then
     ResultString="$ResultString $UpdateCount"
+    if (($ImportantCount != 0)); then
+      ResultString="$ResultString ❗"
+    fi
   else
     ResultString="$ResultString✅"
-  fi
-
-  if (($ImportantCount != 0)); then
-    ResultString="$ResultString ❗"
   fi
 
   echo $ResultString > ~/.ownconfigs/linux/status_files/packages
