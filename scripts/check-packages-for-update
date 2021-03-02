@@ -1,5 +1,8 @@
 #!/bin/bash
 
+command -V checkupdates || exit
+
+
 Backoff=10
 
 do_check() {

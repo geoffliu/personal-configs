@@ -26,8 +26,8 @@ command -V feh
 command -V i3
 command -V i3lock
 command -V i3status
-command -V nm-applet
-command -V pamixer
+# command -V nm-applet
+# command -V pamixer
 command -V scrot
 command -V sxiv
 command -V urxvt
@@ -35,8 +35,6 @@ command -V xautolock
 command -V xclip
 command -V xdm
 command -V xrandr
-
-command -V checkupdates
 
 mkdir -p ~/bin
 cp $CurrentPath/scripts/* ~/bin
