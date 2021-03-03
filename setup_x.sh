@@ -26,14 +26,10 @@ command -V feh
 command -V i3
 command -V i3lock
 command -V i3status
-# command -V nm-applet
-# command -V pamixer
-command -V scrot
-command -V sxiv
 command -V urxvt
 command -V xautolock
-command -V xclip
 command -V xdm
+# TODO: Is xrandr required?
 command -V xrandr
 
 mkdir -p ~/bin
@@ -49,6 +45,9 @@ fi
 chmod +x ~/.xsession
 
 cp -v $CurrentPath/linux/Xdefaults ~/.Xdefaults
+
+mkdir -p ~/.config/kitty
+cp -v $CurrentPath/linux/kitty.conf ~/.config/kitty
 
 mkdir -p ~/.i3
 $CurrentPath/linux/i3config.sh > ~/.i3/config
@@ -72,5 +71,4 @@ for f in $Fonts; do
   echo Resolving $f
   fc-match "$f"
 done
-
 
