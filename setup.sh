@@ -30,7 +30,6 @@ done
 command -V git
 command -V zsh
 command -V less
-command -V screen
 command -V lesskey
 
 mkdir -p ~/bin
