@@ -1,7 +1,11 @@
 #!/bin/bash
 
-command -V checkupdates || exit
+give_up() {
+  echo "📦🤷" > ~/.ownconfigs/linux/status_files/packages
+  exit
+}
 
+command -V checkupdates || give_up
 
 Backoff=10
 
