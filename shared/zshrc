@@ -45,7 +45,7 @@ function precmd {
 
 setopt PROMPT_SUBST
 function git_status_char {
-  [[ -n "$(git status -s 2>/dev/null)" ]] && echo "✎ "
+  [[ -n "$(git status -s 2>/dev/null)" ]] && echo "🖋️ "
 }
 function vim_status_word {
   echo ${${KEYMAP/vicmd/[ NORMAL ]}/(main|viins)/[ INSERT ]}

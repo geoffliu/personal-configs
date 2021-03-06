@@ -17,7 +17,7 @@ while getopts "r" Opt; do
   esac
 done
 
-# pacman -S dmenu i3-wm i3lock i3status pamixer sxiv rxvt-unicode xorg-xautolock
+# pacman -S dmenu i3-wm i3lock i3status pamixer sxiv xautolock
 # xorg-xclip xorg-xrandr xorg-xdm network-manager-applet scrot feh
 
 # xsession
