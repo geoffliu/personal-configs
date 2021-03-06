@@ -20,17 +20,19 @@ done
 # pacman -S dmenu i3-wm i3lock i3status pamixer sxiv rxvt-unicode xorg-xautolock
 # xorg-xclip xorg-xrandr xorg-xdm network-manager-applet scrot feh
 
-command -V dmenu
-command -V fc-match
+# xsession
 command -V feh
+command -V xautolock
+command -V xdm
+command -V xrandr
+
+# WM
+command -V dmenu
 command -V i3
 command -V i3lock
 command -V i3status
-command -V urxvt
-command -V xautolock
-command -V xdm
-# TODO: Is xrandr required?
-command -V xrandr
+
+command -V fc-match
 
 mkdir -p ~/bin
 cp $CurrentPath/scripts/* ~/bin
