@@ -32,8 +32,6 @@ command -V i3
 command -V i3lock
 command -V i3status
 
-command -V fc-match
-
 mkdir -p ~/bin
 cp $CurrentPath/scripts/* ~/bin
 
@@ -57,20 +55,4 @@ $CurrentPath/linux/i3status.sh $CurrentPath > ~/.i3status.conf
 
 mkdir -p ~/.config/fontconfig
 cp $CurrentPath/linux/fonts.conf ~/.config/fontconfig
-
-Fonts=(
-  'Noto Sans'
-  'Noto Sans Mono'
-  'Noto Serif'
-  'WenQuanYi Micro Hei'
-  'WenQuanYi Micro Hei Mono'
-  'Monofur for Powerline'
-  'IBM 3270'
-)
-
-echo CHECKING FOR FONTS:
-for f in $Fonts; do
-  echo Resolving $f
-  fc-match "$f"
-done
 
