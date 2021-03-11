@@ -35,8 +35,6 @@ command -V i3status
 mkdir -p ~/bin
 cp $CurrentPath/scripts/* ~/bin
 
-mkdir -p "$CurrentPath/linux/status_files"
-
 if [[ $Retina -eq 1 ]]; then
   $CurrentPath/linux/xinitrc.sh -r > ~/.xsession
 else
@@ -55,4 +53,9 @@ $CurrentPath/linux/i3status.sh $CurrentPath > ~/.i3status.conf
 
 mkdir -p ~/.config/fontconfig
 cp $CurrentPath/linux/fonts.conf ~/.config/fontconfig
+
+# Setup cron scripts
+mkdir -p $CurrentPath/linux/status_files
+mkdir -p ~/.config/systemd/user
+$CurrentPath/linux/make_cron gentoo-package-check 10
 

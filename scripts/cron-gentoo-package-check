@@ -1,0 +1,3 @@
+#!/bin/bash
+
+date >> ~/.ownconfigs/linux/status_files/systemd-test

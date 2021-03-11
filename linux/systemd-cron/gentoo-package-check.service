@@ -1,7 +1,0 @@
-[Unit]
-Description=Check Portage tree age
-
-[Service]
-Type=oneshot
-ExecStart=/home/geoff/bin/gentoo-package-check
-

@@ -27,7 +27,6 @@ EOF
 fi
 
 cat << EOF
-check-packages-for-update &
 fcitx
 feh --randomize --no-fehbg --bg-fill ~/.ownconfigs/etc/wallpapers
 xautolock -locker "lock-screen" -time 10 -corners 000- &

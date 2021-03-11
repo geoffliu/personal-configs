@@ -1,9 +1,0 @@
-[Unit]
-Description=Periodically check Portage tree age
-
-[Timer]
-OnActiveSec=10min
-OnUnitActiveSec=10min
-
-[Install]
-WantedBy=timer.target
