@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PortageTime=$(date -d $(cat /var/db/repos/gentoo/metadata/timestamp.chk) +%s)
+PortageTime=$(date -d "$(cat /var/db/repos/gentoo/metadata/timestamp.chk)" +%s)
 NowTime=$(date +%s)
 
 if (($NowTime - $PortageTime < 3600 * 24)); then
