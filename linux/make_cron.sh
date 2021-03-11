@@ -18,6 +18,6 @@ OnActiveSec=1min
 OnUnitActiveSec=${2}min
 
 [Install]
-WantedBy=timer.target
+WantedBy=timers.target
 EOF
 
