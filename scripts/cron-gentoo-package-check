@@ -1,3 +1,11 @@
 #!/bin/bash
 
-date >> ~/.ownconfigs/linux/status_files/systemd-test
+PortageTime=$(date -d $(cat /var/db/repos/gentoo/metadata/timestamp.chk) +%s)
+NowTime=$(date +%s)
+
+if (($NowTime - $PortageTime < 3600 * 24)); then
+  echo "📦✅" > ~/.ownconfigs/linux/status_files/packages
+else
+  echo "📦⌚" > ~/.ownconfigs/linux/status_files/packages
+fi
+
