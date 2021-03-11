@@ -13,6 +13,7 @@ order += "read_file packages"
 order += "disk /"
 order += "disk /home"
 order += "battery 0"
+order += "wireless _first_"
 order += "load"
 order += "tztime local"
 
@@ -35,13 +36,18 @@ battery 0 {
   status_full = "💯"
 }
 
+wireless _first_ {
+  format_up = "📡%quality"
+  format_down = "📡🈚"
+}
+
 load {
   format = "🤖 %1min %5min %15min"
   max_threshold = 3
 }
 
 tztime local {
-  format = "%Y-%m-%d %A %H:%M"
+  format = "%m-%d %A %H:%M"
 }
 
 read_file packages {
