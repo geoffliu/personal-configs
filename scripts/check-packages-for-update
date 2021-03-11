@@ -25,20 +25,16 @@ do_check() {
   fi
 
   UpdateCount=$(<"$TmpFile" wc -l)
-  ImportantCount=$(<"$TmpFile" grep '^\(linux\|linux-firmware\|grub\|iptables\) ' | wc -l)
 
   if (($UpdateCount >= 10)); then
     ResultString="$ResultString $UpdateCount"
-    if (($ImportantCount != 0)); then
-      ResultString="$ResultString ❗"
-    fi
   else
     ResultString="$ResultString✅"
   fi
 
   echo $ResultString > ~/.ownconfigs/linux/status_files/packages
   date
-  echo Update result: $UpdateCount available, $ImportantCount important
+  echo Update result: $UpdateCount available
 
   Backoff=10
 
