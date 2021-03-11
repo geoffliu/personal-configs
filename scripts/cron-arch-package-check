@@ -1,0 +1,42 @@
+#!/bin/bash
+
+PacmanTime=$(stat -c %Y /var/log/pacman.log)
+StatFileTime=$(stat -c %Y ~/.ownconfigs/linux/status_files/packages)
+NowTime=$(date +%s)
+if (($PacmanTime < $StatFileTime || $NowTime - $StatFileTime < 3600 * 24)); then
+  exit
+fi
+
+Backoff=10
+
+TmpFile=$(mktemp --tmpdir package-check-XXXXX)
+ResultString="📦"
+
+while true; do
+  checkupdates > "$TmpFile"
+  if (( $? != 0 && $? != 2)); then
+    echo Error running check updates, waiting $Backoff
+    sleep $Backoff
+    ((Backoff *= 2))
+    if (($Backoff > 300)); then
+      Backoff=300
+    fi
+  else
+    break
+  fi
+done
+
+UpdateCount=$(<"$TmpFile" wc -l)
+
+if (($UpdateCount >= 10)); then
+  ResultString="$ResultString $UpdateCount"
+else
+  ResultString="$ResultString✅"
+fi
+
+echo $ResultString > ~/.ownconfigs/linux/status_files/packages
+date
+echo Update result: $UpdateCount available
+
+rm $TmpFile
+
