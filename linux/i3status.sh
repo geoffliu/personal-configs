@@ -15,6 +15,7 @@ order += "disk /home"
 order += "battery 0"
 order += "wireless _first_"
 order += "load"
+order += "read_file mercury"
 order += "tztime local"
 
 disk "/" {
@@ -52,6 +53,10 @@ tztime local {
 
 read_file packages {
   path = "$1/linux/status_files/packages"
+}
+
+read_file mercury {
+  path = "$1/linux/status_files/mercury"
 }
 
 EOF
