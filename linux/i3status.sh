@@ -14,6 +14,7 @@ order += "disk /"
 order += "disk /home"
 order += "battery 0"
 order += "wireless _first_"
+order += "volume master"
 order += "load"
 order += "read_file mercury"
 order += "tztime local"
@@ -49,6 +50,12 @@ load {
 
 tztime local {
   format = "%m-%d %A %H:%M"
+}
+
+volume master {
+  format = "🎵%volume"
+  format_muted = "🔇"
+  device = "pulse"
 }
 
 read_file packages {
