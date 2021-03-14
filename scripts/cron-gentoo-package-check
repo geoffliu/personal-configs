@@ -1,11 +1,34 @@
 #!/bin/bash
 
+PackageFile=$HOME/.ownconfigs/linux/status_files/packages
+PackageFileTime=$(stat -c %Y $PackageFile)
+EmergeLogTime=$(stat -c %Y /var/log/emerge.log)
 PortageTime=$(date -d "$(cat /var/db/repos/gentoo/metadata/timestamp.chk)" +%s)
 NowTime=$(date +%s)
 
-if (($NowTime - $PortageTime < 3600 * 24)); then
-  echo "📦✅" > ~/.ownconfigs/linux/status_files/packages
-else
-  echo "📦⌚" > ~/.ownconfigs/linux/status_files/packages
+if (($NowTime - $PortageTime > 3600 * 24)); then
+  if (($NowTime - $PackageFileTime > 3600)); then
+    echo "📦🔄" > ~/.ownconfigs/linux/status_files/packages
+  fi
+  exit
+fi
+
+function check_emerge_update {
+  UpdateCount=$(emerge --pretend --quiet --update --deep @world | wc -l)
+  if (($UpdateCount >= 10)); then
+    echo "📦 $UpdateCount" > $PackageFile
+  else
+    echo "📦✅" > $PackageFile
+  fi
+}
+
+if (($PortageTime > $EmergeLogTime && $PackageFileTime - $PortageTime < 600)); then
+  check_emerge_update
+  exit
+fi
+
+if (($EmergeLogTime > $PackageFileTime)); then
+  check_emerge_update
+  exit
 fi
 

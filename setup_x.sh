@@ -57,7 +57,7 @@ cp $CurrentPath/linux/fonts.conf ~/.config/fontconfig
 # Setup cron scripts
 mkdir -p $CurrentPath/linux/status_files
 mkdir -p ~/.config/systemd/user
-$CurrentPath/linux/make_cron.sh gentoo-package-check 10
+$CurrentPath/linux/make_cron.sh gentoo-package-check 1
 $CurrentPath/linux/make_cron.sh arch-package-check 1
 $CurrentPath/linux/make_cron.sh mercury-status 60
 

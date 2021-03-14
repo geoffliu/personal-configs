@@ -1,9 +1,10 @@
 #!/bin/bash
 
+PackageFile=$HOME/.ownconfigs/linux/status_files/packages
+PackageFileTime=$(stat -c %Y $PackageFile)
 PacmanTime=$(stat -c %Y /var/log/pacman.log)
-StatFileTime=$(stat -c %Y ~/.ownconfigs/linux/status_files/packages)
 NowTime=$(date +%s)
-if (($PacmanTime < $StatFileTime && $NowTime - $StatFileTime < 3600 * 24)); then
+if (($PacmanTime < $PackageFileTime && $NowTime - $PackageFileTime < 3600)); then
   exit
 fi
 
