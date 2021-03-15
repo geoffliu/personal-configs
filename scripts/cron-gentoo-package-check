@@ -32,3 +32,30 @@ if (($EmergeLogTime > $PackageFileTime)); then
   exit
 fi
 
+if (($NowTime - $PackageFileTime < 3600)); then
+  echo Too soon
+fi
+
+ConfigFilesToSync=(
+  /etc/genkernel.conf
+  /etc/kernels/kernel-config-$(uname -r)
+  /etc/portage/make.conf
+  /etc/portage/package.use
+  /etc/portage/profile/package.provided
+  /var/lib/portage/world
+)
+
+OutOfSync=0
+for f in ${ConfigFilesToSync[@]}; do
+  LocalFile=$HOME/.ownconfigs/linux/gentoo/$(basename $f)
+  diff $f $LocalFile >> /dev/null
+  if (($? != 0)); then
+    cp $f $LocalFile
+    OutOfSync=1
+  fi
+done
+
+if (($OutOfSync == 1)); then
+  echo "📦📝" > $PackageFile
+fi
+
