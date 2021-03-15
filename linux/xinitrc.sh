@@ -28,7 +28,7 @@ fi
 
 cat << EOF
 fcitx
-feh --randomize --no-fehbg --bg-fill ~/.ownconfigs/etc/wallpapers
+feh --randomize --no-fehbg --bg-fill ~/.ownconfigs/linux/etc/wallpapers
 xautolock -locker "lock-screen" -time 10 -corners 0-00 &
 exec i3
 EOF
