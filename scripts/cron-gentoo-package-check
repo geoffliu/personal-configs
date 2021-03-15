@@ -1,7 +1,7 @@
 #!/bin/bash
 
 PackageFile=$HOME/.ownconfigs/linux/status_files/packages
-PackageFileTime=$(stat -c %Y $PackageFile)
+PackageFileTime=$(stat -c %Y $PackageFile || echo 0)
 EmergeLogTime=$(stat -c %Y /var/log/emerge.log)
 PortageTime=$(date -d "$(cat /var/db/repos/gentoo/metadata/timestamp.chk)" +%s)
 NowTime=$(date +%s)
@@ -33,7 +33,7 @@ if (($EmergeLogTime > $PackageFileTime)); then
 fi
 
 if (($NowTime - $PackageFileTime < 3600)); then
-  echo Too soon
+  exit
 fi
 
 ConfigFilesToSync=(
