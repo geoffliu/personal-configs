@@ -41,18 +41,16 @@ function check_emerge_update {
   UpdateCount=$(emerge --pretend --quiet --update --deep @world | wc -l)
   if (($UpdateCount >= 5)); then
     echo "📦 $UpdateCount" > $PackageFile
-  else
-    echo "📦✅" > $PackageFile
+    exit
   fi
 }
 
 if (($PortageTime > $EmergeLogTime && $PackageFileTime - $PortageTime < 600)); then
   check_emerge_update
-  exit
 fi
 
 if (($EmergeLogTime > $PackageFileTime)); then
   check_emerge_update
-  exit
 fi
 
+echo "📦✅" > $PackageFile
