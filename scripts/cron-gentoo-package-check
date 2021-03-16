@@ -17,23 +17,16 @@ function check_emerge_update {
   UpdateCount=$(emerge --pretend --quiet --update --deep @world | wc -l)
   if (($UpdateCount >= 5)); then
     echo "📦 $UpdateCount" > $PackageFile
-  else
-    echo "📦✅" > $PackageFile
+    exit
   fi
 }
 
 if (($PortageTime > $EmergeLogTime && $PackageFileTime - $PortageTime < 600)); then
   check_emerge_update
-  exit
 fi
 
 if (($EmergeLogTime > $PackageFileTime)); then
   check_emerge_update
-  exit
-fi
-
-if (($NowTime - $PackageFileTime < 3600)); then
-  exit
 fi
 
 ConfigFilesToSync=(
@@ -48,8 +41,9 @@ ConfigFilesToSync=(
 OutOfSync=0
 for f in ${ConfigFilesToSync[@]}; do
   LocalFile=$HOME/.ownconfigs/linux/gentoo/$(basename $f)
-  diff $f $LocalFile >> /dev/null
-  if (($? != 0)); then
+  LocalFileTime=$(stat -c %Y $LocalFile)
+  LiveConfigTime=$(stat -c %Y $f)
+  if (($LiveConfigTime > $LocalFileTime)); then
     cp $f $LocalFile
     OutOfSync=1
   fi
@@ -57,5 +51,7 @@ done
 
 if (($OutOfSync == 1)); then
   echo "📦📝" > $PackageFile
+  exit
 fi
 
+echo "📦✅" > $PackageFile

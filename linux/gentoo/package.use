@@ -2,12 +2,6 @@ app-i18n/fcitx -autostart -enchant -table
 media-sound/pulseaudio -asyncns -glib -ipv6 -ssl -tcpd -webrtc-aec -orc
 net-misc/networkmanager -ppp -modemmanager -wext
 
-app-crypt/gcr introspection
-app-crypt/libsecret introspection
-gnome-base/librsvg introspection
-x11-libs/gtk+ introspection
-x11-libs/pango introspection
-
 # required by net-misc/networkmanager-1.26.4::gentoo[-iwd,wifi]
 # required by networkmanager (argument)
 net-wireless/wpa_supplicant dbus
