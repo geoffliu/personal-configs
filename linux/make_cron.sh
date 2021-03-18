@@ -14,7 +14,7 @@ cat > ~/.config/systemd/user/$1.timer << EOF
 Description=Periodically run $1
 
 [Timer]
-OnActiveSec=1min
+OnActiveSec=0
 OnUnitActiveSec=${2}min
 
 [Install]

@@ -1,0 +1,10 @@
+#!/bin/bash
+
+mkdir -p /dev/shm/i3status-files
+TmpFile=/dev/shm/i3status-files/$1
+if [ ! -f $TmpFile ]; then
+  echo '🤷' > $TmpFile
+  touch -d '2000-01-01 00:00:00' $TmpFile
+fi
+
+echo $TmpFile

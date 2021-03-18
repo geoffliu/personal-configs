@@ -59,11 +59,11 @@ volume master {
 }
 
 read_file packages {
-  path = "$1/linux/status_files/packages"
+  path = "$(get-status-file packages)"
 }
 
 read_file mercury {
-  path = "$1/linux/status_files/mercury"
+  path = "$(get-status-file mercury)"
 }
 
 EOF

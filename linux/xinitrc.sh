@@ -1,6 +1,5 @@
 #!/bin/sh
 
-
 Retina=0
 
 while getopts "r" Opt; do
@@ -30,5 +29,7 @@ cat << EOF
 fcitx
 feh --randomize --no-fehbg --bg-fill ~/.ownconfigs/linux/etc/wallpapers
 xautolock -locker "lock-screen" -time 10 -corners 0-00 &
+get-status-file packages
+get-status-file mercury
 exec i3
 EOF

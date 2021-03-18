@@ -1,6 +1,6 @@
 #!/bin/bash
 
-python - > ~/.ownconfigs/linux/status_files/mercury << EOF
+python - > $($HOME/bin/get-status-file mercury) << EOF
 
 import math
 import ephem
