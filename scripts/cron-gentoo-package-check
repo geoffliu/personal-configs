@@ -17,7 +17,7 @@ ConfigFilesToSync=(
 
 for f in ${ConfigFilesToSync[@]}; do
   LocalFile=$HOME/.ownconfigs/linux/gentoo/$(basename $f)
-  LocalFileTime=$(stat -c %Y $LocalFile)
+  LocalFileTime=$(stat -c %Y $LocalFile || echo 0)
   LiveConfigTime=$(stat -c %Y $f)
   if (($LiveConfigTime > $LocalFileTime)); then
     cp $f $LocalFile
