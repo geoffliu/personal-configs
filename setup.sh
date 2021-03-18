@@ -65,7 +65,7 @@ if [[ $IncludeVim -eq 1 ]]; then
   cp -v $CurrentPath/skel/vimrc ~/.vimrc
   vim +PluginUpdate +qa
 
-  echo 'source ~/.ownconfigs/shared/vim/workman.vim' >> ~/.vimrc
+  echo "source $CurrentPath/shared/vim/workman.vim" >> ~/.vimrc
 
   if [[ $UseCtags -eq 1 ]]; then
     ensure_ctags
@@ -83,7 +83,7 @@ if [[ $IncludeNvim -eq 1 ]]; then
   cp -v $CurrentPath/skel/nvimrc ~/.config/nvim/init.vim
   nvim +PluginUpdate +qa
 
-  echo 'source ~/.ownconfigs/shared/vim/workman.vim' >> ~/.config/nvim/init.vim
+  echo "source $CurrentPath/shared/vim/workman.vim" >> ~/.config/nvim/init.vim
 
   if [[ $UseCtags -eq 1 ]]; then
     ensure_ctags
@@ -93,7 +93,7 @@ if [[ $IncludeNvim -eq 1 ]]; then
 fi
 
 lesskey $CurrentPath/shared/lesskey_workman
-echo 'source ~/.ownconfigs/shared/zshrc_workman' >> ~/.zshrc
+echo "source $CurrentPath/shared/zshrc_workman" >> ~/.zshrc
 
 cp -v $CurrentPath/shared/gitconfig ~/.gitconfig
 cp -v $CurrentPath/shared/gitignore ~/.gitignore
