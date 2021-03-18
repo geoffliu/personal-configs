@@ -84,7 +84,7 @@ vimquickfix() {
 
 gca() {
   if [ $# -eq 0 ]; then
-    git commit -a -m "$(~/.ownconfigs/spaceteam-gen/main.py)"
+    git commit -a -m "$($PERSONAL_CONFIG_DIR/spaceteam-gen/main.py)"
   else
     git commit -a -m "$*"
   fi

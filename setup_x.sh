@@ -49,13 +49,12 @@ cp -v $CurrentPath/linux/kitty.conf ~/.config/kitty
 
 mkdir -p ~/.i3
 $CurrentPath/linux/i3config.sh > ~/.i3/config
-$CurrentPath/linux/i3status.sh $CurrentPath > ~/.i3status.conf
+$CurrentPath/linux/i3status.sh > ~/.i3status.conf
 
 mkdir -p ~/.config/fontconfig
 cp $CurrentPath/linux/fonts.conf ~/.config/fontconfig
 
 # Setup cron scripts
-mkdir -p $CurrentPath/linux/status_files
 mkdir -p ~/.config/systemd/user
 $CurrentPath/linux/make_cron.sh gentoo-package-check 1
 $CurrentPath/linux/make_cron.sh arch-package-check 1

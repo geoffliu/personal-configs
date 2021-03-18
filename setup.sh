@@ -49,6 +49,7 @@ mkdir -p ~/.zsh_functions
 cp -v $CurrentPath/shared/zsh_functions/* ~/.zsh_functions
 
 cp -v $CurrentPath/shared/profile ~/.profile
+echo "export PERSONAL_CONFIG_DIR=$CurrentPath" >> ~/.profile
 
 function ensure_ctags {
   command -V ctags
