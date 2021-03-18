@@ -43,7 +43,7 @@ function check_emerge_update {
   fi
 }
 
-if (($PortageTime > $EmergeLogTime && $PackageFileTime - $PortageTime < 600)); then
+if (($PortageTime > $EmergeLogTime && $PackageFileTime - $PortageTime < 300)); then
   check_emerge_update
 fi
 
