@@ -1,7 +1,3 @@
-let g:is_vim=1
-
-source ~/.ownconfigs/shared/vim/plugins.vim
-
 syn on
 set smartindent
 set textwidth=80
@@ -18,5 +14,3 @@ set wildmenu
 set formatoptions-=t
 set complete-=i
 
-source ~/.ownconfigs/shared/vim/shared_post.vim
-source ~/.ownconfigs/extras/vimrc

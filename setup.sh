@@ -62,10 +62,13 @@ if [[ $IncludeVim -eq 1 ]]; then
 
   rm -rf ~/.vim
   git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-  cp -v $CurrentPath/skel/vimrc ~/.vimrc
+  echo "let g:is_vim=1" > ~/.vimrc
+  cat $CurrentPath/shared/vim/plugins.vim >> ~/.vimrc
+  cat $CurrentPath/shared/vim/vim_only.vim >> ~/.vimrc
+  cat $CurrentPath/shared/vim/shared_post.vim >> ~/.vimrc
+  cat $CurrentPath/shared/vim/workman.vim >> ~/.vimrc
+  cat $CurrentPath/extras/vimrc >> ~/.vimrc
   vim +PluginUpdate +qa
-
-  echo "source $CurrentPath/shared/vim/workman.vim" >> ~/.vimrc
 
   if [[ $UseCtags -eq 1 ]]; then
     ensure_ctags
@@ -80,10 +83,11 @@ if [[ $IncludeNvim -eq 1 ]]; then
 
   rm -rf ~/.config/nvim
   git clone https://github.com/VundleVim/Vundle.vim.git ~/.config/nvim/bundle/Vundle.vim
-  cp -v $CurrentPath/skel/nvimrc ~/.config/nvim/init.vim
+  echo "let g:is_vim=0" > ~/.config/nvim/init.vim
+  cat $CurrentPath/shared/vim/plugins.vim >> ~/.config/nvim/init.vim
+  cat $CurrentPath/shared/vim/shared_post.vim >> ~/.config/nvim/init.vim
+  cat $CurrentPath/shared/vim/workman.vim >> ~/.config/nvim/init.vim
   nvim +PluginUpdate +qa
-
-  echo "source $CurrentPath/shared/vim/workman.vim" >> ~/.config/nvim/init.vim
 
   if [[ $UseCtags -eq 1 ]]; then
     ensure_ctags
