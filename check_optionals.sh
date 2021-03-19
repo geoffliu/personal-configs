@@ -17,17 +17,14 @@ echo
 #   lilex
 #
 # Reading fonts:
-#   Gentium
 #   open dyslexic
 #   BitStream Vera
 Fonts=(
-  'Noto Sans'
-  'Noto Sans Mono'
-  'Noto Serif'
-  'Noto Color Emoji'
+  'Charis SIL'
   'Fira Code'
-  'WenQuanYi Micro Hei'
+  'Noto Color Emoji'
   'WenQuanYi Micro Hei Mono'
+  'WenQuanYi Micro Hei'
 )
 
 echo CHECKING FOR FONTS:
