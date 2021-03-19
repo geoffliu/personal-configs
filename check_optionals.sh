@@ -15,7 +15,6 @@ echo
 # Coding fonts:
 #   mononoki
 #   lilex
-#   fira code
 #
 # Reading fonts:
 #   Gentium
@@ -26,6 +25,7 @@ Fonts=(
   'Noto Sans Mono'
   'Noto Serif'
   'Noto Color Emoji'
+  'Fira Code'
   'WenQuanYi Micro Hei'
   'WenQuanYi Micro Hei Mono'
 )
