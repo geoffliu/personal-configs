@@ -6,14 +6,18 @@ command -V sxiv
 command -V scrot
 command -V xclip
 
+echo
+echo Checking Python ephem library
+python -c 'import ephem'
+echo
+
 Fonts=(
   'Noto Sans'
   'Noto Sans Mono'
   'Noto Serif'
+  'Noto Color Emoji'
   'WenQuanYi Micro Hei'
   'WenQuanYi Micro Hei Mono'
-  'Monofur for Powerline'
-  'IBM 3270'
 )
 
 echo CHECKING FOR FONTS:
