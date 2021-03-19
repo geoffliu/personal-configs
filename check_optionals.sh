@@ -11,6 +11,16 @@ echo Checking Python ephem library
 python -c 'import ephem'
 echo
 
+# TODO: other fonts to try:
+# Coding fonts:
+#   mononoki
+#   lilex
+#   fira code
+#
+# Reading fonts:
+#   Gentium
+#   open dyslexic
+#   BitStream Vera
 Fonts=(
   'Noto Sans'
   'Noto Sans Mono'
