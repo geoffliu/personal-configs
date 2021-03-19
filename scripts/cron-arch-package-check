@@ -28,7 +28,7 @@ else
   ResultString="$ResultString✅"
 fi
 
-echo $ResultString > ~/.ownconfigs/linux/status_files/packages
+echo $ResultString > $PackageFile
 date
 echo Update result: $UpdateCount available
 

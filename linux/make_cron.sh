@@ -6,6 +6,7 @@ Description=Run $1
 
 [Service]
 Type=oneshot
+Environment="PERSONAL_CONFIG_DIR=$PERSONAL_CONFIG_DIR"
 ExecStart=$HOME/bin/cron-$1
 EOF
 
