@@ -106,7 +106,7 @@ cp -v $CurrentPath/shared/screenrc ~/.screenrc
 
 function linux_specific {
   command -V dircolors
-  echo 'eval $(dircolors -b ~/.ownconfigs/linux/ls_color_db)' >> ~/.zshrc
+  echo 'eval $(dircolors -b '$CurrentPath'/linux/ls_color_db)' >> ~/.zshrc
   echo 'alias ls=" ls --color=auto"' >> ~/.zshrc
 }
 
