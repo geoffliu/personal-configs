@@ -16,7 +16,7 @@ ConfigFilesToSync=(
 )
 
 for f in ${ConfigFilesToSync[@]}; do
-  LocalFile=$HOME/.ownconfigs/linux/gentoo/$(basename $f)
+  LocalFile=$PERSONAL_CONFIG_DIR/linux/gentoo/$(basename $f)
   LocalFileTime=$(stat -c %Y $LocalFile || echo 0)
   LiveConfigTime=$(stat -c %Y $f)
   if (($LiveConfigTime > $LocalFileTime)); then
@@ -24,7 +24,7 @@ for f in ${ConfigFilesToSync[@]}; do
   fi
 done
 
-ChangedFiles=$(git -C $HOME/.ownconfigs status -s | grep linux/gentoo | wc -l)
+ChangedFiles=$(git -C $PERSONAL_CONFIG_DIR status -s | grep linux/gentoo | wc -l)
 if (($ChangedFiles != 0)); then
   echo "📦📝" > $PackageFile
   exit
