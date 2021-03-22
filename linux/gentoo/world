@@ -18,6 +18,10 @@ net-misc/dropbox
 net-misc/networkmanager
 sci-astronomy/pyephem
 sys-apps/dmidecode
+sys-apps/i2c-tools
+sys-apps/lshw
+sys-apps/pciutils
+sys-apps/usbutils
 sys-auth/fprintd
 sys-firmware/intel-microcode
 sys-firmware/sof-firmware
