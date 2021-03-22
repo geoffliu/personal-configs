@@ -1,9 +1,29 @@
 #!/bin/bash
 
-PackageFile=$($HOME/bin/get-status-file packages)
-PackageFileTime=$(stat -c %Y $PackageFile)
+PackageStateCache=$($HOME/bin/get-status-file package-state-cache)
+PackageStateCacheTime=$(stat -c %Y $PackageStateCache)
 EmergeLogTime=$(stat -c %Y /var/log/emerge.log)
 PortageTime=$(date -d "$(cat /var/db/repos/gentoo/metadata/timestamp.chk)" +%s)
+
+function check_emerge_update {
+  UpdateCount=$(emerge --pretend --quiet --update --deep @world | wc -l)
+  if (($UpdateCount >= 5)); then
+    echo "📦 $UpdateCount" > $PackageStateCache
+  else
+    echo "📦✅" > $PackageStateCache
+  fi
+}
+
+if (($PortageTime > $EmergeLogTime && $PackageStateCacheTime - $PortageTime < 300)); then
+  check_emerge_update
+fi
+
+if (($EmergeLogTime > $PackageStateCacheTime)); then
+  check_emerge_update
+fi
+
+PackageFile=$($HOME/bin/get-status-file packages)
+PackageFileTime=$(stat -c %Y $PackageFile)
 NowTime=$(date +%s)
 
 ConfigFilesToSync=(
@@ -35,20 +55,5 @@ if (($NowTime - $PortageTime > 3600 * 24)); then
   exit
 fi
 
-function check_emerge_update {
-  UpdateCount=$(emerge --pretend --quiet --update --deep @world | wc -l)
-  if (($UpdateCount >= 5)); then
-    echo "📦 $UpdateCount" > $PackageFile
-    exit
-  fi
-}
+cat $PackageStateCache > $PackageFile
 
-if (($PortageTime > $EmergeLogTime && $PackageFileTime - $PortageTime < 300)); then
-  check_emerge_update
-fi
-
-if (($EmergeLogTime > $PackageFileTime)); then
-  check_emerge_update
-fi
-
-echo "📦✅" > $PackageFile
