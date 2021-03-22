@@ -17,12 +17,14 @@ net-libs/nodejs
 net-misc/dropbox
 net-misc/networkmanager
 sci-astronomy/pyephem
+sys-apps/dmidecode
 sys-auth/fprintd
 sys-firmware/intel-microcode
 sys-firmware/sof-firmware
 sys-fs/cryptsetup
 sys-kernel/genkernel
 sys-kernel/gentoo-sources
+sys-power/pmtools
 www-client/google-chrome
 x11-apps/xdm
 x11-apps/xrandr
