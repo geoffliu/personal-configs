@@ -19,6 +19,7 @@ net-misc/networkmanager
 sci-astronomy/pyephem
 sys-apps/dmidecode
 sys-apps/i2c-tools
+sys-apps/linux-misc-apps
 sys-apps/lshw
 sys-apps/pciutils
 sys-apps/usbutils
@@ -28,7 +29,7 @@ sys-firmware/sof-firmware
 sys-fs/cryptsetup
 sys-kernel/genkernel
 sys-kernel/gentoo-sources
-sys-power/pmtools
+sys-power/powertop
 www-client/google-chrome
 x11-apps/xdm
 x11-apps/xrandr
