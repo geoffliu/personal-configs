@@ -23,6 +23,7 @@ Fonts=(
   'Charis SIL'
   'Fira Code'
   'Noto Color Emoji'
+  'DejaVu Sans'
   'WenQuanYi Micro Hei Mono'
   'WenQuanYi Micro Hei'
 )
