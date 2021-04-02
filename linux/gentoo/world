@@ -7,6 +7,7 @@ app-portage/gentoolkit
 app-shells/fzf
 app-shells/zsh
 dev-lang/rust-bin
+dev-python/kconfiglib
 dev-vcs/git
 media-fonts/fira-code
 media-fonts/noto-emoji
