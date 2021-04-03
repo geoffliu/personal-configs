@@ -3,6 +3,7 @@ import os
 
 from configparts import x1
 from configparts import x1failsafe
+import deptree
 
 script_dir = os.path.dirname(os.path.realpath(__file__))
 
@@ -31,17 +32,8 @@ def enable_config(kconf, name, target):
             op, c1, c2 = dep
             recurse(c1)
             recurse(c2)
-        elif dep[0] == kconfiglib.NOT:
-            cond = dep[1]
-            if cond.type == kconfiglib.UNKNOWN:
-                print('WARNING: unknown dep ' + cond.name)
-            elif cond.str_value != kconf.n:
-                raise BadDependency(dep)
-        elif dep[0] == kconfiglib.EQUAL:
-            op, c1, c2 = dep
-            if c1.str_value != c2.str_value:
-                raise BadDependency(dep)
-        else:
+
+        elif not deptree.is_satisfied(dep, target):
             print(symbol)
             print(dep)
             raise BadDependency(dep)
