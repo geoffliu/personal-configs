@@ -1,5 +1,7 @@
 import re
+import os
 from sys import argv
+
 
 def has_higher_setting(c1, c2, opt):
     if opt not in c1:
