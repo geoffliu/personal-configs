@@ -9,6 +9,12 @@ script_dir = os.path.dirname(os.path.realpath(__file__))
 class BadDependency(Exception):
     pass
 
+def set_value(symbol, target):
+    if symbol.type == kconfiglib.TRISTATE:
+        symbol.set_value(max(target, symbol.tri_value))
+    else:
+        symbol.set_value(2)
+
 def enable_config(kconf, name, target):
     symbol = kconf.syms[name]
     symbol.set_value(max(target, symbol.tri_value))
@@ -18,7 +24,7 @@ def enable_config(kconf, name, target):
             return
 
         if isinstance(dep, kconfiglib.Symbol):
-            dep.set_value(max(target, dep.tri_value))
+            set_value(dep, target)
             return
 
         if dep[0] == kconfiglib.AND:
@@ -55,7 +61,7 @@ kconf.load_config(os.path.join(script_dir, 'kernel-minimal'))
 for c, v in x1.CONFIGS:
     enable_config(kconf, c, v)
 
-x1failsafe.apply_config(kconf)
+# x1failsafe.apply_config(kconf)
 clear_defaults(kconf)
 
 print(kconf.write_config())
