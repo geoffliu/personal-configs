@@ -42,7 +42,7 @@ for k, v in cur_configs.items():
         patch[k] = v
 
 for k in min_configs:
-    if k not in cur_configs or cur_configs[k] == 'n':
+    if min_configs[k] != 'n' and (k not in cur_configs or cur_configs[k] == 'n'):
         patch[k] = 'n'
 
 with open(argv[3], 'w') as f:
