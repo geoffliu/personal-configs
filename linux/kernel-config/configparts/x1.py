@@ -22,5 +22,9 @@ CONFIGS = [
 
     ('IWLWIFI', 1),
     ('IWLMVM', 1),
+
+    ('GENTOO_LINUX_PORTAGE', 2),
+    ('GENTOO_LINUX_UDEV', 2),
+    ('GENTOO_LINUX_INIT_SYSTEMD', 2),
 ]
 
