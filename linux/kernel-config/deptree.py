@@ -10,8 +10,7 @@ def is_satisfied(dep, target):
             print('WARNING: unknown dep ' + cond.name)
             return True
 
-        # Haven't seen a ! operator that's not unknown yet
-        return False
+        return cond.str_value == 'n'
 
     if dep[0] == kconfiglib.EQUAL:
         op, c1, c2 = dep
