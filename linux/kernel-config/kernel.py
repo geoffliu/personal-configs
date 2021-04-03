@@ -17,8 +17,8 @@ def has_higher_setting(c1, c2, opt):
     return False
 
 
-conf_re = re.compile('CONFIG_([A-Z0-9_]*)=(.*)')
-unset_re = re.compile('# CONFIG_([A-Z0-9_]*) is not set')
+conf_re = re.compile('CONFIG_([A-Z0-9_x]*)="?(.*?)"?')
+unset_re = re.compile('# CONFIG_([A-Z0-9_x]*) is not set')
 def parse_config_file(filename):
     res = {}
     with open(filename) as f:
@@ -44,5 +44,10 @@ for k, v in cur_configs.items():
 for k in min_configs:
     if k not in cur_configs or cur_configs[k] == 'n':
         patch[k] = 'n'
+
+with open(argv[3], 'w') as f:
+    print('def apply_config(kconf):', file=f)
+    for k, v in patch.items():
+        print(f'  kconf.syms["{k}"].set_value("{v}")', file=f)
 
 print(len(patch))
