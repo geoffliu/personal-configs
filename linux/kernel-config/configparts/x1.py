@@ -15,6 +15,7 @@ CONFIGS = [
     ('ITCO_VENDOR_SUPPORT', 2),
 
     ('DRM_I915', 2),
+    ('INTEL_IDMA64', 1),
 
     ('BLK_DEV_NVME', 2),
     ('DM_CRYPT', 2),
