@@ -1,6 +1,7 @@
 
 
 CONFIGS = [
+    ('64BIT', 2),
     ('MODULES', 2),
     ('NET', 2),
 
@@ -29,10 +30,14 @@ CONFIGS = [
 
     ('MICROCODE_INTEL', 2),
 
-    ('THINKPAD_ACPI_VIDEO', 2),
     ('INTEL_IDLE', 2),
     ('X86_INTEL_PSTATE', 2),
     ('PM_AUTOSLEEP', 2),
     ('CPU_FREQ_GOV_PERFORMANCE', 2),
+
+    ('ACPI_AC', 1),
+    ('ACPI_BATTERY', 1),
+    ('ACPI_VIDEO', 1),
+    ('THINKPAD_ACPI_VIDEO', 1),
 ]
 
