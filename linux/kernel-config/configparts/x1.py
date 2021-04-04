@@ -4,9 +4,11 @@ CONFIGS = [
     ('64BIT', 2),
     ('MODULES', 2),
     ('NET', 2),
+    ('RD_ZSTD', 2),
 
     ('PROCESSOR_SELECT', 2),
     ('CPU_SUP_INTEL', 2),
+    ('SMP', 2),
 
     ('RTC_DRV_CMOS', 2),
     ('KEYBOARD_ATKBD', 2),
