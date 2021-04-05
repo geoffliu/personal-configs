@@ -50,4 +50,7 @@ with open(argv[3], 'w') as f:
     for k, v in patch.items():
         print(f'  kconf.syms["{k}"].set_value("{v}")', file=f)
 
+    if not patch:
+        print(f'  pass', file=f)
+
 print(len(patch))
