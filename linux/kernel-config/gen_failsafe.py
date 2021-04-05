@@ -38,11 +38,11 @@ cur_configs = parse_config_file(argv[2])
 
 patch = {}
 for k, v in cur_configs.items():
-    if k not in min_configs or min_configs[k] != v:
+    if min_configs.get(k, 'n') != v:
         patch[k] = v
 
 for k in min_configs:
-    if min_configs[k] != 'n' and (k not in cur_configs or cur_configs[k] == 'n'):
+    if min_configs[k] != 'n' and cur_configs.get(k, 'n') == 'n':
         patch[k] = 'n'
 
 with open(argv[3], 'w') as f:
