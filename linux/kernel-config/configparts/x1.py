@@ -30,6 +30,7 @@ CONFIGS = [
     ('INTEL_IDMA64', 1),
     ('IWLWIFI', 1),
     ('IWLMVM', 1),
+    ('USB_XHCI_HCD', 1),
     # Compiled into the kernel, otherwise video isn't ready when X attempts to
     # start
     ('DRM_I915', 2),
