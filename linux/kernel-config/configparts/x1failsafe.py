@@ -1,5 +1,6 @@
 def apply_config(kconf):
   kconf.syms["CC_VERSION_TEXT"].set_value("x86_64-pc-linux-gnu-gcc (Gentoo 10.2.0-r5 p6) 10.2.0")
+  kconf.syms["LD_VERSION"].set_value("235010000")
   kconf.syms["LOCALVERSION"].set_value("-x86_64")
   kconf.syms["KERNEL_GZIP"].set_value("y")
   kconf.syms["KERNEL_XZ"].set_value("n")
@@ -86,7 +87,6 @@ def apply_config(kconf):
   kconf.syms["FUTEX_PI"].set_value("y")
   kconf.syms["AIO"].set_value("y")
   kconf.syms["IO_URING"].set_value("y")
-  kconf.syms["ADVISE_SYSCALLS"].set_value("y")
   kconf.syms["MEMBARRIER"].set_value("y")
   kconf.syms["KALLSYMS"].set_value("y")
   kconf.syms["KALLSYMS_ALL"].set_value("y")
@@ -396,8 +396,6 @@ def apply_config(kconf):
   kconf.syms["MAC80211_RC_MINSTREL"].set_value("y")
   kconf.syms["MAC80211_RC_DEFAULT_MINSTREL"].set_value("y")
   kconf.syms["MAC80211_RC_DEFAULT"].set_value("minstrel_ht")
-  kconf.syms["RFKILL"].set_value("m")
-  kconf.syms["RFKILL_LEDS"].set_value("y")
   kconf.syms["RFKILL_GPIO"].set_value("m")
   kconf.syms["PSAMPLE"].set_value("m")
   kconf.syms["DST_CACHE"].set_value("y")

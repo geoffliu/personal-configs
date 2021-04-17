@@ -28,6 +28,7 @@ CONFIGS = [
     ('ITCO_WDT', 1),
     ('ITCO_VENDOR_SUPPORT', 2),
     ('INTEL_IDMA64', 1),
+    ('RFKILL', 1),
     ('IWLWIFI', 1),
     ('IWLMVM', 1),
     ('USB_XHCI_HCD', 1),
@@ -49,5 +50,8 @@ CONFIGS = [
     ('ACPI_BATTERY', 1),
     ('ACPI_VIDEO', 1),
     ('THINKPAD_ACPI_VIDEO', 1),
+
+    # Needed by Chrome
+    ('ADVISE_SYSCALLS', 2),
 ]
 
