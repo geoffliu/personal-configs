@@ -60,6 +60,7 @@ CONFIGS = [
     ('ACPI_BATTERY', 1),
     ('ACPI_VIDEO', 1),
     ('THINKPAD_ACPI_VIDEO', 1),
+    ('SUSPEND', 2),
 
     # Needed by Chrome
     ('ADVISE_SYSCALLS', 2),
