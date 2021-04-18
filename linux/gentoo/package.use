@@ -16,24 +16,3 @@ media-libs/libcanberra alsa
 # required by www-client/google-chrome-89.0.4389.82::gentoo
 # required by google-chrome (argument)
 >=app-text/ghostscript-gpl-9.53.3-r5 cups
-# required by gnome-base/gnome-keyring-3.36.0::gentoo
-# required by app-crypt/libsecret-0.20.3::gentoo
-# required by app-crypt/pinentry-1.1.0-r4::gentoo[gnome-keyring]
-# required by app-crypt/gnupg-2.2.25::gentoo
-# required by app-crypt/gpgme-1.14.0::gentoo
-# required by app-portage/portage-utils-0.90::gentoo
-# required by app-admin/perl-cleaner-2.27::gentoo
-# required by dev-lang/perl-5.30.3::gentoo
-# required by virtual/perl-File-Path-2.160.0-r1::gentoo
-# required by dev-perl/File-DesktopEntry-0.220.0::gentoo
-# required by dev-perl/File-MimeInfo-0.280.0::gentoo
-# required by x11-misc/xdg-utils-1.1.3_p20200220-r1::gentoo
-# required by net-print/cups-2.3.3-r2::gentoo[X]
-# required by app-text/ghostscript-gpl-9.53.3-r5::gentoo[cups]
-# required by net-print/cups-filters-1.28.7::gentoo[postscript]
->=app-crypt/gcr-3.36.0 gtk
-# required by gnome-base/gnome-keyring-3.36.0::gentoo
-# required by app-crypt/libsecret-0.20.3::gentoo
-# required by gnome-extra/nm-applet-1.18.0::gentoo
-# required by nm-applet (argument)
->=app-crypt/pinentry-1.1.0-r4 gnome-keyring
