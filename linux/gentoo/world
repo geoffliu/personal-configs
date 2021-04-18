@@ -10,6 +10,7 @@ dev-lang/rust-bin
 dev-python/kconfiglib
 dev-vcs/git
 media-fonts/fira-code
+media-fonts/fontawesome
 media-fonts/noto-emoji
 media-fonts/sil-charis
 media-fonts/wqy-microhei
