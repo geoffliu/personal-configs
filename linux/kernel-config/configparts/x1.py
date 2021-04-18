@@ -3,13 +3,23 @@
 CONFIGS = [
     ('64BIT', 2),
     ('MODULES', 2),
-    ('NET', 2),
+    ('KERNEL_ZSTD', 2),
     ('RD_ZSTD', 2),
+    ('MULTIUSER', 2),
+    # TODO: Use PREEMPT instead?
+    ('PREEMPT_VOLUNTARY', 2),
 
     ('PROCESSOR_SELECT', 2),
     ('CPU_SUP_INTEL', 2),
     ('SMP', 2),
     ('MICROCODE_INTEL', 2),
+
+    # Security features
+    ('RANDOMIZE_BASE', 2),
+    ('RANDOMIZE_MEMORY', 2),
+
+    ('TRANSPARENT_HUGEPAGE', 2),
+    ('TRANSPARENT_HUGEPAGE_ALWAYS', 2),
 
     # TODO: Do we need both here?
     ('FRAMEBUFFER_CONSOLE', 2),

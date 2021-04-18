@@ -28,6 +28,9 @@ def enable_config(kconf, name, target):
             set_value(dep, target)
             return
 
+        if isinstance(dep, kconfiglib.Choice):
+            return
+
         if dep[0] == kconfiglib.AND:
             op, c1, c2 = dep
             recurse(c1)
