@@ -12,7 +12,7 @@ fi
 Backoff=10
 
 TmpFile=$(mktemp --tmpdir package-check-XXXXX)
-ResultString="📦"
+ResultString=""
 
 checkupdates > "$TmpFile"
 if (( $? != 0 && $? != 2)); then
@@ -25,7 +25,7 @@ UpdateCount=$(<"$TmpFile" wc -l)
 if (($UpdateCount >= 10)); then
   ResultString="$ResultString $UpdateCount"
 else
-  ResultString="$ResultString✅"
+  ResultString="$ResultString "
 fi
 
 echo $ResultString > $PackageFile

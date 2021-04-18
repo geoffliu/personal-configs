@@ -20,11 +20,11 @@ order += "read_file mercury"
 order += "tztime local"
 
 disk "/" {
-  format = "💾 %percentage_used"
+  format = " %percentage_used"
 }
 
 disk "/home" {
-  format = "🏠 %percentage_used"
+  format = " %percentage_used"
 }
 
 battery 0 {
@@ -33,18 +33,18 @@ battery 0 {
   low_threshold = 20
   threshold_type = "percentage"
   integer_battery_capacity = true
-  status_chr = "🔌"
-  status_bat = "🔋"
-  status_full = "💯"
+  status_chr = ""
+  status_bat = ""
+  status_full = ""
 }
 
 wireless _first_ {
-  format_up = "📡%quality"
-  format_down = "📡🈚"
+  format_up = "%quality"
+  format_down = ""
 }
 
 load {
-  format = "🤖 %1min %5min %15min"
+  format = " %1min %5min %15min"
   max_threshold = 3
 }
 
@@ -53,8 +53,8 @@ tztime local {
 }
 
 volume master {
-  format = "🎵%volume"
-  format_muted = "🔇"
+  format = " %volume"
+  format_muted = ""
   device = "pulse"
 }
 
