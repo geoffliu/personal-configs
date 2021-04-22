@@ -28,7 +28,7 @@ fi
 cat << EOF
 fcitx
 feh --randomize --no-fehbg --bg-fill $PERSONAL_CONFIG_DIR/etc/wallpapers
-xautolock -locker "lock-screen" -time 10 -corners 0-00 &
+xautolock -locker "lock-screen" -time 3 -corners 0-00 &
 get-status-file packages
 get-status-file mercury
 exec i3

@@ -23,7 +23,7 @@ if (( $FileCount > 200 && $NowTime - $LatestFileTime < 24 * 60 * 60)); then
   exit 0
 fi
 
-RandomImageApi="https://api.unsplash.com/photos/random?client_id=$(cat $ClientIdFile)"
+RandomImageApi="https://api.unsplash.com/photos/random?orientation=landscape&client_id=$(cat $ClientIdFile)"
 RandomResponse=$(curl $RandomImageApi)
 ImageProps=( $(node - <<- EOF
   const resp = $RandomResponse;
