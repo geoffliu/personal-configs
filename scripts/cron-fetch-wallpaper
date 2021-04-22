@@ -1,0 +1,40 @@
+#!/bin/bash
+
+set -eu
+
+WallpaperDir=$PERSONAL_CONFIG_DIR/etc/wallpapers
+
+if [ ! -d $WallpaperDir ]; then
+  echo $WallpaperDir does not exist or is not a directory
+  exit 1
+fi
+
+ClientIdFile=$PERSONAL_CONFIG_DIR/extras/unsplash_client_id
+if [ ! -f $ClientIdFile ]; then
+  echo $ClientIdFile does not exist
+  exit 1
+fi
+
+FileCount=$(ls $WallpaperDir | wc -l)
+LatestFile=$(ls -t $WallpaperDir | head -n 1)
+LatestFileTime=$(stat -c %Y $WallpaperDir/$LatestFile)
+NowTime=$(date +%s)
+if (( $FileCount > 200 && $NowTime - $LatestFileTime < 24 * 60 * 60)); then
+  exit 0
+fi
+
+RandomImageApi="https://api.unsplash.com/photos/random?client_id=$(cat $ClientIdFile)"
+RandomResponse=$(curl $RandomImageApi)
+ImageProps=( $(node - <<- EOF
+  const resp = $RandomResponse;
+  const parsed = new URL(resp.urls.full)
+  parsed.searchParams.set('fm', 'jpg')
+
+  console.log(resp.id)
+  console.log(parsed.toString())
+  console.log(resp.links.download)
+EOF
+) )
+
+wget -O "$WallpaperDir/${ImageProps[0]}.jpg" --no-use-server-timestamps "${ImageProps[1]}"
+

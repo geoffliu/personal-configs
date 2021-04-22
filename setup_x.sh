@@ -59,4 +59,5 @@ mkdir -p ~/.config/systemd/user
 $CurrentPath/linux/make_cron.sh gentoo-package-check 1
 $CurrentPath/linux/make_cron.sh arch-package-check 1
 $CurrentPath/linux/make_cron.sh mercury-status 60
+$CurrentPath/linux/make_cron.sh fetch-wallpaper 5
 
