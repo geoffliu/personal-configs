@@ -16,10 +16,7 @@ if [ ! -f $ClientIdFile ]; then
 fi
 
 FileCount=$(ls $WallpaperDir | wc -l)
-LatestFile=$(ls -t $WallpaperDir | head -n 1)
-LatestFileTime=$(stat -c %Y $WallpaperDir/$LatestFile)
-NowTime=$(date +%s)
-if (( $FileCount > 200 && $NowTime - $LatestFileTime < 24 * 60 * 60)); then
+if (( $FileCount > 300 )); then
   exit 0
 fi
 
