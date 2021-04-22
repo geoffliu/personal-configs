@@ -2,7 +2,7 @@
 
 if [ -x "$(command -v multilockscreen)" ]; then
   multilockscreen -l
-  multilockscreen -u $PERSONAL_CONFIG_DIR/etc/wallpapers
+  multilockscreen -u $PERSONAL_CONFIG_DIR/etc/wallpapers --fx ''
 elif [ -x "$(command -v betterlockscreen)" ]; then
   betterlockscreen -l
   betterlockscreen -u $PERSONAL_CONFIG_DIR/etc/wallpapers
