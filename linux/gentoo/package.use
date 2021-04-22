@@ -1,4 +1,5 @@
 app-i18n/fcitx -autostart -enchant -table
+media-gfx/imagemagick jpeg
 media-sound/pulseaudio -asyncns -glib -ipv6 -ssl -tcpd -webrtc-aec -orc
 net-misc/networkmanager -ppp -modemmanager -wext
 
