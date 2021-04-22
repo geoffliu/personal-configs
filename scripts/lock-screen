@@ -1,12 +1,13 @@
 #!/bin/bash
 
+WallpaperFile=$(ls $PERSONAL_CONFIG_DIR/etc/wallpapers | shuf -n 1)
 if [ -x "$(command -v multilockscreen)" ]; then
   multilockscreen -l
-  WallpaperFile=$(ls $PERSONAL_CONFIG_DIR/etc/wallpapers | shuf -n 1)
   multilockscreen -u $PERSONAL_CONFIG_DIR/etc/wallpapers/$WallpaperFile --desc $WallpaperFile --fx ''
 elif [ -x "$(command -v betterlockscreen)" ]; then
   betterlockscreen -l
-  betterlockscreen -u $PERSONAL_CONFIG_DIR/etc/wallpapers
+  echo Next lock image: $WallpaperFile
+  betterlockscreen -u $PERSONAL_CONFIG_DIR/etc/wallpapers/$WallpaperFile
 else
   i3lock -c 333333
 fi
