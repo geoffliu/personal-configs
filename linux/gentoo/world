@@ -23,6 +23,7 @@ sci-astronomy/pyephem
 sys-apps/dmidecode
 sys-apps/i2c-tools
 sys-apps/linux-misc-apps
+sys-apps/lm-sensors
 sys-apps/lshw
 sys-apps/pciutils
 sys-apps/usbutils
