@@ -36,7 +36,7 @@ CONFIGS = [
     ('MOUSE_PS2', 2),
     ('ITCO_WDT', 1),
     # TODO: What does this do?
-    ('ITCO_VENDOR_SUPPORT', 2),
+    ('ITCO_VENDOR_SUPPORT', 1),
     ('INTEL_IDMA64', 1),
     ('RFKILL', 1),
     ('IWLWIFI', 1),
@@ -46,6 +46,13 @@ CONFIGS = [
     # start
     ('DRM_I915', 2),
 
+    # Sound
+    ('SND_HDA_INTEL', 1),
+    ('SND_HDA_CODEC_REALTEK', 1),
+    ('SND_SOC_SOF_COFFEELAKE', 1),
+    ('SND_SOC_SOF_HDA_AUDIO_CODEC', 1),
+    ('SND_SOC_INTEL_SKL_HDA_DSP_GENERIC_MACH', 1),
+
     # Gentoo flags
     ('GENTOO_LINUX_PORTAGE', 2),
     ('GENTOO_LINUX_UDEV', 2),
@@ -54,13 +61,13 @@ CONFIGS = [
     # Power saving and management
     ('INTEL_IDLE', 2),
     ('X86_INTEL_PSTATE', 2),
+    ('SUSPEND', 2),
     ('PM_AUTOSLEEP', 2),
     ('CPU_FREQ_GOV_PERFORMANCE', 2),
     ('ACPI_AC', 1),
     ('ACPI_BATTERY', 1),
     ('ACPI_VIDEO', 1),
     ('THINKPAD_ACPI_VIDEO', 1),
-    ('SUSPEND', 2),
 
     # Needed by Chrome
     ('ADVISE_SYSCALLS', 2),
