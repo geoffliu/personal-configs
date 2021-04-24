@@ -2,7 +2,6 @@ import kconfiglib
 import os
 
 from configparts import x1
-from configparts import x1failsafe
 import deptree
 
 script_dir = os.path.dirname(os.path.realpath(__file__))
@@ -56,7 +55,6 @@ kconf.load_config(os.path.join(script_dir, 'kernel-minimal'))
 for c, v in x1.CONFIGS:
     enable_config(kconf, c, v)
 
-# x1failsafe.apply_config(kconf)
 clear_defaults(kconf)
 
 print(kconf.write_config())
