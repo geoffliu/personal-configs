@@ -16,7 +16,7 @@ if [ ! -f $ClientIdFile ]; then
 fi
 
 FileCount=$(ls $WallpaperDir | wc -l)
-if (( $FileCount > 300 )); then
+if (( $FileCount >= 300 )); then
   exit 0
 fi
 
