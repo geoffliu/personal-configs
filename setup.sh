@@ -61,21 +61,24 @@ if [[ $IncludeVim -eq 1 ]]; then
   command -V fzf
   command -V vim
 
-  rm -rf ~/.vim
-  git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+  if [ ! -d ~/.vim ]; then
+    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+  fi
+
   echo "let g:is_vim=1" > ~/.vimrc
   cat $CurrentPath/shared/vim/plugins.vim >> ~/.vimrc
   cat $CurrentPath/shared/vim/vim_only.vim >> ~/.vimrc
   cat $CurrentPath/shared/vim/shared_post.vim >> ~/.vimrc
   cat $CurrentPath/shared/vim/workman.vim >> ~/.vimrc
   cat $CurrentPath/extras/vimrc >> ~/.vimrc
-  vim +PluginUpdate +qa
 
   if [[ $UseCtags -eq 1 ]]; then
     ensure_ctags
   else
     echo 'let g:gutentags_enabled=0' >> ~/.vimrc
   fi
+
+  vim +PluginUpdate +qa
 fi
 
 if [[ $IncludeNvim -eq 1 ]]; then
