@@ -1,27 +1,3 @@
 #!/bin/bash
 
-python - > $($HOME/bin/get-status-file mercury) << EOF
-
-import math
-import ephem
-import datetime
-
-mercury = ephem.Mercury()
-
-t = datetime.datetime.now()
-mercury.compute(t)
-current_ra = mercury.ra
-
-t += datetime.timedelta(hours=2)
-mercury.compute(t)
-new_ra = mercury.ra
-
-d = new_ra - current_ra
-if d > math.pi:
-  d -= 2 * math.pi
-elif d < -math.pi:
-  d += 2 * math.pi
-
-print('水星顺行' if d > 0 else '水星逆行')
-
-EOF
+python $PERSONAL_CONFIG_DIR/lib/mercury.py "$($HOME/bin/get-status-file mercury)"
