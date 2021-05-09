@@ -11,6 +11,7 @@ general {
 
 order += "read_file packages"
 order += "disk /"
+order += "disk /var"
 order += "disk /home"
 order += "battery 0"
 order += "wireless _first_"
@@ -20,6 +21,10 @@ order += "read_file mercury"
 order += "tztime local"
 
 disk "/" {
+  format = " %percentage_used"
+}
+
+disk "/var" {
   format = " %percentage_used"
 }
 
