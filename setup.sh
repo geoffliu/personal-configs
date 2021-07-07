@@ -43,6 +43,7 @@ touch $CurrentPath/extras/dmenu_commands
 cat > ~/.zshrc << EOF
 source $CurrentPath/shared/zshrc
 source $CurrentPath/extras/zshrc
+export PERSONAL_CONFIG_DIR=$CurrentPath
 EOF
 
 mkdir -p ~/.zsh_functions
