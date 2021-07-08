@@ -72,6 +72,9 @@ export PAGER=less
 export WWW_HOME="www.google.com"
 export BROWSER="google-chrome-stable"
 
+export LANG="en_US.UTF-8"
+export LC_ALL="en_US.UTF-8"
+
 vimquickfix() {
   errorfile=$(mktemp)
   $=1 > $errorfile
