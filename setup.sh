@@ -31,6 +31,7 @@ command -V git
 command -V zsh
 command -V less
 command -V lesskey
+command -V thefuck
 
 mkdir -p ~/bin
 cp $CurrentPath/scripts/* ~/bin
