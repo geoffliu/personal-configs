@@ -41,9 +41,16 @@ touch $CurrentPath/extras/vimrc
 touch $CurrentPath/extras/zshrc
 touch $CurrentPath/extras/dmenu_commands
 
+if [ -d ~/.zsh-syntax ]; then
+  git -C ~/.zsh-syntax pull
+else
+  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh-syntax
+fi
+
 cat > ~/.zshrc << EOF
 source $CurrentPath/shared/zshrc
 source $CurrentPath/extras/zshrc
+source ~/.zsh-syntax/zsh-syntax-highlighting.zsh
 export PERSONAL_CONFIG_DIR=$CurrentPath
 EOF
 
