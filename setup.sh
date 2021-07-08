@@ -103,7 +103,6 @@ if [[ $IncludeNvim -eq 1 ]]; then
 fi
 
 lesskey $CurrentPath/shared/lesskey_workman
-echo "source $CurrentPath/shared/zshrc_workman" >> ~/.zshrc
 
 cp -v $CurrentPath/shared/gitconfig ~/.gitconfig
 cp -v $CurrentPath/shared/gitignore ~/.gitignore
