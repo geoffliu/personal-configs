@@ -128,24 +128,20 @@ bd() {
   return -1
 }
 
-alias gm=" git checkout master"
-alias gc=" git checkout"
-alias gs=" git status -s"
-alias gd=" git diff"
-alias gfc=" git commit -a --fixup HEAD"
-alias gpp=" git pull && git push"
-alias b=" git branch"
-alias gpc=' git push origin $(git branch --show-current)'
-alias gmc=' git branch --set-upstream-to=origin/$(git branch --show-current) $(git branch --show-current)'
+alias gm="git checkout master"
+alias gc="git checkout"
+alias gs="git status -s"
+alias gd="git diff"
+alias gpp="git pull && git push"
+alias b="git branch"
+alias gpc='git push origin $(git branch --show-current)'
+alias gmc='git branch --set-upstream-to=origin/$(git branch --show-current) $(git branch --show-current)'
 
 alias -g MM='$(git merge-base master HEAD)'
 alias -g BB='$(find-branch-base)'
 alias -g HH='HEAD~1'
 alias -g CEV='commit -a --amend --no-edit'
 
-alias ll=" ls -lh"
-alias ls=" ls"
-alias cd=" cd"
-alias n=" nvim"
+alias ll="ls -lh"
 alias v="fg %vim || vim"
 alias icat="kitty +kitten icat"
