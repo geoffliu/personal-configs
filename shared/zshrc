@@ -72,8 +72,14 @@ export PAGER=less
 export WWW_HOME="www.google.com"
 export BROWSER="google-chrome-stable"
 
-export LANG="en_US.UTF-8"
-export LC_ALL="en_US.UTF-8"
+for l in zh_CN.UTF-8 en_US.UTF-8; do
+  locale -a | grep -qsi "$l"
+  if [ $? -eq 0 ]; then
+    export LANG="$l"
+    export LC_ALL="$l"
+    break
+  fi
+done
 
 eval $(thefuck --alias)
 
