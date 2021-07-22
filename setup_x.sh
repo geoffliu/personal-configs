@@ -31,6 +31,7 @@ command -V dmenu
 command -V i3
 command -V i3lock
 command -V i3status
+command -V kitty
 
 mkdir -p ~/bin
 cp $CurrentPath/scripts/* ~/bin
