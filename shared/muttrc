@@ -1,0 +1,11 @@
+set header_cache = "~/.mutt/cache/headers"
+set message_cachedir = "~/.mutt/cache/bodies"
+set sort = threads
+set sort_browser = reverse-date
+set sort_aux = reverse-last-date-received
+
+bind index n next-entry
+bind index e previous-entry
+bind index g first-entry
+bind index a group-reply
+
