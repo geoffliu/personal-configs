@@ -151,6 +151,7 @@ alias -g BB='$(find-branch-base)'
 alias -g HH='HEAD~1'
 alias -g CEV='commit -a --amend --no-edit'
 
+alias g="./gradlew"
 alias ll="ls -lh"
 alias v="fg %vim || vim"
 alias icat="kitty +kitten icat"
