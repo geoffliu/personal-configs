@@ -9,3 +9,5 @@ bind index e previous-entry
 bind index g first-entry
 bind index a group-reply
 
+auto_view text/html
+alternative_order text/plain text/enriched text/html
