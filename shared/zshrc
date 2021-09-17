@@ -29,6 +29,7 @@ setopt NO_BAD_PATTERN
 setopt EXTENDEDGLOB
 
 setopt IGNORE_EOF
+setopt MULTIBYTE
 
 DIRSTACKSIZE=10
 setopt AUTO_PUSHD
@@ -60,9 +61,14 @@ function zle-line-init zle-keymap-select {
 zle -N zle-line-init
 zle -N zle-keymap-select
 
+function get_super_prompt_line {
+  local Right="$(python3 $PERSONAL_CONFIG_DIR/lib/mercury.py) "
+  echo -n "%F{5}${(l:$COLUMNS:m)Right}%f"
+}
+
 zstyle ':vcs_info:*:prompt:*' formats "%u%b "
 zstyle ':vcs_info:*:prompt:*' actionformats "%b %a "
-PROMPT='%F{5}[%m $(git_status_char)${vcs_info_msg_0_}%1~]%# %f'
+PROMPT=$'\n$(get_super_prompt_line)\n%F{5}[%m $(git_status_char)${vcs_info_msg_0_}%1~]%# %f'
 RPROMPT='%0(?.%F{5}$(shared_rprompt) [ OK ]%f.%F{5}%S$(shared_rprompt) [ %? ]%s%f)'
 
 export EDITOR=vim
