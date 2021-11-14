@@ -1,3 +1,0 @@
-#!/bin/bash
-
-python $PERSONAL_CONFIG_DIR/lib/mercury.py "$($HOME/bin/get-status-file mercury)"

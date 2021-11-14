@@ -59,6 +59,5 @@ cp $CurrentPath/linux/fonts.conf ~/.config/fontconfig
 mkdir -p ~/.config/systemd/user
 $CurrentPath/linux/make_cron.sh gentoo-package-check 1
 $CurrentPath/linux/make_cron.sh arch-package-check 1
-$CurrentPath/linux/make_cron.sh mercury-status 5
 $CurrentPath/linux/make_cron.sh fetch-wallpaper 5
 

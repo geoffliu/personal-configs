@@ -67,8 +67,4 @@ read_file packages {
   path = "$(get-status-file packages)"
 }
 
-read_file mercury {
-  path = "$(get-status-file mercury)"
-}
-
 EOF
