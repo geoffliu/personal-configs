@@ -63,7 +63,6 @@ echo "export PERSONAL_CONFIG_DIR=$CurrentPath" >> ~/.profile
 function ensure_ctags {
   command -V ctags
   mkdir -p ~/.ctags.d
-  cp $CurrentPath/shared/kotlin.ctags ~/.ctags.d
 }
 
 if [[ $IncludeVim -eq 1 ]]; then
