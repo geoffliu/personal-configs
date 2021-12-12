@@ -1,7 +1,12 @@
 import math
-import ephem
 import datetime
-from sys import argv
+from sys import argv, exit
+
+try:
+    import ephem
+except:
+    print('Missing ephem library')
+    exit()
 
 INTERVAL = datetime.timedelta(days=5)
 EPSILON = datetime.timedelta(seconds=1)
