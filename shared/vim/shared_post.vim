@@ -36,6 +36,7 @@ nnoremap <leader>q :bd<cr>
 let g:fzf_layout = { 'down': '~40%' }
 let g:fuzzy_user_command = 'git exec git ls-files'
 
+set complete-=t
 let g:gutentags_file_list_command = {
       \   'markers': {
       \     '.git': 'git ls-files'
