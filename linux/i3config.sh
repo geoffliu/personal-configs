@@ -13,6 +13,7 @@ cat << EOF
 font pango:monospace 8
 
 floating_modifier $Mod
+focus_wrapping workspace
 
 bindsym $Mod+Return exec kitty
 bindsym $Mod+d exec run_command
