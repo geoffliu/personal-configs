@@ -14,7 +14,7 @@ while getopts "r" Opt; do
   esac
 done
 
-echo 'export LANG=zh_CN.UTF-8'
+echo 'export LANG=$LANG'
 
 if [[ $Retina -eq 1 ]]; then
   cat << EOF
