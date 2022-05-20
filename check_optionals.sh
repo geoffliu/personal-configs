@@ -26,6 +26,7 @@ Fonts=(
   'DejaVu Sans'
   'WenQuanYi Micro Hei Mono'
   'WenQuanYi Micro Hei'
+  'Font Awesome 6 Free'
 )
 
 echo CHECKING FOR FONTS:
