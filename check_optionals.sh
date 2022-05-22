@@ -1,10 +1,11 @@
 #!/bin/zsh
 
-command -V fcitx
+command -V fcitx5
 command -V pactl
 command -V sxiv
 command -V scrot
 command -V xclip
+command -V thefuck
 
 echo
 echo Checking Python ephem library

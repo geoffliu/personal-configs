@@ -88,7 +88,7 @@ for l in de_DE zh_CN en_US; do
   fi
 done
 
-eval $(thefuck --alias)
+command -V thefuck 2>&1 > /dev/null && eval $(thefuck --alias) || true
 
 vimquickfix() {
   errorfile=$(mktemp)
