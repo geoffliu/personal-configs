@@ -26,7 +26,7 @@ EOF
 fi
 
 cat << EOF
-fcitx
+fcitx5
 feh --randomize --no-fehbg --bg-fill $PERSONAL_CONFIG_DIR/etc/wallpapers
 xautolock -locker "lock-screen" -time 10 -corners 0-00 &
 get-status-file packages
