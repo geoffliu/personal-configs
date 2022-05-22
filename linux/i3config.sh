@@ -25,6 +25,7 @@ bindsym $Mod+q kill
 bindsym XF86AudioRaiseVolume exec media-control up
 bindsym XF86AudioLowerVolume exec media-control down
 bindsym XF86AudioMute exec media-control mute
+bindsym XF86AudioMicMute exec media-control mutemic
 
 bindsym $Mod+$Left focus left
 bindsym $Mod+$Down focus down
@@ -88,8 +89,4 @@ client.urgent #ff7066 #ff7066 #141414 #ff7066
 
 hide_edge_borders both
 workspace_layout tabbed
-
-exec nm-applet
-exec pasystray
-
 EOF

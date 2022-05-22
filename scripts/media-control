@@ -10,6 +10,9 @@ case $1 in
   mute)
     pactl set-sink-mute @DEFAULT_SINK@ toggle
     ;;
+  mutemic)
+    pactl set-source-mute @DEFAULT_SOURCE@ toggle
+    ;;
   *)
     echo "UNKNOWN COMMAND"
     exit 1
