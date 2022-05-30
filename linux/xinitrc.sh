@@ -19,6 +19,7 @@ echo "export LANG=$LANG"
 if [[ $Retina -eq 1 ]]; then
   cat << EOF
 
+export QT_USE_PHYSICAL_DPI=1
 export GDK_SCALE=2
 xrandr --dpi 192
 EOF
