@@ -14,7 +14,14 @@ while getopts "r" Opt; do
   esac
 done
 
-echo "export LANG=$LANG"
+for l in de_DE zh_CN en_US; do
+  locale -a | grep -qsi "$l"
+  if [ $? -eq 0 ]; then
+    echo export LANG=\"$l.UTF-8\"
+    echo export LC_ALL=\"$l.UTF-8\"
+    break
+  fi
+done
 
 if [[ $Retina -eq 1 ]]; then
   cat << EOF
