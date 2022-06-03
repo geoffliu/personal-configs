@@ -30,7 +30,6 @@ done
 command -V git
 command -V zsh
 command -V less
-command -V lesskey
 
 mkdir -p ~/bin
 cp $CurrentPath/scripts/* ~/bin
@@ -107,8 +106,7 @@ if [[ $IncludeNvim -eq 1 ]]; then
   fi
 fi
 
-lesskey $CurrentPath/shared/lesskey_workman
-
+cp -v $CurrentPath/shared/lesskey_workman ~/.lesskey
 cp -v $CurrentPath/shared/gitconfig ~/.gitconfig
 cp -v $CurrentPath/shared/gitignore ~/.gitignore
 cp -v $CurrentPath/shared/screenrc ~/.screenrc
