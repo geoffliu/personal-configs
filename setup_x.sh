@@ -3,12 +3,15 @@
 set -e
 CurrentPath="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
-Retina=0
+SCALING_FACTOR=1
 
-while getopts "r" Opt; do
+while getopts "rt" Opt; do
   case $Opt in
     r)
-      Retina=1
+      SCALING_FACTOR=2
+      ;;
+    t)
+      SCALING_FACTOR=1.5
       ;;
     *)
       echo "Bad arg"
@@ -16,6 +19,9 @@ while getopts "r" Opt; do
       ;;
   esac
 done
+
+export SCALING_DENSITY=$(printf %d $((96 * $SCALING_FACTOR)))
+export SCALING_FACTOR
 
 # pacman -S dmenu i3-wm i3lock i3status pamixer sxiv xautolock
 # xorg-xclip xorg-xrandr xorg-xdm network-manager-applet scrot feh
@@ -36,11 +42,7 @@ command -V kitty
 mkdir -p ~/bin
 cp $CurrentPath/scripts/* ~/bin
 
-if [[ $Retina -eq 1 ]]; then
-  $CurrentPath/linux/xinitrc.sh -r > ~/.xsession
-else
-  $CurrentPath/linux/xinitrc.sh > ~/.xsession
-fi
+$CurrentPath/linux/xinitrc.sh > ~/.xsession
 chmod +x ~/.xsession
 
 cp -v $CurrentPath/linux/Xdefaults ~/.Xdefaults
