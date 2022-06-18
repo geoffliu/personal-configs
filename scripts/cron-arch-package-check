@@ -5,7 +5,7 @@ PackageFileTime=$(stat -c %Y $PackageFile)
 PacmanTime=$(stat -c %Y /var/log/pacman.log)
 NowTime=$(date +%s)
 
-if (($PacmanTime < $PackageFileTime && $NowTime - $PackageFileTime < 3600)); then
+if (($PacmanTime < $PackageFileTime && $NowTime - $PackageFileTime < 21600)); then
   exit
 fi
 
