@@ -15,6 +15,7 @@ ResultString=""
 checkupdates > "$TmpFile"
 if (( $? != 0 && $? != 2)); then
   echo Error running check updates
+  cat "$TmpFile"
   exit
 fi
 
