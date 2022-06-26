@@ -1,5 +1,8 @@
 #!/bin/zsh
 
+command -V feh
+command -V xautolock
+command -V i3lock
 command -V fcitx5
 command -V pactl
 command -V sxiv

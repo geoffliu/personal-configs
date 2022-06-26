@@ -27,15 +27,12 @@ export SCALING_FACTOR
 # xorg-xclip xorg-xrandr xorg-xdm network-manager-applet scrot feh
 
 # xsession
-command -V feh
-command -V xautolock
 command -V xdm
 command -V xrandr
 
 # WM
 command -V dmenu
 command -V i3
-command -V i3lock
 command -V i3status
 command -V kitty
 
