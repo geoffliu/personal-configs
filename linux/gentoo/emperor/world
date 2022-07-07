@@ -1,6 +1,7 @@
 app-admin/sudo
 app-arch/rpm
 app-editors/vim
+app-eselect/eselect-python
 app-portage/gentoolkit
 app-shells/fzf
 app-shells/zsh
