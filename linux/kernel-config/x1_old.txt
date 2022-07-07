@@ -1,10 +1,6 @@
 CONFIGS = [
-    ('64BIT', 2),
-    ('SMP', 2),
-    ('MODULES', 2),
     ('KERNEL_ZSTD', 2),
     ('RD_ZSTD', 2),
-    ('MULTIUSER', 2),
     # TODO: Use PREEMPT instead?
     ('PREEMPT_VOLUNTARY', 2),
 
