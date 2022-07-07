@@ -31,6 +31,7 @@ Fonts=(
   'WenQuanYi Micro Hei Mono'
   'WenQuanYi Micro Hei'
   'Font Awesome 6 Free'
+  'Font Awesome 5 Free'
 )
 
 echo CHECKING FOR FONTS:
