@@ -35,8 +35,10 @@ ConfigFilesToSync=(
   /var/lib/portage/world
 )
 
+ConfigFileDir="$PERSONAL_CONFIG_DIR/linux/gentoo/$(hostname)"
+mkdir -p "$ConfigFileDir"
 for f in ${ConfigFilesToSync[@]}; do
-  LocalFile=$PERSONAL_CONFIG_DIR/linux/gentoo/$(basename $f)
+  LocalFile=$ConfigFileDir/$(basename $f)
   LocalFileTime=$(stat -c %Y $LocalFile || echo 0)
   LiveConfigTime=$(stat -c %Y $f)
   if (($LiveConfigTime > $LocalFileTime)); then
