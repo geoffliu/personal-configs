@@ -1,5 +1,7 @@
 app-admin/sudo
+app-arch/rpm
 app-editors/vim
+app-portage/gentoolkit
 app-shells/fzf
 app-shells/zsh
 dev-lang/rust-bin
@@ -12,6 +14,7 @@ media-fonts/wqy-microhei
 net-misc/networkmanager
 net-proxy/shadowsocks-libev
 sci-astronomy/pyephem
+sys-auth/fprintd
 sys-boot/grub
 sys-fs/cryptsetup
 sys-fs/lvm2

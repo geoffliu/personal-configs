@@ -1,12 +1,5 @@
-*/* PYTHON_TARGETS: -* python3_9
-
+*/* PYTHON_TARGETS: python3_9
+net-misc/networkmanager -modemmanager
 net-wireless/wpa_supplicant dbus
-# required by x11-misc/xdg-utils-1.1.3_p20200220-r5::gentoo
-# required by www-client/google-chrome-103.0.5060.53::gentoo
-# required by google-chrome (argument)
->=app-text/xmlto-0.0.28-r8 text
-# required by net-print/cups-filters-1.28.15::gentoo[postscript]
-# required by net-print/cups-2.3.3_p2-r3::gentoo
-# required by www-client/google-chrome-103.0.5060.53::gentoo
-# required by google-chrome (argument)
->=app-text/ghostscript-gpl-9.55.0-r1 cups
+app-text/xmlto text
+app-text/ghostscript-gpl cups
