@@ -1,3 +1,5 @@
+*/* PYTHON_TARGETS: -* python3_9
+
 net-wireless/wpa_supplicant dbus
 # required by x11-misc/xdg-utils-1.1.3_p20200220-r5::gentoo
 # required by www-client/google-chrome-103.0.5060.53::gentoo
