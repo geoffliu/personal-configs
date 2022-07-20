@@ -10,7 +10,7 @@ if (($PacmanTime < $PackageFileTime && $NowTime - $PackageFileTime < 21600)); th
 fi
 
 TmpFile=$(mktemp --tmpdir package-check-XXXXX)
-ResultString=""
+ResultString=""
 
 checkupdates > "$TmpFile"
 if (( $? != 0 && $? != 2)); then
@@ -22,9 +22,9 @@ fi
 UpdateCount=$(<"$TmpFile" wc -l)
 
 if (($UpdateCount >= 10)); then
-  ResultString="$ResultString $UpdateCount"
+  ResultString=" $UpdateCount"
 else
-  ResultString="$ResultString "
+  ResultString=""
 fi
 
 echo $ResultString > $PackageFile
