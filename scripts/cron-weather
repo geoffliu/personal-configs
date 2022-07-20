@@ -1,0 +1,4 @@
+#!/bin/bash
+
+WeatherFile=$($HOME/bin/get-status-file weather)
+curl "https://wttr.in/shanghai?m&format=%c+%t(%f)" | sed 's/\s\+/ /g' | sed 's/+//g' | sed 's/°C/°/g' > "$WeatherFile"

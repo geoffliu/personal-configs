@@ -18,6 +18,7 @@ order += "battery_level"
 order += "wireless _first_"
 order += "volume_status"
 order += "load"
+order += "read_file weather"
 order += "tztime local"
 
 disk "/" {
@@ -62,6 +63,10 @@ volume_status {
 
 read_file packages {
   path = "$(get-status-file packages)"
+}
+
+read_file weather {
+  path = "$(get-status-file weather)"
 }
 
 EOF
