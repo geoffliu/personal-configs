@@ -2,6 +2,7 @@
 
 cat << EOF
 general {
+  output_format = "i3bar"
   colors = true
   color_good = "#00b0ef"
   color_degraded = "#ff7066"
@@ -15,9 +16,8 @@ order += "disk /var"
 order += "disk /home"
 order += "battery 0"
 order += "wireless _first_"
-order += "volume master"
+order += "volume_status"
 order += "load"
-order += "read_file mercury"
 order += "tztime local"
 
 disk "/" {
@@ -57,10 +57,10 @@ tztime local {
   format = "%m-%d %A %H:%M"
 }
 
-volume master {
-  format = " %volume"
+volume_status {
+  format = " {percentage}%"
   format_muted = ""
-  device = "pulse"
+  thresholds = [(0, 'bad'), (20, 'good')]
 }
 
 read_file packages {

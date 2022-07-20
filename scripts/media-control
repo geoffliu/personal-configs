@@ -18,5 +18,5 @@ case $1 in
     exit 1
 esac
 
-killall -USR1 i3status
+killall -USR1 py3status || killall -USR1 i3status
 

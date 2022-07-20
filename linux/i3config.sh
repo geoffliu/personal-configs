@@ -8,6 +8,11 @@ Down=n
 Mod="Mod1"
 SMod="Mod4"
 
+StatusCmd="i3status"
+if command -V py3status > /dev/null; then
+  StatusCmd="py3status"
+fi
+
 cat << EOF
 
 font pango:monospace 8
@@ -70,7 +75,7 @@ bindsym $Mod+Shift+q exec "i3-nagbar -t warning -m 'Do you really want to exit i
 
 bar {
   i3bar_command i3bar -t
-  status_command i3status
+  status_command $StatusCmd
   colors {
     separator #7d7d7d
     background #141414
