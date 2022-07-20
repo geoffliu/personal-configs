@@ -15,6 +15,7 @@ order += "disk /"
 order += "disk /var"
 order += "disk /home"
 order += "battery 0"
+order += "battery_level"
 order += "wireless _first_"
 order += "volume_status"
 order += "load"
@@ -41,6 +42,14 @@ battery 0 {
   status_chr = ""
   status_bat = ""
   status_full = ""
+}
+
+battery_level {
+  blocks = ""
+  format = "{icon} {percent}%"
+  charging_character = ""
+  threshold_degraded = 20
+  hide_when_full = true
 }
 
 wireless _first_ {
