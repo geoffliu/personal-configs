@@ -14,7 +14,6 @@ order += "read_file packages"
 order += "disk /"
 order += "disk /var"
 order += "disk /home"
-order += "battery 0"
 order += "battery_level"
 order += "wireless _first_"
 order += "volume_status"
@@ -31,17 +30,6 @@ disk "/var" {
 
 disk "/home" {
   format = " %percentage_used"
-}
-
-battery 0 {
-  format = "%status %percentage"
-  path = "/sys/class/power_supply/BAT%d/uevent"
-  low_threshold = 20
-  threshold_type = "percentage"
-  integer_battery_capacity = true
-  status_chr = ""
-  status_bat = ""
-  status_full = ""
 }
 
 battery_level {
