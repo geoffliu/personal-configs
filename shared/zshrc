@@ -137,7 +137,7 @@ bd() {
   return -1
 }
 
-alias gm="git checkout master"
+alias gm="git checkout master 2>/dev/null || git checkout main"
 alias gc="git checkout"
 alias gs="git status -s"
 alias gd="git diff"
