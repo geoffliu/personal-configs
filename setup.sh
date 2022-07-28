@@ -38,6 +38,7 @@ mkdir -p $CurrentPath/extras
 touch $CurrentPath/extras/vimrc
 touch $CurrentPath/extras/zshrc
 touch $CurrentPath/extras/dmenu_commands
+touch $CurrentPath/extras/auto_commands
 
 if [ -d ~/.zsh-syntax ]; then
   git -C ~/.zsh-syntax pull
