@@ -1,0 +1,13 @@
+#!/bin/bash
+
+if git rev-parse --verify main > /dev/null 2>&1; then
+  echo main
+  exit
+fi
+
+if git rev-parse --verify master > /dev/null 2>&1; then
+  echo master
+  exit
+fi
+
+exit 1
