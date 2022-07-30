@@ -137,7 +137,7 @@ bd() {
   return -1
 }
 
-alias gm="git checkout master 2>/dev/null || git checkout main"
+alias gm='git checkout $(find-main-branch)'
 alias gc="git checkout"
 alias gs="git status -s"
 alias gd="git diff"
@@ -146,7 +146,8 @@ alias b="git branch"
 alias gpc='git push origin $(git branch --show-current)'
 alias gmc='git branch --set-upstream-to=origin/$(git branch --show-current) $(git branch --show-current)'
 
-alias -g MM='$(git merge-base master HEAD)'
+alias -g MC='$(find-main-branch)'
+alias -g MM='$(git merge-base $(find-main-branch) HEAD)'
 alias -g BB='$(find-branch-base)'
 alias -g HH='HEAD~1'
 alias -g CEV='commit -a --amend --no-edit'
