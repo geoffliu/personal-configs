@@ -52,7 +52,7 @@ load {
 }
 
 tztime local {
-  format = "%m-%d %a %H:%M"
+  format = "%m-%d %V.%a %H:%M"
 }
 
 volume_status {
