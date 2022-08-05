@@ -146,8 +146,8 @@ alias b="git branch"
 alias gpc='git push origin $(git branch --show-current)'
 alias gmc='git branch --set-upstream-to=origin/$(git branch --show-current) $(git branch --show-current)'
 
-alias -g MC='$(find-main-branch)'
-alias -g MM='$(git merge-base $(find-main-branch) HEAD)'
+alias -g MM='$(find-main-branch)'
+alias -g MMM='$(git merge-base $(find-main-branch) HEAD)'
 alias -g BB='$(find-branch-base)'
 alias -g HH='HEAD~1'
 alias -g CEV='commit -a --amend --no-edit'
