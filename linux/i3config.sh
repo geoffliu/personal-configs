@@ -22,6 +22,7 @@ focus_wrapping workspace
 
 bindsym $Mod+Return exec kitty
 bindsym $Mod+d exec run_command
+bindsym $Mod+j exec special-chars
 bindsym $Mod+Shift+l exec lock-screen
 bindsym --release Mod4+Control+Shift+4 exec grab-screen
 
