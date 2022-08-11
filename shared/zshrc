@@ -13,6 +13,13 @@ foreground-command() { fg }
 zle -N foreground-command
 bindkey '^Z' foreground-command
 
+function frequent_dirs {
+  cd "$(<$PERSONAL_CONFIG_DIR/extras/frequent_dirs fzf --height=40%)"
+  zle reset-prompt
+}
+zle -N frequent_dirs
+bindkey '\\r' frequent_dirs
+
 autoload -Uz compinit
 compinit
 
