@@ -13,10 +13,18 @@ TmpFile=$(mktemp --tmpdir package-check-XXXXX)
 ResultString=""
 
 checkupdates > "$TmpFile"
-yay -Qua >> "$TmpFile"
 if (( $? != 0 && $? != 2)); then
   echo Error running check updates
   cat "$TmpFile"
+  echo " 🔴" > $PackageFile
+  exit
+fi
+
+yay -Qua >> "$TmpFile"
+if (( $? != 0 )); then
+  echo Error running yay
+  cat "$TmpFile"
+  echo " 🔴" > $PackageFile
   exit
 fi
 
