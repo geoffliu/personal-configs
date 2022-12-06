@@ -9,7 +9,7 @@
   "filterLinkHints": false,
   "waitForEnterForFilteredHints": true,
   "hideHud": false,
-  "keyMappings": "unmapAll\nmap n scrollDown\nmap e scrollUp\nmap <c-y> previousTab\nmap <c-o> nextTab\nmap gg scrollToTop\nmap G scrollToBottom\nmap i enterInsertMode\nmap v enterVisualMode\nmap / enterFindMode\nmap k performFind\nmap K performBackwardsFind\nmap x goBack\nmap \\r Vomnibar.activateInNewTab\nmap t LinkHints.activateMode\nmap T LinkHints.activateModeToOpenInNewForegroundTab",
+  "keyMappings": "unmapAll\nmap n scrollDown\nmap e scrollUp\nmap <c-y> previousTab\nmap <c-o> nextTab\nmap gg scrollToTop\nmap G scrollToBottom\nmap i enterInsertMode\nmap v enterVisualMode\nmap / enterFindMode\nmap k performFind\nmap K performBackwardsFind\nmap x goBack\nmap \\r Vomnibar.activateInNewTab\nmap t LinkHints.activateMode\nmap T LinkHints.activateModeToOpenInNewForegroundTab\nmap l focusInput",
   "linkHintCharacters": "tnhesoaigy",
   "linkHintNumbers": "0123456789",
   "newTabUrl": "about:newtab",
