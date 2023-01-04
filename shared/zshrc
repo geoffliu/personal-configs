@@ -18,7 +18,7 @@ function add_to_frequent_dirs {
     local TmpFile="$(mktemp)"
     echo "$(realpath "$1")" > "$TmpFile"
     cat "$PERSONAL_CONFIG_DIR/extras/frequent_dirs" >> "$TmpFile"
-    head -n 100 "$TmpFile" > "$PERSONAL_CONFIG_DIR/extras/frequent_dirs"
+    head -n 1000 "$TmpFile" > "$PERSONAL_CONFIG_DIR/extras/frequent_dirs"
   fi
   cd "$@"
 }
