@@ -13,20 +13,23 @@ foreground-command() { fg }
 zle -N foreground-command
 bindkey '^Z' foreground-command
 
-function change_dir {
+function add_to_frequent_dirs {
   if [[ "$#" == "1" ]]; then
     local TmpFile="$(mktemp)"
-    cat "$PERSONAL_CONFIG_DIR/extras/frequent_dirs" > "$TmpFile"
-    echo "$(realpath "$1")" >> "$TmpFile"
+    echo "$(realpath "$1")" > "$TmpFile"
+    cat "$PERSONAL_CONFIG_DIR/extras/frequent_dirs" >> "$TmpFile"
     head -n 100 "$TmpFile" > "$PERSONAL_CONFIG_DIR/extras/frequent_dirs"
   fi
   cd "$@"
 }
 function frequent_dirs {
-  change_dir "$(<$PERSONAL_CONFIG_DIR/extras/frequent_dirs | sort | uniq -c | sort -nr | tr -s ' ' | cut -f3 -d' ' | fzf --height=40%)"
+  local Directory="$(<$PERSONAL_CONFIG_DIR/extras/frequent_dirs | sort | uniq -c | sort -nr | tr -s ' ' | cut -f3 -d' ' | fzf --height=40%)"
+  if [[ "a$Directory" != "a" ]]; then
+    add_to_frequent_dirs "$Directory"
+  fi
   zle reset-prompt
 }
-alias c="change_dir"
+alias frcd="add_to_frequent_dirs"
 zle -N frequent_dirs
 bindkey '\\r' frequent_dirs
 
