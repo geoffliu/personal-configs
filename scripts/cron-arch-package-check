@@ -21,7 +21,7 @@ if (( $? != 0 && $? != 2)); then
 fi
 
 yay -Qua >> "$TmpFile"
-if (( $? != 0 )); then
+if (( $? != 0 && $? != 1)); then
   echo Error running yay
   cat "$TmpFile"
   echo " 🔴" > $PackageFile
