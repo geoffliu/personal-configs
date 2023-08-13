@@ -22,6 +22,20 @@ def merge_items(base, new):
     return list(sorted(items.values(), key=lambda i: (i['due'], i['task'])))
 
 
+def list_tasks(past, future):
+    if past:
+        print('Past due tasks:')
+        for item in past:
+            print(f'{item["due"]} {item["task"]}')
+        print()
+
+    if future:
+        print('Future tasks:')
+        for item in future[:10]:
+            print(f'{item["due"]} {item["task"]}')
+        print()
+
+
 def tick_off(state):
     while True:
         for i, item in enumerate(state):
@@ -49,7 +63,9 @@ if __name__ == '__main__':
     curr_state = merge_items(new_state, curr_state)
 
     today = date.today().strftime('%Y-%m-%d')
-    past_due = [i for i in curr_state if i['due'] <= today and not i['done']]
+    outstanding = [i for i in curr_state if not i['done']]
+    past_due = [i for i in outstanding if i['due'] <= today]
+    future_due = [i for i in outstanding if i['due'] > today]
 
     match argv[3]:
         case 'due':
@@ -58,8 +74,11 @@ if __name__ == '__main__':
         case 'tick':
             tick_off(past_due)
 
+        case 'list':
+            list_tasks(past_due, future_due)
+
         case _:
-            print('Valid commands: due, tick')
+            print('Valid commands: due, tick, list')
             sys.exit(1)
 
 
