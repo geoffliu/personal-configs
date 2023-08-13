@@ -80,4 +80,4 @@ if __name__ == '__main__':
             list_tasks(past_due, future_due)
 
     with open(argv[2], 'w') as f:
-        json.dump(curr_state, f)
+        json.dump(curr_state, f, indent=4)
