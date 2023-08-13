@@ -58,16 +58,18 @@ if __name__ == '__main__':
 
     new_state = get_upcoming(argv[1])
     with open(argv[2]) as f:
-        curr_state = json.load(f)
+        old_state = json.load(f)
 
-    curr_state = merge_items(new_state, curr_state)
+    curr_state = merge_items(new_state, old_state)
 
     today = date.today().strftime('%Y-%m-%d')
     outstanding = [i for i in curr_state if not i['done']]
     past_due = [i for i in outstanding if i['due'] <= today]
     future_due = [i for i in outstanding if i['due'] > today]
 
-    match argv[3]:
+    cmd = argv[3] if len(argv) > 3 else 'list'
+
+    match cmd:
         case 'due':
             print(len(past_due))
 
