@@ -73,16 +73,11 @@ if __name__ == '__main__':
         case 'due':
             print(len(past_due))
 
-        case 'tick':
+        case 'done':
             tick_off(past_due)
 
-        case 'list':
-            list_tasks(past_due, future_due)
-
         case _:
-            print('Valid commands: due, tick, list')
-            sys.exit(1)
-
+            list_tasks(past_due, future_due)
 
     with open(argv[2], 'w') as f:
         json.dump(curr_state, f)
