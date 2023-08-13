@@ -1,8 +1,10 @@
 import json
 import subprocess
+import sys
+from datetime import date
 
-def get_upcoming(core_file):
-    remind = subprocess.run(['remind', '-ppp12', core_file], capture_output=True, text=True)
+def get_upcoming(rem_file):
+    remind = subprocess.run(['remind', '-ppp12', rem_file], capture_output=True, text=True)
     data = json.loads(remind.stdout)
     res = []
     for m in data:
@@ -15,8 +17,51 @@ def get_upcoming(core_file):
     return res
 
 
+def merge_items(base, new):
+    items = { (i['due'], i['task']): i for i in base + new }
+    return list(sorted(items.values(), key=lambda i: (i['due'], i['task'])))
+
+
+def tick_off(state):
+    while True:
+        for i, item in enumerate(state):
+            print(f'{i} {item["due"]} {item["task"]}')
+        print()
+
+        try:
+            selection = int(input('Selection? '))
+            state[selection]['done'] = True
+            return
+
+        except (ValueError, IndexError):
+            print()
+            print('Invalid selection')
+            print()
+
+
 if __name__ == '__main__':
     from sys import argv
 
-    print(get_upcoming(argv[1]))
+    new_state = get_upcoming(argv[1])
+    with open(argv[2]) as f:
+        curr_state = json.load(f)
 
+    curr_state = merge_items(new_state, curr_state)
+
+    today = date.today().strftime('%Y-%m-%d')
+    past_due = [i for i in curr_state if i['due'] <= today and not i['done']]
+
+    match argv[3]:
+        case 'due':
+            print(len(past_due))
+
+        case 'tick':
+            tick_off(past_due)
+
+        case _:
+            print('Valid commands: due, tick')
+            sys.exit(1)
+
+
+    with open(argv[2], 'w') as f:
+        json.dump(curr_state, f)
