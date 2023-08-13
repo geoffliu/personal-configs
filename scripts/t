@@ -1,3 +1,3 @@
 #!/bin/bash
 
-python3 "$PERSONAL_CONFIG_DIR/lib/tasks.py" "$PERSONAL_CONFIG_DIR/etc/core.rem" "$PERSONAL_CONFIG_DIR/etc/tasks.json" "$1"
+python3 "$PERSONAL_CONFIG_DIR/lib/tasks.py" "$RemFile" "$StateFile" "$1"

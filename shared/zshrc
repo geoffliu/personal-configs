@@ -77,7 +77,7 @@ zle -N zle-line-init
 zle -N zle-keymap-select
 
 function get_super_prompt_line {
-  local Right="$(python3 $PERSONAL_CONFIG_DIR/lib/mercury.py) "
+  local Right="$(rtprompt) "
   echo -n "%F{5}${(l:$COLUMNS:m)Right}%f"
 }
 

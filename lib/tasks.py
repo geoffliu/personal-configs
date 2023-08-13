@@ -1,6 +1,7 @@
 import json
 import subprocess
 import sys
+import copy
 from datetime import date
 
 def get_upcoming(rem_file):
@@ -58,9 +59,11 @@ if __name__ == '__main__':
 
     new_state = get_upcoming(argv[1])
     with open(argv[2]) as f:
-        old_state = json.load(f)
+        curr_state = json.load(f)
 
-    curr_state = merge_items(new_state, old_state)
+    saved_state = copy.deepcopy(curr_state)
+
+    curr_state = merge_items(new_state, curr_state)
 
     today = date.today().strftime('%Y-%m-%d')
     outstanding = [i for i in curr_state if not i['done']]
@@ -79,5 +82,6 @@ if __name__ == '__main__':
         case _:
             list_tasks(past_due, future_due)
 
-    with open(argv[2], 'w') as f:
-        json.dump(curr_state, f, indent=4)
+    if saved_state != curr_state:
+        with open(argv[2], 'w') as f:
+            json.dump(curr_state, f, indent=4)
