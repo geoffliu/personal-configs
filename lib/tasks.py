@@ -3,6 +3,7 @@ import subprocess
 import sys
 import copy
 from datetime import date
+import time
 
 def get_upcoming(rem_file):
     remind = subprocess.run(['remind', '-ppp12', rem_file], capture_output=True, text=True)
@@ -85,3 +86,5 @@ if __name__ == '__main__':
     if saved_state != curr_state:
         with open(argv[2], 'w') as f:
             json.dump(curr_state, f, indent=4)
+            time.sleep(1)
+
