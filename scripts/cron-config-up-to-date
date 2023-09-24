@@ -1,0 +1,10 @@
+#!/bin/bash
+
+StatusFile=$($HOME/bin/get-status-file personal-config)
+StatusFileTime=$(stat -c %Y $StatusFile)
+
+if [[ -n $(git -C $PERSONAL_CONFIG_DIR status -s) ]]; then
+  echo "" > "$StatusFile"
+else
+  echo "" > "$StatusFile"
+fi
