@@ -97,8 +97,6 @@ export PATH="$PATH:$HOME/bin:$HOME/.local/bin"
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 
-command -V thefuck 2>&1 > /dev/null && eval $(thefuck --alias) || true
-
 vimquickfix() {
   errorfile=$(mktemp)
   $=1 > $errorfile

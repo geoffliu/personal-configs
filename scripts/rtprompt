@@ -9,6 +9,11 @@ RemFileTime=$(stat -c %Y "$RemFile")
 StateFileTime=$(stat -c %Y "$StateFile")
 NowTime=$(date +%s)
 
+if ! command -V remind >/dev/null 2>&1; then
+  echo "No remind command"
+  exit
+fi
+
 if (($TasksCountTime < $RemFileTime || $TasksCountTime < $StateFileTime || $NowTime - $TasksCountTime > 3600)); then
   python3 "$PERSONAL_CONFIG_DIR/lib/tasks.py" "$RemFile" "$StateFile" due > "$TaskCountFile"
 fi
