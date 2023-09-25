@@ -1,3 +1,0 @@
-etc/core.rem filter=git-crypt diff=git-crypt
-etc/tasks.json filter=git-crypt diff=git-crypt
-
