@@ -1,6 +1,11 @@
 #!/bin/bash
 
-RemFile="$PERSONAL_CONFIG_DIR/etc/core.rem"
-StateFile="$PERSONAL_CONFIG_DIR/etc/tasks.json"
+RemFile="$PERSONAL_CONFIG_DIR/extras/vault/tasks.rem"
+StateFile="$PERSONAL_CONFIG_DIR/extras/vault/tasks.json"
+
+if ! [ -f "$StateFile" ]; then
+  echo "Vault not mounted"
+  exit
+fi
 
 python3 "$PERSONAL_CONFIG_DIR/lib/tasks.py" "$RemFile" "$StateFile" "$1"

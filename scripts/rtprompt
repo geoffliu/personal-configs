@@ -1,18 +1,24 @@
 #!/bin/bash
 
 TaskCountFile=$($HOME/bin/get-status-file tasks-count)
-RemFile="$PERSONAL_CONFIG_DIR/etc/core.rem"
-StateFile="$PERSONAL_CONFIG_DIR/etc/tasks.json"
-
-TasksCountTime=$(stat -c %Y "$TaskCountFile")
-RemFileTime=$(stat -c %Y "$RemFile")
-StateFileTime=$(stat -c %Y "$StateFile")
-NowTime=$(date +%s)
 
 if ! command -V remind >/dev/null 2>&1; then
   echo "No remind command"
   exit
 fi
+
+RemFile="$PERSONAL_CONFIG_DIR/extras/vault/tasks.rem"
+StateFile="$PERSONAL_CONFIG_DIR/extras/vault/tasks.json"
+
+if ! [ -f "$StateFile" ]; then
+  echo "Vault not mounted"
+  exit
+fi
+
+TasksCountTime=$(stat -c %Y "$TaskCountFile")
+RemFileTime=$(stat -c %Y "$RemFile")
+StateFileTime=$(stat -c %Y "$StateFile")
+NowTime=$(date +%s)
 
 if (($TasksCountTime < $RemFileTime || $TasksCountTime < $StateFileTime || $NowTime - $TasksCountTime > 3600)); then
   python3 "$PERSONAL_CONFIG_DIR/lib/tasks.py" "$RemFile" "$StateFile" due > "$TaskCountFile"
