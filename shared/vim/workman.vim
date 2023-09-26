@@ -29,3 +29,6 @@ noremap <c-j> :call ToggleNumber()<cr>
 inoremap <c-j> <c-o>:call ToggleNumber()<cr>
 
 nnoremap <leader>c q:<up>
+
+noremap <c-n> <c-i>
+noremap <c-e> <c-o>
