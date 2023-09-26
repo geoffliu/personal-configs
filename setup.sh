@@ -77,7 +77,7 @@ if [[ $IncludeVim -eq 1 ]]; then
   cat $CurrentPath/shared/vim/plugins.vim >> ~/.vimrc
   cat $CurrentPath/shared/vim/vim_only.vim >> ~/.vimrc
   cat $CurrentPath/shared/vim/shared_post.vim >> ~/.vimrc
-  cat $CurrentPath/shared/vim/workman.vim >> ~/.vimrc
+  cat $CurrentPath/shared/vim/mappings.vim >> ~/.vimrc
   cat $CurrentPath/extras/vimrc >> ~/.vimrc
 
   if [[ $UseCtags -eq 1 ]]; then
@@ -98,7 +98,7 @@ if [[ $IncludeNvim -eq 1 ]]; then
   echo "let g:is_vim=0" > ~/.config/nvim/init.vim
   cat $CurrentPath/shared/vim/plugins.vim >> ~/.config/nvim/init.vim
   cat $CurrentPath/shared/vim/shared_post.vim >> ~/.config/nvim/init.vim
-  cat $CurrentPath/shared/vim/workman.vim >> ~/.config/nvim/init.vim
+  cat $CurrentPath/shared/vim/mappings.vim >> ~/.config/nvim/init.vim
   nvim +PluginUpdate +qa
 
   if [[ $UseCtags -eq 1 ]]; then

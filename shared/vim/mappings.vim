@@ -1,3 +1,9 @@
+inoremap ., <esc>
+noremap <s-tab> :bp<cr>
+noremap <tab> :bn<cr>
+noremap <leader>s :noh<cr>
+inoremap <leader>s <c-o>:noh<cr>
+nnoremap <c-w> :bd<cr>
 
 noremap n j
 noremap e k
