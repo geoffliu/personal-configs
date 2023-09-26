@@ -1,9 +1,12 @@
 #!/bin/bash
 
+set -e
+
 StatusFile=$($HOME/bin/get-status-file personal-config)
 StatusFileTime=$(stat -c %Y $StatusFile)
 
 cd "$PERSONAL_CONFIG_DIR"
+echo "..." > "$StatusFile"
 
 if [[ -n "$(git status -s vault)" ]]; then
   git add vault
