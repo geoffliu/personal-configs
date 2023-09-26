@@ -5,9 +5,15 @@ set -e
 StatusFile=$($HOME/bin/get-status-file personal-config)
 StatusFileTime=$(stat -c %Y $StatusFile)
 
-cd "$PERSONAL_CONFIG_DIR"
 echo "..." > "$StatusFile"
 
+cd "$PERSONAL_CONFIG_DIR/extras/vault"
+if [[ -n "$(git status -s)" ]]; then
+  git add .
+  git commit -m "Sync vault $(date)"
+fi
+
+cd "$PERSONAL_CONFIG_DIR"
 if [[ -n "$(git status -s vault)" ]]; then
   git add vault
   git commit -m "Sync vault $(date)"
