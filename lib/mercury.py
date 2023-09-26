@@ -5,34 +5,36 @@ from sys import argv, exit
 try:
     import ephem
 except:
-    print('Missing ephem library')
+    print("Missing ephem library")
     exit()
 
 INTERVAL = datetime.timedelta(days=5)
 EPSILON = datetime.timedelta(seconds=1)
 mercury = ephem.Mercury()
 
+
 def print_results(status, d):
     hours = d.seconds // 3600
     minutes = d.seconds % 3600 // 60
-    remaining_formatted = '%d天%d小时%d分' % (d.days, hours, minutes)
+    remaining_formatted = "%d天%d小时%d分" % (d.days, hours, minutes)
 
-    status_formatted = '顺' if status else '逆'
-    content = '水星%s行 (%s)' % (status_formatted, remaining_formatted)
+    status_formatted = "顺" if status else "逆"
+    content = "水星%s行 (%s)" % (status_formatted, remaining_formatted)
 
     if len(argv) == 2:
-        with open(argv[1], 'w') as f:
+        with open(argv[1], "w") as f:
             print(content, file=f)
     else:
         print(content)
 
+
 def is_prograde(new_ra, current_ra):
-  d = new_ra - current_ra
-  if d > math.pi:
-    d -= 2 * math.pi
-  elif d < -math.pi:
-    d += 2 * math.pi
-  return d > 0
+    d = new_ra - current_ra
+    if d > math.pi:
+        d -= 2 * math.pi
+    elif d < -math.pi:
+        d += 2 * math.pi
+    return d > 0
 
 
 class Point(object):
@@ -69,6 +71,7 @@ def find_inflection(p1, p2):
         return find_inflection(p1, s2)
     return find_inflection(s1, p2)
 
+
 def find_next_inflection(t):
     p1 = Point(t - INTERVAL)
     p2 = Point(t + INTERVAL)
@@ -80,6 +83,7 @@ def find_next_inflection(t):
         p2 = Point(p2.t + INTERVAL)
     return inflection
 
+
 now = datetime.datetime.now()
 inflection = find_next_inflection(now)
 remaining = inflection - now
@@ -90,4 +94,3 @@ if remaining < 3 * EPSILON:
 
 prograde = is_prograde(Point(inflection).ra, Point(now).ra)
 print_results(prograde, remaining)
-

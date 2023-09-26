@@ -8,4 +8,4 @@ if ! [ -f "$StateFile" ]; then
   exit
 fi
 
-python3 "$PERSONAL_CONFIG_DIR/lib/tasks.py" "$RemFile" "$StateFile" "$1"
+python3 "$PERSONAL_CONFIG_DIR/lib/tasks.py" "$RemFile" "$StateFile" "$@"
