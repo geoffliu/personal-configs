@@ -1,0 +1,17 @@
+#!/bin/bash
+
+set -ex
+
+Gringotts="/dev/disk/by-uuid/de4a7d8e-088b-4bcd-bca7-9c4678b3014c"
+Talisman="/dev/disk/by-uuid/e412f545-deb4-48a6-9b43-88816ea2ce97"
+
+[ -d /mnt/gringotts ] && [ -e  "$Gringotts" ] && [ ! -e /dev/mapper/gringotts ]
+[ -d /mnt/talisman ] && [ -e "$Talisman" ] && [ ! -e /dev/mapper/talisman ]
+
+sudo cryptsetup open "$Gringotts" gringotts
+sudo mount /dev/mapper/gringotts /mnt/gringotts
+
+dropbox
+
+sudo umount /mnt/gringotts
+sudo cryptsetup close gringotts
