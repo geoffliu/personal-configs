@@ -10,7 +10,6 @@ general {
   interval = 5
 }
 
-order += "read_file configs"
 order += "read_file packages"
 order += "disk /"
 order += "disk /var"
@@ -64,10 +63,6 @@ volume_status {
 
 read_file packages {
   path = "$(get-status-file packages)"
-}
-
-read_file configs {
-  path = "$(get-status-file personal-config)"
 }
 
 read_file weather {
