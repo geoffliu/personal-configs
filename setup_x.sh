@@ -33,7 +33,7 @@ command -V xrandr
 # WM
 command -V dmenu
 command -V i3
-command -V i3status
+command -V py3status
 command -V kitty
 
 mkdir -p ~/bin
