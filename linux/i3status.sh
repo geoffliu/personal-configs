@@ -18,7 +18,7 @@ order += "disk /home"
 order += "battery_level"
 order += "wifi _first_"
 order += "volume_status"
-order += "load"
+order += "loadavg"
 order += "read_file weather"
 order += "tztime local"
 
@@ -47,9 +47,9 @@ wifi _first_ {
   signal_degraded = 45
 }
 
-load {
-  format = " %1min %5min %15min"
-  max_threshold = 3
+loadavg {
+  format = "[\?if=1min>2  [\?color=1avg {1min}] [\?color=5avg {5min}] [\?color=15avg {15min}]]"
+  thresholds = [(0, 'good'), (40, 'degraded'), (70, 'bad')]
 }
 
 tztime local {
