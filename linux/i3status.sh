@@ -15,7 +15,7 @@ order += "disk /"
 order += "disk /var"
 order += "disk /home"
 order += "battery_level"
-order += "wireless _first_"
+order += "wifi _first_"
 order += "volume_status"
 order += "load"
 order += "read_file weather"
@@ -41,9 +41,8 @@ battery_level {
   hide_when_full = true
 }
 
-wireless _first_ {
-  format_up = "%quality"
-  format_down = ""
+wifi _first_ {
+  format = " {signal_percent}%|"
   signal_degraded = 45
 }
 
