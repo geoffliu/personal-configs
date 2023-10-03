@@ -11,6 +11,7 @@ general {
 }
 
 order += "read_file packages"
+order += "arch_updates"
 order += "disk /"
 order += "disk /var"
 order += "disk /home"
@@ -67,6 +68,12 @@ read_file packages {
 
 read_file weather {
   path = "$(get-status-file weather)"
+}
+
+arch_updates {
+  cache_timeout = 3600
+  format = "{pacman} {aur} {total}"
+  hide_if_zero = True
 }
 
 EOF
