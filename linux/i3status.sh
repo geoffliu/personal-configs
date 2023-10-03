@@ -43,8 +43,7 @@ battery_level {
 }
 
 wifi _first_ {
-  format = " {signal_percent}%|"
-  signal_degraded = 45
+  format = " {ssid}|"
 }
 
 loadavg {
