@@ -44,6 +44,7 @@ battery_level {
 wireless _first_ {
   format_up = "%quality"
   format_down = ""
+  signal_degraded = 45
 }
 
 load {
