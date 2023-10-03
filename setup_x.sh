@@ -33,8 +33,9 @@ command -V xrandr
 # WM
 command -V dmenu
 command -V i3
-command -V py3status
+command -V i3status
 command -V kitty
+command -V py3status
 
 mkdir -p ~/bin
 cp $CurrentPath/scripts/* ~/bin

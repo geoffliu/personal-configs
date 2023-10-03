@@ -13,13 +13,6 @@ if [[ -n "$(git status -s)" ]]; then
   git commit -m "Sync vault $(date)"
 fi
 
-cd "$PERSONAL_CONFIG_DIR"
-if [[ -n "$(git status -s vault)" ]]; then
-  git add vault
-  git commit -m "Sync vault $(date)"
-  git push
-fi
-
 if [[ -n "$(git status -s)" ]]; then
   echo "" > "$StatusFile"
 else
