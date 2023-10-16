@@ -10,6 +10,7 @@ general {
   interval = 5
 }
 
+order += "arch_updates"
 order += "read_file packages"
 order += "disk /"
 order += "disk /var"
@@ -66,6 +67,11 @@ read_file packages {
 
 read_file weather {
   path = "$(get-status-file weather)"
+}
+
+arch_updates {
+  refresh_interval = 21600
+  format = "[\?if=total>9   {pacman} + {aur}]"
 }
 
 EOF
