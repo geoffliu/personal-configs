@@ -3,7 +3,6 @@
 set -e
 
 StatusFile=$($HOME/bin/get-status-file personal-config)
-StatusFileTime=$(stat -c %Y $StatusFile)
 
 echo "..." > "$StatusFile"
 
@@ -13,6 +12,7 @@ if [[ -n "$(git status -s)" ]]; then
   git commit -m "Sync vault $(date)"
 fi
 
+cd "$PERSONAL_CONFIG_DIR"
 if [[ -n "$(git status -s)" ]]; then
   echo "" > "$StatusFile"
 else
