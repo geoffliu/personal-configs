@@ -36,10 +36,9 @@ disk "/home" {
 
 battery_level {
   blocks = ""
-  format = "{icon} {percent}%"
+  format = "[\?if=percent<98 {icon} {percent}%]"
   charging_character = ""
   threshold_degraded = 20
-  hide_when_full = true
 }
 
 wifi _first_ {
