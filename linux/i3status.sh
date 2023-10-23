@@ -11,7 +11,6 @@ general {
 }
 
 order += "arch_updates"
-order += "read_file packages"
 order += "disk /"
 order += "disk /var"
 order += "disk /home"
@@ -58,10 +57,6 @@ volume_status {
   format = " {percentage}%"
   format_muted = ""
   thresholds = [(0, 'bad'), (20, 'good')]
-}
-
-read_file packages {
-  path = "$(get-status-file packages)"
 }
 
 read_file weather {
