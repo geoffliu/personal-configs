@@ -43,8 +43,13 @@ def list_tasks(past, future):
 
 
 def select_loop(state, update_func):
+    if not state:
+        print("Nothing to do")
+        print()
+        return
+
     while True:
-        for i, item in enumerate(state):
+        for i, item in enumerate(state[:10]):
             print(f'{i} {item["due"]} {item["task"]}')
         print()
 
@@ -86,7 +91,7 @@ if __name__ == "__main__":
             def tick_off(selection):
                 selection["done"] = True
 
-            select_loop(past_due, tick_off)
+            select_loop(past_due or outstanding, tick_off)
 
         case "snooze":
             delay = int(argv[5]) if len(argv) > 5 else 1
