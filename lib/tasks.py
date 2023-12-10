@@ -6,6 +6,11 @@ from datetime import date, timedelta
 import time
 
 
+def task_id(task):
+    due_date = task["due_orig"] if "due_orig" in task else task["due"]
+    return due_date, task["task"]
+
+
 def get_upcoming(rem_file):
     remind = subprocess.run(
         ["remind", "-ppp12", rem_file], capture_output=True, text=True
@@ -19,8 +24,8 @@ def get_upcoming(rem_file):
 
 
 def merge_items(base, new):
-    items = {(i["due"], i["task"]): i for i in base + new}
-    return list(sorted(items.values(), key=lambda i: (i["due"], i["task"])))
+    items = {task_id(i): i for i in base + new}
+    return list(sorted(items.values(), key=task_id))
 
 
 def list_tasks(past, future):
@@ -37,7 +42,7 @@ def list_tasks(past, future):
         print()
 
 
-def tick_off(state):
+def select_loop(state, update_func):
     while True:
         for i, item in enumerate(state):
             print(f'{i} {item["due"]} {item["task"]}')
@@ -45,7 +50,7 @@ def tick_off(state):
 
         try:
             selection = int(input("Selection? "))
-            state[selection]["done"] = True
+            update_func(state[selection])
             return
 
         except (ValueError, IndexError):
@@ -77,7 +82,22 @@ if __name__ == "__main__":
             print(len(past_due))
 
         case "done":
-            tick_off(past_due)
+
+            def tick_off(selection):
+                selection["done"] = True
+
+            select_loop(past_due, tick_off)
+
+        case "snooze":
+            delay = int(argv[5]) if len(argv) > 5 else 1
+
+            def snooze(selection):
+                selection["due_orig"] = selection["due"]
+                selection["due"] = (date.today() + timedelta(days=delay)).strftime(
+                    "%Y-%m-%d"
+                )
+
+            select_loop(past_due, snooze)
 
         case "new":
             delay = int(argv[5]) if len(argv) > 5 else 0
