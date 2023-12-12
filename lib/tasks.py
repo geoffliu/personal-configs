@@ -25,7 +25,7 @@ def get_upcoming(rem_file):
 
 def merge_items(base, new):
     items = {task_id(i): i for i in base + new}
-    return list(sorted(items.values(), key=task_id))
+    return list(sorted(items.values(), key=lambda x: (x["due"], x["task"])))
 
 
 def list_tasks(past, future):
@@ -94,7 +94,7 @@ if __name__ == "__main__":
             select_loop(past_due or outstanding, tick_off)
 
         case "snooze":
-            delay = int(argv[5]) if len(argv) > 5 else 1
+            delay = int(argv[4]) if len(argv) > 4 else 1
 
             def snooze(selection):
                 if "due_orig" not in selection:
@@ -116,6 +116,9 @@ if __name__ == "__main__":
 
         case _:
             list_tasks(past_due, future_due)
+
+    # Side effect of merge_items is sort. Too lazy to write a separate one
+    curr_state = merge_items(curr_state, [])
 
     if saved_state != curr_state:
         with open(argv[2], "w") as f:
