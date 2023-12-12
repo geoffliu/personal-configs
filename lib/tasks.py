@@ -97,7 +97,8 @@ if __name__ == "__main__":
             delay = int(argv[5]) if len(argv) > 5 else 1
 
             def snooze(selection):
-                selection["due_orig"] = selection["due"]
+                if "due_orig" not in selection:
+                    selection["due_orig"] = selection["due"]
                 selection["due"] = (date.today() + timedelta(days=delay)).strftime(
                     "%Y-%m-%d"
                 )
