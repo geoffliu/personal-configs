@@ -64,6 +64,11 @@ def select_loop(state, update_func):
             print()
 
 
+def purge(state):
+    cutoff = (date.today() - timedelta(days=90)).strftime("%Y-%m-%d")
+    return [t for t in state if not t["done"] or t["due"] > cutoff]
+
+
 if __name__ == "__main__":
     from sys import argv
 
@@ -73,7 +78,7 @@ if __name__ == "__main__":
 
     saved_state = copy.deepcopy(curr_state)
 
-    curr_state = merge_items(new_state, curr_state)
+    curr_state = purge(merge_items(new_state, curr_state))
 
     today = date.today().strftime("%Y-%m-%d")
     outstanding = [i for i in curr_state if not i["done"]]
