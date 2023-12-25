@@ -64,7 +64,7 @@ read_file weather {
 }
 
 arch_updates {
-  refresh_interval = 21600
+  cache_timeout = 21600
   format = "[\?if=total>9  {pacman}/{aur}]"
 }
 
