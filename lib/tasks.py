@@ -128,4 +128,4 @@ if __name__ == "__main__":
     if saved_state != curr_state:
         with open(argv[2], "w") as f:
             json.dump(curr_state, f, indent=4)
-            time.sleep(1)
+        time.sleep(0.5)
