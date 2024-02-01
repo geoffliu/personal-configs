@@ -21,9 +21,9 @@ fi
 
 cat << EOF
 fcitx5 &
-feh --randomize --no-fehbg --bg-fill $PERSONAL_CONFIG_DIR/extras/wallpapers
 adjust-screen
 xautolock -locker "lock-screen" -time 10 -corners 0-00 &
+xcape -e "Control_L=Escape"
 get-status-file packages
 sh "$PERSONAL_CONFIG_DIR/extras/auto_commands"
 exec i3
