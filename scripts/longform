@@ -1,0 +1,66 @@
+#!/bin/env python
+
+from sys import argv
+import os
+import curses
+from curses.textpad import Textbox, rectangle
+
+
+def clean_corpus_text(text):
+    text = text.lower()
+    for ch in '\n,.—':
+        text = text.replace(ch, ' ')
+    return ' '.join(text.split())
+
+
+def get_corpus():
+    corpus = []
+    for dir_name, _, filenames in os.walk(argv[1]):
+        for filename in filenames:
+            if filename.endswith('.txt'):
+                with open(os.path.join(dir_name, filename)) as f:
+                    corpus.append((filename, clean_corpus_text(f.read())))
+    return corpus
+
+
+def main(screen):
+    corpus = get_corpus()
+    selected_filename = None
+    selected_text = None
+    input_lines = []
+
+    def render():
+        screen.clear()
+        if not selected_text:
+            screen.addstr(1, 1, 'Start typing...')
+
+        for i, line in enumerate(input_lines):
+            screen.addstr(2 * i + 1, 1, line)
+
+        screen.refresh()
+
+    render()
+
+    height, width = screen.getmaxyx()
+    text_window = curses.newwin(1, width - 2, height - 2, 1)
+    box = Textbox(text_window)
+
+    def get_line():
+        while True:
+            next_ch = text_window.getch()
+            if next_ch == 10:
+                new_line = box.gather()
+                if len(new_line) > 20:
+                    input_lines.append(new_line)
+                    text_window.clear()
+                    return
+            else:
+                box.do_command(next_ch)
+
+    for i in range(3):
+        get_line()
+        render()
+
+
+if __name__ == '__main__':
+    curses.wrapper(main)
