@@ -67,7 +67,7 @@ function vim_status_word {
   echo ${${KEYMAP/vicmd/[ NORMAL ]}/(main|viins)/[ INSERT ]}
 }
 function shared_rprompt {
-  echo "$(vim_status_word) %D %T"
+  echo "$(vim_status_word) %D{%m-%d %V.%a %H:%M}"
 }
 
 function zle-line-init zle-keymap-select {
