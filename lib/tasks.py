@@ -13,7 +13,7 @@ def task_id(task):
 
 def get_upcoming(rem_file):
     remind = subprocess.run(
-        ["remind", "-ppp12", rem_file], capture_output=True, text=True
+        ["remind", "-ppp6", rem_file], capture_output=True, text=True
     )
     data = json.loads(remind.stdout)
     res = []
