@@ -1,0 +1,33 @@
+#!/bin/bash
+
+ContextFileListFile="$HOME/.codingAgentContextFileList"
+touch "$ContextFileListFile"
+
+UseFileList=false
+while getopts "f" opt; do
+    case $opt in
+        f)
+            UseFileList=true
+            ;;
+        \?)
+            echo "Invalid option: -$OPTARG" >&2
+            exit 1
+            ;;
+    esac
+done
+shift $((OPTIND-1))
+
+if [ $# -eq 0 ]; then
+    echo "No message given"
+    exit -1
+fi
+
+if $UseFileList; then
+    readarray -t ContextFileList < "$ContextFileListFile"
+else
+    readarray -t ContextFileList < <(git ls-files | fzf -m)
+fi
+
+aider -m "$*" "${ContextFileList[@]}"
+
+printf "%s\n" "${ContextFileList[@]}" > "$ContextFileListFile"
