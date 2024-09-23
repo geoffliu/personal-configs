@@ -25,7 +25,7 @@ fi
 if $UseFileList; then
     readarray -t ContextFileList < "$ContextFileListFile"
 else
-    readarray -t ContextFileList < <(git ls-files | fzf -m)
+    readarray -t ContextFileList < <(git ls-files | fzf -m --preview 'cat {+f}' --bind 'tab:toggle+clear-query')
 fi
 
 aider -m "$*" "${ContextFileList[@]}"
