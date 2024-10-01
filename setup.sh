@@ -37,6 +37,7 @@ cp $CurrentPath/scripts/* ~/bin
 mkdir -p $CurrentPath/extras
 touch $CurrentPath/extras/vimrc
 touch $CurrentPath/extras/zshrc
+chmod 0600 $CurrentPath/extras/zshrc
 touch $CurrentPath/extras/dmenu_commands
 touch $CurrentPath/extras/auto_commands
 touch $CurrentPath/extras/frequent_dirs
