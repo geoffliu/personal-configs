@@ -35,6 +35,7 @@ mkdir -p ~/bin
 cp $CurrentPath/scripts/* ~/bin
 
 mkdir -p $CurrentPath/extras
+touch $CurrentPath/extras/profile
 touch $CurrentPath/extras/vimrc
 touch $CurrentPath/extras/zshrc
 chmod 0600 $CurrentPath/extras/zshrc
@@ -58,7 +59,8 @@ EOF
 mkdir -p ~/.zsh_functions
 cp -v $CurrentPath/shared/zsh_functions/* ~/.zsh_functions
 
-cp -v $CurrentPath/shared/profile ~/.profile
+cp -v "$CurrentPath/shared/profile" ~/.profile
+cat "$CurrentPath/extras/profile" >> ~/.profile
 echo "export PERSONAL_CONFIG_DIR=$CurrentPath" >> ~/.profile
 
 function ensure_ctags {
