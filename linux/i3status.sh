@@ -12,8 +12,9 @@ general {
 
 order += "arch_updates"
 order += "disk /"
-order += "disk /var"
 order += "disk /home"
+order += "disk /var"
+order += "disk /opt"
 order += "battery_level"
 order += "wifi _first_"
 order += "volume_status"
@@ -27,6 +28,10 @@ disk "/" {
 
 disk "/var" {
   format = " %percentage_used"
+}
+
+disk "/opt" {
+  format = " %percentage_used"
 }
 
 disk "/home" {
