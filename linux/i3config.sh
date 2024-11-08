@@ -51,16 +51,16 @@ bindsym $SMod+space floating toggle
 bindsym $Mod+space focus mode_toggle
 
 # switch to workspace
-bindsym $Mod+1 workspace 1
-bindsym $Mod+2 workspace 2
-bindsym $Mod+3 workspace 3
-bindsym $Mod+4 workspace 4
+bindsym $Mod+1 workspace 1:
+bindsym $Mod+2 workspace 2:
+bindsym $Mod+3 workspace 3:
+bindsym $Mod+4 workspace 4:?
 
 # move focused container to workspace
-bindsym $SMod+1 move container to workspace 1
-bindsym $SMod+2 move container to workspace 2
-bindsym $SMod+3 move container to workspace 3
-bindsym $SMod+4 move container to workspace 4
+bindsym $SMod+1 move container to workspace number 1
+bindsym $SMod+2 move container to workspace number 2
+bindsym $SMod+3 move container to workspace number 3
+bindsym $SMod+4 move container to workspace number 4
 
 bindsym $SMod+backslash move workspace to output right
 
@@ -72,6 +72,7 @@ bindsym $Mod+Shift+q exec "i3-nagbar -t warning -m 'Do you really want to exit i
 bar {
   i3bar_command i3bar -t
   status_command py3status
+  strip_workspace_numbers yes
   colors {
     separator #7d7d7d
     background #141414
