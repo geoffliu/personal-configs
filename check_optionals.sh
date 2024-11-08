@@ -10,7 +10,7 @@ command -V pactl
 command -V sxiv
 command -V scrot
 command -V xclip
-command -V thefuck
+command -V xcape
 
 echo
 echo Checking Python ephem library
