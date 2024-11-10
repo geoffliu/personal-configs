@@ -54,13 +54,13 @@ bindsym $Mod+space focus mode_toggle
 bindsym $Mod+1 workspace 1:
 bindsym $Mod+2 workspace 2:
 bindsym $Mod+3 workspace 3:
-bindsym $Mod+4 workspace 4:?
+bindsym $Mod+4 workspace 4:
 
 # move focused container to workspace
 bindsym $SMod+1 move container to workspace 1:
 bindsym $SMod+2 move container to workspace 2:
 bindsym $SMod+3 move container to workspace 3:
-bindsym $SMod+4 move container to workspace 4:?
+bindsym $SMod+4 move container to workspace 4:
 
 bindsym $SMod+backslash move workspace to output right
 
