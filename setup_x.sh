@@ -58,8 +58,6 @@ cp $CurrentPath/linux/fonts.conf ~/.config/fontconfig
 # Setup cron scripts
 mkdir -p ~/.config/systemd/user
 $CurrentPath/linux/make_cron.sh config-up-to-date 60
-$CurrentPath/linux/make_cron.sh gentoo-package-check 1
-$CurrentPath/linux/make_cron.sh arch-package-check 1
 $CurrentPath/linux/make_cron.sh fetch-wallpaper 5
 $CurrentPath/linux/make_cron.sh weather 30
 
