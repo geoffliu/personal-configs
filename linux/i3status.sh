@@ -18,6 +18,7 @@ order += "disk /opt"
 order += "battery_level"
 order += "wifi _first_"
 order += "volume_status"
+order += "backlight"
 order += "loadavg"
 order += "read_file weather"
 order += "tztime local"
@@ -71,6 +72,12 @@ read_file weather {
 arch_updates {
   cache_timeout = 21600
   format = "[\?if=total>9  {pacman}/{aur}]"
+}
+
+backlight {
+  brightness_delta = 10
+  brightness_minimal = 10
+  format = " {level}%"
 }
 
 EOF
