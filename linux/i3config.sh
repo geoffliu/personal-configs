@@ -23,6 +23,8 @@ bindsym --release Mod4+Control+Shift+4 exec grab-screen
 
 bindsym $Mod+q kill
 
+bindsym XF86MonBrightnessUp exec xbacklight -inc 10
+bindsym XF86MonBrightnessDown exec xbacklight -dec 10
 bindsym XF86AudioRaiseVolume exec media-control up
 bindsym XF86AudioLowerVolume exec media-control down
 bindsym XF86AudioMute exec media-control mute
