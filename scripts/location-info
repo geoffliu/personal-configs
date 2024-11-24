@@ -1,0 +1,24 @@
+#!/bin/bash
+
+PrintForLocation() {
+  case "$1" in
+    lat)
+      echo "$2"
+      ;;
+    lng)
+      echo "$3"
+      ;;
+    *)
+      exit 1
+  esac
+}
+
+CurrLocation=$(cat "$PERSONAL_CONFIG_DIR/extras/location")
+
+case "$CurrLocation" in
+  Dali)
+    PrintForLocation "$1" 25.6891429 100.1618383
+    ;;
+  *)
+    exit 1
+esac

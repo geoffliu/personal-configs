@@ -23,8 +23,8 @@ cat << EOF
 fcitx5 &
 adjust-screen
 xautolock -locker "lock-screen" -time 10 -corners 0-00 &
-xcape -e "Control_L=Escape"
-get-status-file packages
-sh "$PERSONAL_CONFIG_DIR/extras/auto_commands"
+xcape -e "Control_L=Escape" &
+redshift -l \$(location-info lat):\$(location-info lng) &
+sh "$PERSONAL_CONFIG_DIR/extras/auto_commands" &
 exec i3
 EOF
