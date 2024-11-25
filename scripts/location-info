@@ -1,23 +1,37 @@
 #!/bin/bash
 
+Mode="$1"
+
 PrintForLocation() {
-  case "$1" in
+  case "$Mode" in
     lat)
-      echo "$2"
+      echo "$1"
       ;;
     lng)
-      echo "$3"
+      echo "$2"
       ;;
     *)
       exit 1
   esac
 }
 
-CurrLocation=$(cat "$PERSONAL_CONFIG_DIR/extras/location")
+CurrLocation="$(cat "$PERSONAL_CONFIG_DIR/extras/location")"
 
 case "$CurrLocation" in
   Dali)
-    PrintForLocation "$1" 25.6891429 100.1618383
+    PrintForLocation 25.6891429 100.1618383
+    ;;
+  Qingdao)
+    PrintForLocation 36.061938 120.3846191
+    ;;
+  Shanghai)
+    PrintForLocation 31.2325178 121.4734389
+    ;;
+  "San Francisco")
+    PrintForLocation 37.7903826 -122.4000907
+    ;;
+  Houston)
+    PrintForLocation 29.7532704 -95.3596302
     ;;
   *)
     exit 1

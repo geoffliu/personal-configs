@@ -1,4 +1,4 @@
 #!/bin/bash
 
 WeatherFile=$($HOME/bin/get-status-file weather)
-curl "https://wttr.in/$(cat $PERSONAL_CONFIG_DIR/extras/location)?m&format=%c+%t(%f)" | sed 's/\s\+/ /g' | sed 's/+//g' | sed 's/°C/°/g' > "$WeatherFile"
+curl "https://wttr.in/$(cat $PERSONAL_CONFIG_DIR/extras/location | sed 's/\s/+/g')?m&format=%c+%t(%f)" | sed 's/\s\+/ /g' | sed 's/+//g' | sed 's/°C/°/g' > "$WeatherFile"
