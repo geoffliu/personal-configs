@@ -1,10 +1,16 @@
 #!/bin/bash
 
 case $1 in
-  up)
+  brightnessup)
+    xbacklight -inc 10
+    ;;
+  brightnessdown)
+    xbacklight -dec 10
+    ;;
+  volup)
     pactl set-sink-volume @DEFAULT_SINK@ +5%
     ;;
-  down)
+  voldown)
     pactl set-sink-volume @DEFAULT_SINK@ -5%
     ;;
   mute)
