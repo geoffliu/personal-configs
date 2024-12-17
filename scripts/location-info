@@ -33,6 +33,9 @@ case "$CurrLocation" in
   Houston)
     PrintForLocation 29.7532704 -95.3596302
     ;;
+  Missoula)
+    PrintForLocation 46.8721 -113.9940
+    ;;
   *)
     exit 1
 esac
