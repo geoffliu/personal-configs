@@ -20,7 +20,6 @@ order += "wifi _first_"
 order += "volume_status"
 order += "backlight"
 order += "loadavg"
-order += "read_file weather"
 order += "tztime local"
 
 disk "/" {
@@ -63,10 +62,6 @@ volume_status {
   format = " {percentage}%"
   format_muted = ""
   thresholds = [(0, 'bad'), (20, 'good')]
-}
-
-read_file weather {
-  path = "$(get-status-file weather)"
 }
 
 arch_updates {
