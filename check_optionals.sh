@@ -9,6 +9,7 @@ command -V fcitx5
 command -V pactl
 command -V sxiv
 command -V scrot
+command -V flameshot
 command -V xclip
 
 echo

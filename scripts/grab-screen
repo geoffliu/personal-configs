@@ -1,5 +1,6 @@
 #!/bin/bash
 
-TmpFile="$(mktemp --suffix=.png)"
-scrot -s -f -o "$TmpFile"
+TmpFile="$(mktemp -u --suffix=.png)"
+# scrot -s -f -o "$TmpFile"
+flameshot gui --path "$TmpFile"
 xclip -selection clipboard -t image/png -i "$TmpFile"
