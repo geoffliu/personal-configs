@@ -23,19 +23,27 @@ order += "loadavg"
 order += "tztime local"
 
 disk "/" {
-  format = " %percentage_used"
+  format = ""
+  low_threshold = 30
+  format_below_threshold = " %percentage_used"
 }
 
 disk "/var" {
-  format = " %percentage_used"
+  format = ""
+  low_threshold = 30
+  format_below_threshold = " %percentage_used"
 }
 
 disk "/opt" {
-  format = " %percentage_used"
+  format = ""
+  low_threshold = 30
+  format_below_threshold = " %percentage_used"
 }
 
 disk "/home" {
-  format = " %percentage_used"
+  format = ""
+  low_threshold = 30
+  format_below_threshold = " %percentage_used"
 }
 
 battery_level {
