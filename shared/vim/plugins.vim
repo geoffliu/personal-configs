@@ -12,8 +12,10 @@ filetype off
 call vundle#begin(bundle_dir)
 " Base
 Plugin 'VundleVim/Vundle.vim'
+
 Plugin 'vim-scripts/LargeFile'
 Plugin 'airblade/vim-rooter'
+Plugin 'tpope/vim-surround'
 
 " Look and feel
 Plugin 'altercation/vim-colors-solarized'
