@@ -14,6 +14,17 @@ set laststatus=2
 let g:airline_theme='solarized'
 let g:airline_powerline_fonts=1
 
+" vim-surround bindings
+let g:surround_no_mappings=1
+nmap ds  <Plug>Dsurround
+nmap cs  <Plug>Csurround
+nmap cS  <Plug>CSurround
+nmap js  <Plug>Ysurround
+nmap jS  <Plug>YSurround
+nmap jss <Plug>Yssurround
+nmap jSs <Plug>YSsurround
+nmap jSS <Plug>YSsurround
+
 set relativenumber
 function! ToggleNumber()
   if &number
