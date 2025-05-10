@@ -1,6 +1,6 @@
 #!/bin/sh
 
-for l in de_DE zh_CN en_US; do
+for l in it_IT de_DE zh_CN en_US; do
   locale -a | grep -qsi "$l"
   if [ $? -eq 0 ]; then
     echo export LANG=\"$l.UTF-8\"
