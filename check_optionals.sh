@@ -2,15 +2,15 @@
 
 command -V feh
 command -V xautolock
-command -V xdotool
 command -V i3lock
-command -V py3status
 command -V fcitx5
 command -V pactl
 command -V sxiv
 command -V scrot
 command -V flameshot
 command -V xclip
+command -V deskflow
+command -V brightnessctl
 
 echo
 echo Checking Python ephem library
