@@ -1,3 +1,5 @@
+nnoremap <space> :
+
 noremap <s-tab> :bp<cr>
 noremap <tab> :bn<cr>
 noremap <leader>s :noh<cr>

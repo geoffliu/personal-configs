@@ -40,8 +40,6 @@ bindsym $SMod+$Down move down
 bindsym $SMod+$Up move up
 bindsym $SMod+$Right move right
 
-bindsym $Mod+f fullscreen
-
 bindsym $Mod+l layout toggle tabbed splith
 # bindsym $Mod+t layout tabbed
 # bindsym $Mod+e layout toggle split
@@ -53,16 +51,16 @@ bindsym $SMod+space floating toggle
 bindsym $Mod+space focus mode_toggle
 
 # switch to workspace
-bindsym $Mod+1 workspace 1:
-bindsym $Mod+2 workspace 2:
-bindsym $Mod+3 workspace 3:
-bindsym $Mod+4 workspace 4:
+bindsym $Mod+f workspace 1:
+bindsym $Mod+u workspace 2:
+bindsym $Mod+p workspace 3:
+bindsym $Mod+minus workspace 4:
 
 # move focused container to workspace
-bindsym $SMod+1 move container to workspace 1:
-bindsym $SMod+2 move container to workspace 2:
-bindsym $SMod+3 move container to workspace 3:
-bindsym $SMod+4 move container to workspace 4:
+bindsym $SMod+f move container to workspace 1:
+bindsym $SMod+u move container to workspace 2:
+bindsym $SMod+p move container to workspace 3:
+bindsym $SMod+minus move container to workspace 4:
 
 bindsym $SMod+backslash move workspace to output right
 
