@@ -1,4 +1,7 @@
 nnoremap <space> :
+vnoremap <space> :
+
+nnoremap g. g;
 
 noremap <s-tab> :bp<cr>
 noremap <tab> :bn<cr>
