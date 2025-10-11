@@ -19,7 +19,7 @@ bindsym $Mod+Return exec kitty
 bindsym $Mod+d exec run_command
 bindsym $Mod+j exec special-chars
 bindsym $Mod+Shift+l exec lock-screen
-bindsym --release Mod4+Control+Shift+4 exec grab-screen
+bindsym --release $Mod+s exec grab-screen
 
 bindsym $Mod+q kill
 
@@ -63,9 +63,6 @@ bindsym $SMod+p move container to workspace 3:
 bindsym $SMod+minus move container to workspace 4:
 
 bindsym $SMod+backslash move workspace to output right
-
-bindsym $SMod+grave move scratchpad
-bindsym $Mod+grave scratchpad show
 
 bindsym $Mod+Shift+q exec "i3-nagbar -t warning -m 'Do you really want to exit i3?' -B 'Yes' 'i3-msg exit'"
 
