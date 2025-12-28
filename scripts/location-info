@@ -3,16 +3,7 @@
 Mode="$1"
 
 PrintForLocation() {
-  case "$Mode" in
-    lat)
-      echo "$1"
-      ;;
-    lng)
-      echo "$2"
-      ;;
-    *)
-      exit 1
-  esac
+  echo "$1 $2"
 }
 
 CurrLocation="$(cat "$PERSONAL_CONFIG_DIR/extras/location")"
@@ -37,5 +28,6 @@ case "$CurrLocation" in
     PrintForLocation 46.8721 -113.9940
     ;;
   *)
+    echo "Unknown location: $CurrLocation"
     exit 1
 esac
