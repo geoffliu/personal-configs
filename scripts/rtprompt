@@ -1,32 +1,3 @@
 #!/bin/bash
 
-TaskCountFile=$($HOME/bin/get-status-file tasks-count)
-
-if ! command -V remind >/dev/null 2>&1; then
-  echo "No remind command"
-  exit
-fi
-
-RemFile="$PERSONAL_CONFIG_DIR/extras/vault/tasks.rem"
-StateFile="$PERSONAL_CONFIG_DIR/extras/vault/tasks.json"
-
-if ! [ -f "$StateFile" ]; then
-  echo "Vault not mounted"
-  exit
-fi
-
-TasksCountTime=$(stat -c %Y "$TaskCountFile")
-RemFileTime=$(stat -c %Y "$RemFile")
-StateFileTime=$(stat -c %Y "$StateFile")
-NowTime=$(date +%s)
-
-if (($TasksCountTime < $RemFileTime || $TasksCountTime < $StateFileTime || $NowTime - $TasksCountTime > 3600)); then
-  python3 "$PERSONAL_CONFIG_DIR/lib/tasks.py" "$RemFile" "$StateFile" due > "$TaskCountFile"
-fi
-
-TaskCount="$(cat "$TaskCountFile")"
-if (( ${TaskCount:-0} != 0 )); then
-  echo "T: $TaskCount"
-else
-  python3 "$PERSONAL_CONFIG_DIR/lib/mercury.py"
-fi
+python3 "$PERSONAL_CONFIG_DIR/lib/mercury.py"

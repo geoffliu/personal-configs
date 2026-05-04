@@ -11,6 +11,7 @@ general {
 }
 
 order += "arch_updates"
+order += "external_script tasks"
 order += "disk /"
 order += "disk /home"
 order += "disk /var"
@@ -81,6 +82,11 @@ backlight {
   brightness_delta = 10
   brightness_minimal = 10
   format = " {level}%"
+}
+
+external_script "tasks" {
+  cache_timeout = 600
+  script_path = "get-linear-tasks"
 }
 
 EOF

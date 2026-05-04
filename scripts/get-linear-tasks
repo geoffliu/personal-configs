@@ -1,0 +1,33 @@
+#!/bin/bash
+
+set -eu
+
+function countTasks {
+  curl -s -X POST \
+    -H "Content-Type: application/json" \
+    -H "Authorization: $LINEAR_API_KEY" \
+    --data "$(jq -n --arg query "{
+      issues(filter: {
+        state: {
+          type: { nin: [\"completed\"] }
+        }
+        dueDate: { lte: \"$1\" }
+      }) {
+        nodes {
+          id
+        }
+      }
+    }" '{"query": $query}')" \
+    https://api.linear.app/graphql | jq '.data.issues.nodes | length'
+}
+
+TODAY=$(date +%Y-%m-%d)
+THREE_DAYS=$(date -d "+3 days" +%Y-%m-%d)
+
+A=$(countTasks "$TODAY")
+B=$(countTasks "$THREE_DAYS")
+
+[ "$A" -ne 0 ] || [ "$B" -ne 0 ] && echo " $A/$B"
+[ "$A" -ne 0 ] && echo "urgent"
+
+exit 0
