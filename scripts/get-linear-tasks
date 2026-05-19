@@ -22,12 +22,8 @@ function countTasks {
 }
 
 TODAY=$(date +%Y-%m-%d)
-THREE_DAYS=$(date -d "+3 days" +%Y-%m-%d)
-
 A=$(countTasks "$TODAY")
-B=$(countTasks "$THREE_DAYS")
 
-[ "$A" -ne 0 ] || [ "$B" -ne 0 ] && echo " $A/$B"
-[ "$A" -ne 0 ] && echo "urgent"
+[ "$A" -ne 0 ] && echo " $A" && echo "urgent"
 
 exit 0
