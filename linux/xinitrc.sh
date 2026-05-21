@@ -1,13 +1,15 @@
 #!/bin/sh
 
-xinitdir="/etc/X11/xinit"
+Xinitdir="/etc/X11/xinit"
 
-if [ -d "$xinitdir"/xinitrc.d ] ; then
-	for f in "$xinitdir/xinitrc.d"/?*.sh ; do
-		[ -x "$f" ] && . "$f"
+cat << EOF
+if [ -d $Xinitdir/xinitrc.d ] ; then
+	for f in $Xinitdir/xinitrc.d/?*.sh ; do
+		[ -x "\$f" ] && . "\$f"
 	done
 	unset f
 fi
+EOF
 
 for l in it_IT de_DE zh_CN en_US; do
   locale -a | grep -qsi "$l"
