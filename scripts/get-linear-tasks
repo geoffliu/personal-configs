@@ -1,6 +1,11 @@
 #!/bin/bash
 
-set -eu
+set -e
+
+if [[ -z "$LINEAR_API_KEY" ]]; then
+    echo "No Linear API key"
+    exit 0
+fi
 
 function countTasks {
   curl -s -X POST \
