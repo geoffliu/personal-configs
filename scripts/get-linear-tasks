@@ -4,6 +4,7 @@ set -e
 
 if [[ -z "$LINEAR_API_KEY" ]]; then
     echo "No Linear API key"
+    echo "urgent"
     exit 0
 fi
 
