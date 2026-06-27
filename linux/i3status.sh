@@ -82,6 +82,7 @@ backlight {
   brightness_delta = 10
   brightness_minimal = 10
   format = " {level}%"
+  device = "intel_backlight"
 }
 
 external_script "tasks" {

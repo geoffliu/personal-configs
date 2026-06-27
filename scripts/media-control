@@ -2,10 +2,10 @@
 
 case $1 in
   brightnessup)
-    brightnessctl set +10%
+    brightnessctl -d intel_backlight set +10%
     ;;
   brightnessdown)
-    brightnessctl set 10%-
+    brightnessctl -d intel_backlight set 10%-
     ;;
   volup)
     pactl set-sink-volume @DEFAULT_SINK@ +5%
