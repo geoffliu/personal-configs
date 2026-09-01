@@ -156,6 +156,7 @@ alias gs="git status -s"
 alias gd="git diff"
 alias gpp="git pull && git push"
 alias b="git branch"
+alias gfm='git fetch origin $(find-main-branch):$(find-main-branch)'
 alias gpc='git push origin $(git branch --show-current)'
 alias gmc='git branch --set-upstream-to=origin/$(git branch --show-current) $(git branch --show-current)'
 
