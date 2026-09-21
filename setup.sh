@@ -30,6 +30,7 @@ done
 command -V git
 command -V zsh
 command -V less
+command -V eza
 
 mkdir -p ~/bin
 cp $CurrentPath/scripts/* ~/bin
@@ -116,16 +117,9 @@ cp -v $CurrentPath/shared/gitconfig ~/.gitconfig
 cp -v $CurrentPath/shared/gitignore ~/.gitignore
 cp -v $CurrentPath/shared/screenrc ~/.screenrc
 
-function linux_specific {
-  command -V dircolors
-  echo 'eval $(dircolors -b '$CurrentPath'/linux/ls_color_db)' >> ~/.zshrc
-  echo 'alias ls=" ls --color=auto"' >> ~/.zshrc
-}
-
 function mac_specific {
   echo 'alias ls=" ls -G"' >> ~/.zshrc
 }
 
-uname | grep -qsi linux && linux_specific
 uname | grep -qsi darwin && mac_specific
 

@@ -167,7 +167,8 @@ alias -g HH='HEAD~1'
 alias -g CEV='commit -a --amend --no-edit'
 
 alias g="./gradlew"
-alias ll="ls -lh"
+alias ls="eza"
+alias ll="eza -l"
 alias v="fg %vim || vim"
 alias icat="kitty +kitten icat"
 
