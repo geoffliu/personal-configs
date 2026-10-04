@@ -25,25 +25,25 @@ order += "tztime local"
 
 disk "/" {
   format = ""
-  low_threshold = 30
+  low_threshold = 25
   format_below_threshold = " %percentage_used"
 }
 
 disk "/var" {
   format = ""
-  low_threshold = 30
+  low_threshold = 25
   format_below_threshold = " %percentage_used"
 }
 
 disk "/opt" {
   format = ""
-  low_threshold = 30
+  low_threshold = 25
   format_below_threshold = " %percentage_used"
 }
 
 disk "/home" {
   format = ""
-  low_threshold = 30
+  low_threshold = 25
   format_below_threshold = " %percentage_used"
 }
 
