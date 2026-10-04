@@ -55,4 +55,6 @@ ln -svf $CurrentPath/linux/i3status.conf ~/.i3status.conf
 mkdir -p ~/.config/fontconfig
 cp $CurrentPath/linux/fonts.conf ~/.config/fontconfig
 
+cp $CurrentPath/linux/XCompose ~/.XCompose
+
 
