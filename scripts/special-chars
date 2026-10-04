@@ -1,3 +1,0 @@
-#!/bin/bash
-
-<"$PERSONAL_CONFIG_DIR/etc/special_chars.txt" dmenu -l 7 | cut -d ' ' -f 1 | xargs xdotool type
