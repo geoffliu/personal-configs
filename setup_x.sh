@@ -49,7 +49,7 @@ mkdir -p ~/.config/kitty
 cp -v $CurrentPath/linux/kitty.conf ~/.config/kitty
 
 mkdir -p ~/.i3
-$CurrentPath/linux/i3config.sh > ~/.i3/config
+ln -svf $CurrentPath/linux/i3config.conf ~/.i3/config
 ln -svf $CurrentPath/linux/i3status.conf ~/.i3status.conf
 
 mkdir -p ~/.config/fontconfig
